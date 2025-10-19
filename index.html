@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Бурение скважин, монтаж канализации под ключ, продажа колодезных колец и ЖБИ изделий. Земляные работы. Работаем по договору с гарантией 5 лет.">
+    <meta name="keywords" content="бурение скважин, монтаж канализации, колодезные кольца, ЖБИ изделия, земляные работы, экскаватор, септик">
+    <title>БурСтрой - Бурение скважин, монтаж канализации, продажа колодезных колец | Работаем под ключ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 150px;
+        }
+
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #1e3d6b;
+            --accent-color: #ff8c42;
+            --text-dark: #1a1a1a;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e2e8f0;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-info {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .header-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-main {
+            padding: 15px 0;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .phone {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #e67a32;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--bg-light);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .nav-list li a {
+            display: block;
+            padding: 15px 25px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-list li a:hover,
+        .nav-list li a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-list li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--accent-color);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-list li a:hover::after,
+        .nav-list li a.active::after {
+            width: 80%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(28, 61, 107, 0.95), rgba(44, 90, 160, 0.9)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23475569" width="1200" height="600"/><circle fill="%232c5aa0" opacity="0.3" cx="200" cy="100" r="150"/><circle fill="%231e3d6b" opacity="0.3" cx="900" cy="400" r="200"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: var(--white);
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .bg-light {
+            background: var(--bg-light);
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .service-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><circle fill="white" opacity="0.05" cx="100" cy="100" r="80"/><circle fill="white" opacity="0.05" cx="300" cy="300" r="100"/></svg>');
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .service-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .service-price {
+            font-size: 28px;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .service-price span {
+            font-size: 16px;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        /* Catalog */
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .catalog-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .catalog-item:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+
+        .catalog-image {
+            width: 120px;
+            height: 120px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 50px;
+            color: var(--primary-color);
+        }
+
+        .catalog-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .catalog-specs {
+            list-style: none;
+            margin: 15px 0;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .catalog-specs li {
+            padding: 5px 0;
+        }
+
+        .catalog-price {
+            font-size: 26px;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin: 15px 0;
+        }
+
+        /* Calculator */
+        .calculator {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .calculator h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--text-dark);
+        }
+
+        .calc-form {
+            display: grid;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 14px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
+        }
+
+        .calc-result {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .calc-result.show {
+            display: block;
+        }
+
+        .calc-result-price {
+            font-size: 42px;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .calc-result-note {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--white);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Advantages */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 35px;
+            margin-top: 40px;
+        }
+
+        .advantage-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .advantage-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+            color: var(--white);
+        }
+
+        .advantage-item h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .advantage-item p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .about-image {
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Testimonials */
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .testimonial-rating {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: var(--accent-color);
+        }
+
+        /* Contact */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .contact-details p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-form h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+
+        .map-container {
+            margin-top: 50px;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 28px;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .floating-btn.whatsapp {
+            background: #25D366;
+        }
+
+        .floating-btn.telegram {
+            background: #0088cc;
+        }
+
+        .floating-btn.phone {
+            background: var(--accent-color);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 32px;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--text-dark);
+        }
+
+        .modal h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-list {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .nav-list.show {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .catalog-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-contact {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .phone {
+                font-size: 18px;
+            }
+
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 22px;
+            }
+
+            .calculator,
+            .contact-form {
+                padding: 25px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-4 {
+            margin-top: 40px;
+        }
+
+        .mb-4 {
+            margin-bottom: 40px;
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 110px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+        .scroll-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-info">
+                    <span>📧 info@burstroy.by</span>
+                    <span>⏰ Работаем: Пн-Вс 8:00-20:00</span>
+                </div>
+                <div>
+                    <span>🚀 Выезд специалиста - БЕСПЛАТНО!</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <a href="#home" class="logo">
+                    <div class="logo-icon">БС</div>
+                    БурСтрой
+                </a>
+                <div class="header-contact">
+                    <a href="tel:+375291234567" class="phone">+375 (29) 123-45-67</a>
+                    <button class="btn btn-primary" onclick="openModal()">Заказать звонок</button>
+                </div>
+            </div>
+        </div>
+        <nav class="nav">
+            <div class="container">
+                <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+                <ul class="nav-list" id="navList">
+                    <li><a href="#home" class="active">Главная</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#catalog">Каталог колец</a></li>
+                    <li><a href="#calculator">Калькулятор</a></li>
+                    <li><a href="#gallery">Наши работы</a></li>
+                    <li><a href="#about">О компании</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Бурение скважин, монтаж канализации и земляные работы под ключ</h1>
+                <p class="hero-subtitle">Профессиональные услуги по бурению скважин на воду, монтажу канализационных систем, продаже колодезных колец и ЖБИ изделий. Свой парк техники. Гарантия 5 лет.</p>
+                <div class="hero-buttons">
+                    <a href="#calculator" class="btn btn-primary">Рассчитать стоимость</a>
+                    <a href="#services" class="btn btn-outline">Наши услуги</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+        <div class="container">
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🚜</div>
+                    <h3>Свой парк техники</h3>
+                    <p>Экскаваторы, буровые установки, погрузчики</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Работаем по договору</h3>
+                    <p>Официальное оформление всех работ</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Гарантия 5 лет</h3>
+                    <p>На все виды выполненных работ</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Выезд бесплатно</h3>
+                    <p>Бесплатная консультация на объекте</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section bg-light" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Наши услуги</h2>
+                <p class="section-subtitle">Полный комплекс работ по бурению, монтажу канализации и земляным работам с использованием современной техники</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">💧</div>
+                    <div class="service-content">
+                        <h3>Бурение скважин на воду</h3>
+                        <p>Профессиональное бурение скважин любой глубины для частных домов и коммерческих объектов. Используем современное буровое оборудование.</p>
+                        <ul class="service-features">
+                            <li>Бурение до 150 метров</li>
+                            <li>Работа на любых грунтах</li>
+                            <li>Анализ качества воды</li>
+                            <li>Обустройство скважины под ключ</li>
+                            <li>Паспорт на скважину</li>
+                        </ul>
+                        <div class="service-price">
+                            от 45 руб <span>/ метр</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openModal('service', 'Бурение скважин')">Заказать бурение</button>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">🚰</div>
+                    <div class="service-content">
+                        <h3>Монтаж канализации</h3>
+                        <p>Проектирование и монтаж автономных систем канализации, септиков, ливневой канализации для частных домов и участков.</p>
+                        <ul class="service-features">
+                            <li>Септики из бетонных колец</li>
+                            <li>Автономные системы очистки</li>
+                            <li>Ливневая канализация</li>
+                            <li>Дренажные системы</li>
+                            <li>Прокладка труб</li>
+                        </ul>
+                        <div class="service-price">
+                            от 1200 руб <span>/ объект</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openModal('service', 'Монтаж канализации')">Оставить заявку</button>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image">🚜</div>
+                    <div class="service-content">
+                        <h3>Земляные работы / Спецтехника</h3>
+                        <p>Предоставляем в аренду экскаваторы, погрузчики и другую спецтехнику. Выполняем земляные работы любой сложности.</p>
+                        <ul class="service-features">
+                            <li>Экскаватор-погрузчик</li>
+                            <li>Мини-экскаватор</li>
+                            <li>Рытье котлованов</li>
+                            <li>Планировка участка</li>
+                            <li>Вывоз грунта</li>
+                        </ul>
+                        <div class="service-price">
+                            от 80 руб <span>/ час</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openModal('service', 'Аренда спецтехники')">Заказать технику</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section class="section" id="catalog">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Колодезные кольца и ЖБИ изделия</h2>
+                <p class="section-subtitle">Производим и продаем качественные железобетонные изделия собственного производства с доставкой и установкой</p>
+            </div>
+            <div class="catalog-grid">
+                <div class="catalog-item">
+                    <div class="catalog-image">⭕</div>
+                    <h3>Кольцо КС-10-9</h3>
+                    <ul class="catalog-specs">
+                        <li>Диаметр: 1000 мм</li>
+                        <li>Высота: 900 мм</li>
+                        <li>Вес: 600 кг</li>
+                    </ul>
+                    <div class="catalog-price">85 руб</div>
+                    <button class="btn btn-secondary" onclick="openModal('order', 'Кольцо КС-10-9')">Заказать</button>
+                </div>
+
+                <div class="catalog-item">
+                    <div class="catalog-image">⭕</div>
+                    <h3>Кольцо КС-15-9</h3>
+                    <ul class="catalog-specs">
+                        <li>Диаметр: 1500 мм</li>
+                        <li>Высота: 900 мм</li>
+                        <li>Вес: 900 кг</li>
+                    </ul>
+                    <div class="catalog-price">125 руб</div>
+                    <button class="btn btn-secondary" onclick="openModal('order', 'Кольцо КС-15-9')">Заказать</button>
+                </div>
+
+                <div class="catalog-item">
+                    <div class="catalog-image">⭕</div>
+                    <h3>Кольцо КС-20-9</h3>
+                    <ul class="catalog-specs">
+                        <li>Диаметр: 2000 мм</li>
+                        <li>Высота: 900 мм</li>
+                        <li>Вес: 1400 кг</li>
+                    </ul>
+                    <div class="catalog-price">180 руб</div>
+                    <button class="btn btn-secondary" onclick="openModal('order', 'Кольцо КС-20-9')">Заказать</button>
+                </div>
+
+                <div class="catalog-item">
+                    <div class="catalog-image">🔘</div>
+                    <h3>Днище ПН-10</h3>
+                    <ul class="catalog-specs">
+                        <li>Диаметр: 1000 мм</li>
+                        <li>Толщина: 100 мм</li>
+                        <li>Вес: 180 кг</li>
+                    </ul>
+                    <div class="catalog-price">55 руб</div>
+                    <button class="btn btn-secondary" onclick="openModal('order', 'Днище ПН-10')">Заказать</button>
+                </div>
+
+                <div class="catalog-item">
+                    <div class="catalog-image">🔘</div>
+                    <h3>Днище ПН-15</h3>
+                    <ul class="catalog-specs">
+                        <li>Диаметр: 1500 мм</li>
+                        <li>Толщина: 100 мм</li>
+                        <li>Вес: 300 кг</li>
+                    </ul>
+                    <div class="catalog-price">75 руб</div>
+                    <button class="btn btn-secondary" onclick="openModal('order', 'Днище ПН-15')">Заказать</button>
+                </div>
+
+                <div class="catalog-item">
+                    <div class="catalog-image">⬛</div>
+                    <h3>Плита перекрытия ПП-10</h3>
+                    <ul class="catalog-specs">
+                        <li>Диаметр: 1000 мм</li>
+                        <li>Отверстие: 700 мм</li>
+                        <li>Вес: 160 кг</li>
+                    </ul>
+                    <div class="catalog-price">50 руб</div>
+                    <button class="btn btn-secondary" onclick="openModal('order', 'Плита перекрытия ПП-10')">Заказать</button>
+                </div>
+
+                <div class="catalog-item">
+                    <div class="catalog-image">🔲</div>
+                    <h3>Люк чугунный</h3>
+                    <ul class="catalog-specs">
+                        <li>Тип: Т (15 тонн)</li>
+                        <li>Диаметр: 750 мм</li>
+                        <li>ГОСТ 3634-99</li>
+                    </ul>
+                    <div class="catalog-price">95 руб</div>
+                    <button class="btn btn-secondary" onclick="openModal('order', 'Люк чугунный')">Заказать</button>
+                </div>
+
+                <div class="catalog-item">
+                    <div class="catalog-image">📦</div>
+                    <h3>Доборное кольцо КС-10-3</h3>
+                    <ul class="catalog-specs">
+                        <li>Диаметр: 1000 мм</li>
+                        <li>Высота: 300 мм</li>
+                        <li>Вес: 200 кг</li>
+                    </ul>
+                    <div class="catalog-price">35 руб</div>
+                    <button class="btn btn-secondary" onclick="openModal('order', 'Доборное кольцо КС-10-3')">Заказать</button>
+                </div>
+            </div>
+
+            <div class="mt-4 text-center">
+                <p style="font-size: 18px; color: var(--text-light); margin-bottom: 20px;">
+                    🚚 Доставка и монтаж по всей области | 📞 Звоните для уточнения наличия и сроков
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="section bg-light" id="calculator">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Калькулятор стоимости</h2>
+                <p class="section-subtitle">Рассчитайте предварительную стоимость работ онлайн</p>
+            </div>
+            <div class="calculator">
+                <h3>Онлайн-расчет</h3>
+                <form class="calc-form" id="calcForm">
+                    <div class="form-group">
+                        <label for="serviceType">Выберите услугу *</label>
+                        <select id="serviceType" required onchange="updateCalculator()">
+                            <option value="">-- Выберите услугу --</option>
+                            <option value="drilling">Бурение скважины</option>
+                            <option value="sewage">Монтаж канализации (септик)</option>
+                            <option value="equipment">Аренда спецтехники</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="depthGroup" style="display: none;">
+                        <label for="depth">Глубина скважины (метров) *</label>
+                        <input type="number" id="depth" min="10" max="150" placeholder="Например: 50">
+                    </div>
+
+                    <div class="form-group" id="ringsGroup" style="display: none;">
+                        <label for="rings">Количество колец *</label>
+                        <input type="number" id="rings" min="3" max="20" placeholder="Например: 7">
+                    </div>
+
+                    <div class="form-group" id="hoursGroup" style="display: none;">
+                        <label for="hours">Количество часов *</label>
+                        <input type="number" id="hours" min="1" max="24" placeholder="Например: 4">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Ваше имя *</label>
+                        <input type="text" id="name" required placeholder="Введите ваше имя">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Телефон *</label>
+                        <input type="tel" id="phone" required placeholder="+375 (29) 123-45-67">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">Комментарий</label>
+                        <textarea id="comment" rows="3" placeholder="Дополнительная информация"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Рассчитать стоимость</button>
+                </form>
+
+                <div class="calc-result" id="calcResult">
+                    <h4>Предварительная стоимость:</h4>
+                    <div class="calc-result-price" id="resultPrice">0 руб</div>
+                    <p class="calc-result-note">* Точная стоимость определяется после выезда специалиста на объект</p>
+                    <p style="margin-top: 15px; color: var(--text-dark);">Наш менеджер свяжется с вами в ближайшее время для уточнения деталей</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Наши работы</h2>
+                <p class="section-subtitle">Реализованные проекты по бурению, монтажу канализации и земляным работам</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-image">💧</div>
+                    <div class="gallery-overlay">
+                        <h4>Бурение скважины 65м</h4>
+                        <p>д. Кузнецы, Гродненский район</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">🚰</div>
+                    <div class="gallery-overlay">
+                        <h4>Септик из 7 колец</h4>
+                        <p>г. Гродно, частный дом</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">⭕</div>
+                    <div class="gallery-overlay">
+                        <h4>Монтаж колодца</h4>
+                        <p>п. Озеры, дачный участок</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">🚜</div>
+                    <div class="gallery-overlay">
+                        <h4>Земляные работы</h4>
+                        <p>Рытье котлована под фундамент</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">💦</div>
+                    <div class="gallery-overlay">
+                        <h4>Бурение на воду 85м</h4>
+                        <p>д. Поречье, известняк</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image">🏗️</div>
+                    <div class="gallery-overlay">
+                        <h4>Ливневая канализация</h4>
+                        <p>Частный дом, полный цикл</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Почему выбирают нас</h2>
+                <p class="section-subtitle">Преимущества работы с нашей компанией</p>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-icon">🏆</div>
+                    <h3>Опыт более 10 лет</h3>
+                    <p>Большой опыт работы в сфере бурения и монтажа инженерных систем</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">🔧</div>
+                    <h3>Современное оборудование</h3>
+                    <p>Используем надежную технику ведущих производителей</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">👷</div>
+                    <h3>Квалифицированные специалисты</h3>
+                    <p>Команда профессионалов с большим опытом</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">💰</div>
+                    <h3>Честные цены</h3>
+                    <p>Прозрачное ценообразование без скрытых платежей</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">⚡</div>
+                    <h3>Быстрые сроки</h3>
+                    <p>Соблюдаем договорные сроки выполнения работ</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">🛡️</div>
+                    <h3>Гарантия качества</h3>
+                    <p>Предоставляем гарантию 5 лет на все работы</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>О компании БурСтрой</h3>
+                    <p>
+                        Мы занимаемся профессиональным бурением скважин на воду, монтажом систем канализации и земляными работами с 2013 года. 
+                        За это время успешно реализовали более 1000 проектов по всей Гродненской области.
+                    </p>
+                    <p>
+                        Наша компания располагает собственным парком спецтехники: буровыми установками, экскаваторами, погрузчиками. 
+                        Мы производим качественные ЖБИ изделия собственного производства и обеспечиваем их доставку и монтаж.
+                    </p>
+                    <p>
+                        Работаем с частными лицами и организациями. Все работы выполняются по договору с предоставлением гарантии. 
+                        Наши специалисты имеют необходимые сертификаты и большой практический опыт.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">лет на рынке</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">выполненных проектов</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">единиц техники</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">лет гарантии</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    🏢
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Отзывы клиентов</h2>
+                <p class="section-subtitle">Что говорят о нас наши клиенты</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "Отличная компания! Пробурили скважину 58 метров за один день. Работали аккуратно, 
+                        убрали за собой. Вода отличного качества. Цена соответствует заявленной. Рекомендую!"
+                    </p>
+                    <div class="testimonial-author">Андрей Петрович</div>
+                    <div class="testimonial-role">д. Кузнецы</div>
+                </div>
+            </div>
+            <div style="margin-top: 30px; text-align: center;">
+                <div class="testimonial-card" style="display: inline-block; margin: 0 10px; max-width: 350px;">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "Делали септик из 7 колец. Все четко, по договору. Качество работ отличное, 
+                        работает уже второй год без проблем."
+                    </p>
+                    <div class="testimonial-author">Светлана М.</div>
+                    <div class="testimonial-role">г. Гродно</div>
+                </div>
+                <div class="testimonial-card" style="display: inline-block; margin: 0 10px; max-width: 350px;">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "Брал экскаватор на 5 часов для рытья траншей. Приехали вовремя, 
+                        оператор профессионал. Все сделали быстро и качественно."
+                    </p>
+                    <div class="testimonial-author">Дмитрий В.</div>
+                    <div class="testimonial-role">п. Озеры</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contacts">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Контакты</h2>
+                <p class="section-subtitle">Свяжитесь с нами удобным способом</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Наши контакты</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Телефон</h4>
+                            <p>
+                                <a href="tel:+375291234567" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">+375 (29) 123-45-67</a><br>
+                                <a href="tel:+375331234567" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">+375 (33) 123-45-67</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>info@burstroy.by<br>zakaz@burstroy.by</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Адрес</h4>
+                            <p>г. Гродно, ул. Промышленная, 25<br>Гродненская область, Беларусь</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div class="contact-details">
+                            <h4>Режим работы</h4>
+                            <p>Пн-Вс: 8:00 - 20:00<br>Без выходных</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Оставьте заявку</h3>
+                    <form class="calc-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Ваше имя *</label>
+                            <input type="text" id="contactName" required placeholder="Введите ваше имя">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Телефон *</label>
+                            <input type="tel" id="contactPhone" required placeholder="+375 (29) 123-45-67">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactService">Интересующая услуга</label>
+                            <select id="contactService">
+                                <option value="">-- Выберите услугу --</option>
+                                <option value="drilling">Бурение скважины</option>
+                                <option value="sewage">Монтаж канализации</option>
+                                <option value="equipment">Аренда спецтехники</option>
+                                <option value="rings">Покупка колец</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Сообщение *</label>
+                            <textarea id="contactMessage" rows="4" required placeholder="Опишите ваш запрос"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <div class="map-placeholder">
+                    🗺️ Карта (Яндекс / Google Maps)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>БурСтрой</h3>
+                    <p style="color: rgba(255,255,255,0.7); margin: 15px 0;">
+                        Профессиональные услуги по бурению скважин, монтажу канализации и земляным работам.
+                    </p>
+                    <p style="color: rgba(255,255,255,0.7);">
+                        Работаем с 2013 года<br>
+                        Гарантия 5 лет
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="#services">Бурение скважин</a></li>
+                        <li><a href="#services">Монтаж канализации</a></li>
+                        <li><a href="#services">Земляные работы</a></li>
+                        <li><a href="#catalog">Колодезные кольца</a></li>
+                        <li><a href="#catalog">ЖБИ изделия</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Информация</h3>
+                    <ul>
+                        <li><a href="#about">О компании</a></li>
+                        <li><a href="#gallery">Наши работы</a></li>
+                        <li><a href="#calculator">Калькулятор</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li><a href="tel:+375291234567">+375 (29) 123-45-67</a></li>
+                        <li><a href="tel:+375331234567">+375 (33) 123-45-67</a></li>
+                        <li><a href="mailto:info@burstroy.by">info@burstroy.by</a></li>
+                        <li style="color: rgba(255,255,255,0.7);">г. Гродно, ул. Промышленная, 25</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 БурСтрой. Все права защищены.</p>
+                <p style="margin-top: 10px; font-size: 13px;">
+                    Бурение скважин | Монтаж канализации | Колодезные кольца | Земляные работы | Гродно и область
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/375291234567" class="floating-btn whatsapp" target="_blank" title="WhatsApp">📱</a>
+        <a href="https://t.me/burstroy" class="floating-btn telegram" target="_blank" title="Telegram">✈️</a>
+        <a href="tel:+375291234567" class="floating-btn phone" title="Позвонить">📞</a>
+    </div>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h3 id="modalTitle">Заказать звонок</h3>
+            <form class="calc-form" id="modalForm">
+                <div class="form-group">
+                    <label for="modalName">Ваше имя *</label>
+                    <input type="text" id="modalName" required placeholder="Введите ваше имя">
+                </div>
+                <div class="form-group">
+                    <label for="modalPhone">Телефон *</label>
+                    <input type="tel" id="modalPhone" required placeholder="+375 (29) 123-45-67">
+                </div>
+                <div class="form-group" id="modalServiceGroup" style="display: none;">
+                    <label for="modalService">Услуга</label>
+                    <input type="text" id="modalService" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="modalComment">Комментарий</label>
+                    <textarea id="modalComment" rows="3" placeholder="Дополнительная информация"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navList = document.getElementById('navList');
+            navList.classList.toggle('show');
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        // Calculate offset for sticky header
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu
+                        document.getElementById('navList').classList.remove('show');
+                    }
+                }
+            });
+        });
+
+        // Active Navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-list a');
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            
+            let current = 'home';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const scrollPosition = window.scrollY + headerHeight + 100;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll to top button
+            const scrollTop = document.getElementById('scrollTop');
+            if (window.scrollY > 300) {
+                scrollTop.classList.add('show');
+            } else {
+                scrollTop.classList.remove('show');
+            }
+        });
+
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Modal Functions
+        function openModal(type = 'callback', service = '') {
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalServiceGroup = document.getElementById('modalServiceGroup');
+            const modalService = document.getElementById('modalService');
+
+            if (type === 'service' || type === 'order') {
+                modalTitle.textContent = type === 'service' ? 'Заказать услугу' : 'Заказать товар';
+                modalServiceGroup.style.display = 'flex';
+                modalService.value = service;
+            } else {
+                modalTitle.textContent = 'Заказать звонок';
+                modalServiceGroup.style.display = 'none';
+            }
+
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+            document.getElementById('modalForm').reset();
+        }
+
+        // Close modal on outside click
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        });
+
+        // Calculator
+        function updateCalculator() {
+            const serviceType = document.getElementById('serviceType').value;
+            const depthGroup = document.getElementById('depthGroup');
+            const ringsGroup = document.getElementById('ringsGroup');
+            const hoursGroup = document.getElementById('hoursGroup');
+
+            depthGroup.style.display = 'none';
+            ringsGroup.style.display = 'none';
+            hoursGroup.style.display = 'none';
+
+            document.getElementById('depth').required = false;
+            document.getElementById('rings').required = false;
+            document.getElementById('hours').required = false;
+
+            if (serviceType === 'drilling') {
+                depthGroup.style.display = 'flex';
+                document.getElementById('depth').required = true;
+            } else if (serviceType === 'sewage') {
+                ringsGroup.style.display = 'flex';
+                document.getElementById('rings').required = true;
+            } else if (serviceType === 'equipment') {
+                hoursGroup.style.display = 'flex';
+                document.getElementById('hours').required = true;
+            }
+        }
+
+        // Calculator Form Submit
+        document.getElementById('calcForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const serviceType = document.getElementById('serviceType').value;
+            let price = 0;
+
+            if (serviceType === 'drilling') {
+                const depth = parseInt(document.getElementById('depth').value);
+                price = depth * 45;
+            } else if (serviceType === 'sewage') {
+                const rings = parseInt(document.getElementById('rings').value);
+                price = 1200 + (rings * 85) + 500; // базовая цена + кольца + работы
+            } else if (serviceType === 'equipment') {
+                const hours = parseInt(document.getElementById('hours').value);
+                price = hours * 80;
+            }
+
+            document.getElementById('resultPrice').textContent = price + ' руб';
+            document.getElementById('calcResult').classList.add('show');
+
+            // Scroll to result
+            document.getElementById('calcResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            // Show success message
+            setTimeout(() => {
+                alert('Спасибо за заявку! Наш менеджер свяжется с вами в ближайшее время для уточнения деталей.');
+            }, 500);
+        });
+
+        // Contact Form Submit
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Спасибо за обращение! Мы свяжемся с вами в ближайшее время.');
+            e.target.reset();
+        });
+
+        // Modal Form Submit
+        document.getElementById('modalForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Спасибо за заявку! Наш менеджер перезвонит вам в течение 15 минут.');
+            closeModal();
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.service-card, .catalog-item, .gallery-item, .advantage-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
