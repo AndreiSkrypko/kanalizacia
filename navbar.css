@@ -283,12 +283,12 @@
         display: flex;
     }
 
-    /* Place the close (X) at the top-right when open */
+    /* Keep close (X) exactly where burger button is */
     .navbar.open .burger {
-        position: fixed;
+        position: absolute;
         right: 12px;
-        top: 8px;
-        transform: none;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .nav-link {
