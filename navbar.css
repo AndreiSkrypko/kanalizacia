@@ -266,6 +266,7 @@
         right: 12px;
         top: 50%;
         transform: translateY(-50%);
+        z-index: 1100; /* above dropdown */
     }
 
     .nav-menu {
@@ -279,6 +280,12 @@
 
     .navbar.open .nav-menu {
         display: flex;
+    }
+
+    /* Place the close (X) at the top-right when open */
+    .navbar.open .burger {
+        top: 8px;
+        transform: none;
     }
 
     .nav-link {
