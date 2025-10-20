@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="География услуг ГидроСтрой - работаем во всех городах Гродненской области">
+    <title>География услуг - ГидроСтрой | Гродно</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #e9ecef;
+            min-height: 100vh;
+        }
+
+
+
+        /* Page Content */
+        .page-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .page-header h1 {
+            font-size: 2.5em;
+            color: #2e6fa8;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            font-size: 1.2em;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Coverage Section */
+        .coverage-section {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .coverage-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .coverage-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .coverage-text h1 {
+            font-size: 2.5em;
+            color: #2e6fa8;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .coverage-description {
+            font-size: 1.15em;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .coverage-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 25px 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #4a90c5;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-number.animate {
+            transform: scale(1.1);
+            color: #2e6fa8;
+        }
+
+        .stat-label {
+            font-size: 0.95em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .coverage-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .feature-item {
+            font-size: 1.05em;
+            color: #555;
+            padding: 12px 0;
+            border-left: 3px solid #4a90c5;
+            padding-left: 15px;
+        }
+
+        .coverage-map {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-caption {
+            margin-top: 20px;
+            font-size: 0.95em;
+            color: #999;
+            text-align: center;
+            font-style: italic;
+        }
+
+
+        /* Map Section */
+        .map-section {
+            max-width: 1400px;
+            margin: 60px auto 120px auto;
+            padding: 0 40px;
+            min-height: auto;
+            overflow: visible;
+        }
+
+        /* Cities Section */
+        .cities-section {
+            max-width: 1400px;
+            margin: 60px auto 120px auto;
+            padding: 0 40px;
+            min-height: auto;
+            overflow: visible;
+        }
+
+        .cities-container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 50px 80px 50px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            min-height: auto;
+            overflow: visible;
+        }
+
+        .cities-title {
+            text-align: center;
+            font-size: 2em;
+            color: #2e6fa8;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .map-title {
+            text-align: center;
+            font-size: 2em;
+            color: #2e6fa8;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .belarus-map {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            padding: 40px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .map-image {
+            width: 100%;
+            height: auto;
+            opacity: 0.3;
+        }
+
+        .city-marker {
+            position: absolute;
+            background: #4a90c5;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(74, 144, 197, 0.3);
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .city-marker:hover {
+            transform: scale(1.1);
+            background: #3b7ea1;
+            box-shadow: 0 6px 15px rgba(74, 144, 197, 0.5);
+            z-index: 10;
+        }
+
+        .city-marker.main {
+            background: #2e6fa8;
+            font-size: 16px;
+            padding: 12px 24px;
+        }
+
+        /* Cities Grid */
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 40px 0 60px 0;
+            max-width: 100%;
+            overflow: visible;
+        }
+
+        .city-button {
+            background: white;
+            border: 2px solid #dee2e6;
+            padding: 20px 15px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            min-height: 120px;
+            justify-content: center;
+        }
+
+        .city-button:hover {
+            border-color: #4a90c5;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(74, 144, 197, 0.2);
+            color: #2e6fa8;
+        }
+
+        .city-icon {
+            font-size: 2em;
+            transition: transform 0.3s ease;
+        }
+
+        .city-button:hover .city-icon {
+            transform: scale(1.1);
+        }
+
+        .city-name {
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        /* Modal Form */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            max-width: 700px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-title {
+            font-size: 2em;
+            color: #2e6fa8;
+            font-weight: 700;
+        }
+
+        .close-btn {
+            font-size: 35px;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4a90c5;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #4a90c5 0%, #3b7ea1 100%);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 144, 197, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 144, 197, 0.5);
+        }
+
+        .link-text {
+            color: #4a90c5;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .link-text:hover {
+            color: #2e6fa8;
+            text-decoration: underline;
+        }
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+
+            .coverage-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .coverage-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                padding: 30px 20px 60px 20px;
+            }
+            
+            .map-section {
+                margin: 60px auto 100px auto;
+                padding: 0 20px;
+            }
+
+            .cities-container {
+                padding: 30px 20px 60px 20px;
+            }
+            
+            .cities-section {
+                margin: 60px auto 100px auto;
+                padding: 0 20px;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+            }
+
+            .cities-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+                margin: 40px 0 40px 0;
+            }
+            
+            .city-button {
+                padding: 15px 10px;
+                min-height: 100px;
+                font-size: 12px;
+            }
+            
+            .city-icon {
+                font-size: 1.5em;
+            }
+            
+            .city-name {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 8 C32 8, 28 14, 28 18 C28 21, 29.8 23, 32 23 C34.2 23, 36 21, 36 18 C36 14, 32 8, 32 8 Z" fill="white" opacity="0.9"/>
+                    <path d="M22 16 C22 16, 19 21, 19 24 C19 26.5, 20.3 28, 22 28 C23.7 28, 25 26.5, 25 24 C25 21, 22 16, 22 16 Z" fill="white" opacity="0.7"/>
+                    <path d="M42 16 C42 16, 39 21, 39 24 C39 26.5, 40.3 28, 42 28 C43.7 28, 45 26.5, 45 24 C45 21, 42 16, 42 16 Z" fill="white" opacity="0.7"/>
+                    <rect x="26" y="28" width="12" height="28" rx="2" fill="white" opacity="0.8"/>
+                    <rect x="20" y="45" width="24" height="3" fill="white"/>
+                    <path d="M10 52 Q15 48, 20 52 T30 52 T40 52 T50 52 T60 52 L60 58 L10 58 Z" fill="white" opacity="0.6"/>
+                </svg>
+            </div>
+            <div class="logo-text">
+                <div class="logo-title"><span class="hydro">Гидро</span>Строй</div>
+                <div class="logo-subtitle">Колодцы и септики под ключ</div>
+            </div>
+        </div>
+
+        <div class="header-info">
+            <div class="location">
+                Гродно и Гродненская область
+            </div>
+            <div class="contacts">
+                <a href="tel:+375291234567" class="phone">+375 (29) 123-45-67</a>
+                <a href="tel:+375333456789" class="phone">+375 (33) 345-67-89</a>
+            </div>
+            <a href="#" class="cta-button">Вызвать мастера на расчет</a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Наши услуги</a>
+            </li>
+            <li class="nav-item">
+                <a href="geography.html" class="nav-link active">География услуг</a>
+            </li>
+            <li class="nav-item">
+                <a href="equipment.html" class="nav-link">Оборудование</a>
+            </li>
+            <li class="nav-item">
+                <a href="rent.html" class="nav-link">Аренда спецтехники</a>
+            </li>
+            <li class="nav-item">
+                <a href="rings.html" class="nav-link">Бетонные кольца</a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html" class="nav-link">О нас</a>
+            </li>
+            <li class="nav-item">
+                <a href="contacts.html" class="nav-link">Контакты</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Coverage Info Section -->
+    <div class="coverage-section">
+        <div class="coverage-container">
+            <div class="coverage-content">
+                <div class="coverage-text">
+                    <h1>🗺️ География наших услуг</h1>
+                    <p class="coverage-description">Работаем по всей территории Гродненской области и готовы приехать к вам в любой населённый пункт. Выберите ваш город для расчёта стоимости</p>
+                    
+                    <div class="coverage-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="30">0</div>
+                            <div class="stat-label">городов</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="100">0</div>
+                            <div class="stat-label">деревень</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="24" data-suffix="/7">0</div>
+                            <div class="stat-label">на связи</div>
+                        </div>
+                    </div>
+
+                    <div class="coverage-features">
+                        <div class="feature-item">✓ Выезд мастера в любую точку области</div>
+                        <div class="feature-item">✓ Бесплатная консультация и расчёт</div>
+                        <div class="feature-item">✓ Доставка материалов и техники</div>
+                        <div class="feature-item">✓ Гарантия на все виды работ</div>
+                    </div>
+                </div>
+
+                <div class="coverage-map">
+                    <div id="map" class="map-container"></div>
+                    <p class="map-caption">Гродненская область - территория нашей работы</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cities Section -->
+    <div class="cities-section">
+        <div class="cities-container">
+            <h2 class="cities-title">Выберите ваш город или ближайший к вам</h2>
+            <p style="text-align: center; color: #666; font-size: 1.1em; margin-bottom: 30px;">Нажмите на город для получения расчёта стоимости работ</p>
+            
+            <!-- Cities Grid -->
+            <div class="cities-grid">
+                <div class="city-button" onclick="openCalculator('Гродно')">
+                    <div class="city-icon">🏛️</div>
+                    <div class="city-name">Гродно</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Лида')">
+                    <div class="city-icon">🏰</div>
+                    <div class="city-name">Лида</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Слоним')">
+                    <div class="city-icon">⛪</div>
+                    <div class="city-name">Слоним</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Волковыск')">
+                    <div class="city-icon">🏭</div>
+                    <div class="city-name">Волковыск</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Новогрудок')">
+                    <div class="city-icon">🗿</div>
+                    <div class="city-name">Новогрудок</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Мосты')">
+                    <div class="city-icon">🌉</div>
+                    <div class="city-name">Мосты</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Сморгонь')">
+                    <div class="city-icon">🏢</div>
+                    <div class="city-name">Сморгонь</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Ошмяны')">
+                    <div class="city-icon">🎭</div>
+                    <div class="city-name">Ошмяны</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Щучин')">
+                    <div class="city-icon">🐟</div>
+                    <div class="city-name">Щучин</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Берёзовка')">
+                    <div class="city-icon">🌳</div>
+                    <div class="city-name">Берёзовка</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Кореличи')">
+                    <div class="city-icon">🌾</div>
+                    <div class="city-name">Кореличи</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Дятлово')">
+                    <div class="city-icon">🦅</div>
+                    <div class="city-name">Дятлово</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Зельва')">
+                    <div class="city-icon">🌲</div>
+                    <div class="city-name">Зельва</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Ивье')">
+                    <div class="city-icon">🍃</div>
+                    <div class="city-name">Ивье</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Островец')">
+                    <div class="city-icon">🏝️</div>
+                    <div class="city-name">Островец</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Вороново')">
+                    <div class="city-icon">🌿</div>
+                    <div class="city-name">Вороново</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Свислочь')">
+                    <div class="city-icon">🌊</div>
+                    <div class="city-name">Свислочь</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Скидель')">
+                    <div class="city-icon">🏘️</div>
+                    <div class="city-name">Скидель</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Большая Берестовица')">
+                    <div class="city-icon">🌻</div>
+                    <div class="city-name">Большая Берестовица</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Волпа')">
+                    <div class="city-icon">🌾</div>
+                    <div class="city-name">Волпа</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Желудок')">
+                    <div class="city-icon">🍽️</div>
+                    <div class="city-name">Желудок</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Козловщина')">
+                    <div class="city-icon">🐐</div>
+                    <div class="city-name">Козловщина</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Красносельский')">
+                    <div class="city-icon">🔴</div>
+                    <div class="city-name">Красносельский</div>
+                </div>
+                <div class="city-button" onclick="openCalculator('Любча')">
+                    <div class="city-icon">💕</div>
+                    <div class="city-name">Любча</div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Calculator -->
+    <div id="calculatorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Онлайн-расчёт стоимости</h2>
+                <span class="close-btn" onclick="closeCalculator()">&times;</span>
+            </div>
+
+            <form id="calculatorForm" onsubmit="return submitForm(event)">
+                <div class="form-group">
+                    <label>Город <span class="required">*</span></label>
+                    <input type="text" id="cityInput" readonly style="background: #f8f9fa;">
+                </div>
+
+                <div class="form-group">
+                    <label>Адрес вашего участка <span class="required">*</span></label>
+                    <input type="text" name="address" placeholder="укажите адрес вашего участка" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Тип работ <span class="required">*</span></label>
+                    <select name="workType" required>
+                        <option value="">Выберите</option>
+                        <option value="Монтаж канализации под ключ">Монтаж канализации под ключ</option>
+                        <option value="Монтаж автономных станций">Монтаж автономных станций</option>
+                        <option value="Бурение скважин под воду">Бурение скважин под воду</option>
+                        <option value="Установка септика">Установка септика</option>
+                        <option value="Копка колодца">Копка колодца</option>
+                        <option value="Прокладка труб">Прокладка труб</option>
+                        <option value="Другое">Другое</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Количество постоянно проживающих человек</label>
+                    <input type="number" name="residents" placeholder="введите число" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Особенности участка / Дополнительная информация</label>
+                    <textarea name="details" placeholder="Опишите особенности вашего участка, грунт, расстояния и т.д."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Ваше имя <span class="required">*</span></label>
+                    <input type="text" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Телефон <span class="required">*</span></label>
+                    <input type="tel" name="phone" placeholder="+375 (XX) XXX-XX-XX" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="Email">
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="sendCopy" name="sendCopy" checked>
+                    <label for="sendCopy">Отправить мне копию сообщения</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="agreement" name="agreement" required>
+                    <label for="agreement">
+                        Подтверждаю согласие на обработку персональных данных и условия 
+                        <a href="#" class="link-text">политики конфиденциальности</a> <span class="required">*</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let selectedCity = '';
+
+        function openCalculator(city) {
+            selectedCity = city;
+            document.getElementById('cityInput').value = city;
+            document.getElementById('calculatorModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCalculator() {
+            document.getElementById('calculatorModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('calculatorForm').reset();
+        }
+
+        // Close modal on outside click
+        document.getElementById('calculatorModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCalculator();
+            }
+        });
+
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Prepare message
+            let message = `Новая заявка на расчёт\n\n`;
+            message += `Город: ${selectedCity}\n`;
+            message += `Адрес участка: ${formData.get('address')}\n`;
+            message += `Тип работ: ${formData.get('workType')}\n`;
+            
+            if (formData.get('residents')) {
+                message += `Количество жителей: ${formData.get('residents')}\n`;
+            }
+            
+            if (formData.get('details')) {
+                message += `Дополнительно: ${formData.get('details')}\n`;
+            }
+            
+            message += `\nКонтактные данные:\n`;
+            message += `Имя: ${formData.get('name')}\n`;
+            message += `Телефон: ${formData.get('phone')}\n`;
+            
+            if (formData.get('email')) {
+                message += `Email: ${formData.get('email')}\n`;
+            }
+
+            // Show success message
+            alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+            console.log(message); // Here you would send this to your backend
+            
+            closeCalculator();
+            
+            return false;
+        }
+
+        // Яндекс.Карты
+        function initMap() {
+            const map = new ymaps.Map('map', {
+                center: [53.6694, 23.8131], // Гродно
+                zoom: 7,
+                controls: ['zoomControl', 'fullscreenControl', 'typeSelector']
+            });
+
+            // Стиль карты
+            map.options.set('theme', 'light');
+            
+            // Все города и посёлки Гродненской области
+            const cities = [
+                // Районные центры
+                { name: 'Гродно', coords: [53.6694, 23.8131], isMain: true, type: 'main' },
+                { name: 'Лида', coords: [53.8884, 25.2996], type: 'district' },
+                { name: 'Слоним', coords: [53.0939, 25.3163], type: 'district' },
+                { name: 'Волковыск', coords: [53.1561, 24.4703], type: 'district' },
+                { name: 'Новогрудок', coords: [53.5944, 25.8197], type: 'district' },
+                { name: 'Мосты', coords: [53.4078, 24.5383], type: 'district' },
+                { name: 'Сморгонь', coords: [54.4819, 26.3992], type: 'district' },
+                { name: 'Ошмяны', coords: [54.4219, 25.9356], type: 'district' },
+                { name: 'Щучин', coords: [53.6019, 24.7464], type: 'district' },
+                { name: 'Берёзовка', coords: [53.7208, 25.4992], type: 'district' },
+                { name: 'Кореличи', coords: [53.5681, 26.1375], type: 'district' },
+                { name: 'Дятлово', coords: [53.4631, 25.4019], type: 'district' },
+                { name: 'Зельва', coords: [53.1489, 24.8167], type: 'district' },
+                { name: 'Ивье', coords: [54.0000, 25.7667], type: 'district' },
+                { name: 'Островец', coords: [54.6131, 25.9556], type: 'district' },
+                { name: 'Вороново', coords: [54.1500, 25.3167], type: 'district' },
+                { name: 'Свислочь', coords: [53.0333, 24.1000], type: 'district' },
+                
+                // Города
+                { name: 'Скидель', coords: [53.5908, 24.2478], type: 'city' },
+                { name: 'Берёзовка', coords: [53.7208, 25.4992], type: 'city' },
+                { name: 'Большая Берестовица', coords: [53.1833, 24.0167], type: 'city' },
+                { name: 'Волпа', coords: [53.2333, 24.3500], type: 'city' },
+                { name: 'Желудок', coords: [53.6000, 24.9833], type: 'city' },
+                { name: 'Зельва', coords: [53.1489, 24.8167], type: 'city' },
+                { name: 'Ивье', coords: [54.0000, 25.7667], type: 'city' },
+                { name: 'Козловщина', coords: [53.3333, 24.4500], type: 'city' },
+                { name: 'Красносельский', coords: [53.2667, 24.4167], type: 'city' },
+                { name: 'Любча', coords: [53.4500, 25.3000], type: 'city' },
+                { name: 'Мир', coords: [53.4500, 26.4667], type: 'city' },
+                { name: 'Мосты', coords: [53.4078, 24.5383], type: 'city' },
+                { name: 'Новоельня', coords: [53.5833, 25.2000], type: 'city' },
+                { name: 'Островец', coords: [54.6131, 25.9556], type: 'city' },
+                { name: 'Ошмяны', coords: [54.4219, 25.9356], type: 'city' },
+                { name: 'Радунь', coords: [54.0500, 25.1333], type: 'city' },
+                { name: 'Сморгонь', coords: [54.4819, 26.3992], type: 'city' },
+                { name: 'Сопоцкин', coords: [53.8333, 23.6500], type: 'city' },
+                { name: 'Щучин', coords: [53.6019, 24.7464], type: 'city' },
+                
+                // Крупные посёлки
+                { name: 'Берёзовка', coords: [53.7208, 25.4992], type: 'town' },
+                { name: 'Вороново', coords: [54.1500, 25.3167], type: 'town' },
+                { name: 'Дятлово', coords: [53.4631, 25.4019], type: 'town' },
+                { name: 'Зельва', coords: [53.1489, 24.8167], type: 'town' },
+                { name: 'Ивье', coords: [54.0000, 25.7667], type: 'town' },
+                { name: 'Кореличи', coords: [53.5681, 26.1375], type: 'town' },
+                { name: 'Мосты', coords: [53.4078, 24.5383], type: 'town' },
+                { name: 'Островец', coords: [54.6131, 25.9556], type: 'town' },
+                { name: 'Ошмяны', coords: [54.4219, 25.9356], type: 'town' },
+                { name: 'Свислочь', coords: [53.0333, 24.1000], type: 'town' },
+                { name: 'Сморгонь', coords: [54.4819, 26.3992], type: 'town' },
+                { name: 'Щучин', coords: [53.6019, 24.7464], type: 'town' }
+            ];
+
+            // Добавляем маркеры
+            cities.forEach(city => {
+                let iconSvg, iconSize, iconOffset;
+                
+                if (city.isMain) {
+                    // Главный город - Гродно
+                    iconSvg = `
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                            <circle cx="16" cy="16" r="14" fill="#2e6fa8" stroke="white" stroke-width="3"/>
+                            <text x="16" y="21" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Г</text>
+                        </svg>
+                    `;
+                    iconSize = [32, 32];
+                    iconOffset = [-16, -16];
+                } else if (city.type === 'district') {
+                    // Районные центры
+                    iconSvg = `
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                            <circle cx="10" cy="10" r="8" fill="#4a90c5" stroke="white" stroke-width="2"/>
+                        </svg>
+                    `;
+                    iconSize = [20, 20];
+                    iconOffset = [-10, -10];
+                } else if (city.type === 'city') {
+                    // Города
+                    iconSvg = `
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                            <circle cx="8" cy="8" r="6" fill="#6bb6d6" stroke="white" stroke-width="2"/>
+                        </svg>
+                    `;
+                    iconSize = [16, 16];
+                    iconOffset = [-8, -8];
+                } else {
+                    // Посёлки
+                    iconSvg = `
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                            <circle cx="6" cy="6" r="4" fill="#a8d5e2" stroke="white" stroke-width="1"/>
+                        </svg>
+                    `;
+                    iconSize = [12, 12];
+                    iconOffset = [-6, -6];
+                }
+
+                const marker = new ymaps.Placemark(city.coords, {
+                    balloonContent: `<div style="padding: 10px;"><strong>${city.name}</strong><br/>Гродненская область</div>`,
+                    hintContent: city.name
+                }, {
+                    iconLayout: 'default#image',
+                    iconImageHref: 'data:image/svg+xml;base64,' + btoa(iconSvg),
+                    iconImageSize: iconSize,
+                    iconImageOffset: iconOffset
+                });
+
+                // Обработчик клика
+                marker.events.add('click', function() {
+                    openCalculator(city.name);
+                });
+
+                map.geoObjects.add(marker);
+            });
+
+            // Полигон Гродненской области (упрощенный)
+            const grodnoRegion = new ymaps.Polygon([
+                [
+                    [54.5, 24.0],
+                    [54.8, 25.0],
+                    [54.5, 26.5],
+                    [53.8, 27.0],
+                    [53.0, 26.5],
+                    [52.8, 25.5],
+                    [53.0, 24.5],
+                    [53.5, 24.0]
+                ]
+            ], {}, {
+                fillColor: '#4a90c5',
+                fillOpacity: 0.1,
+                strokeColor: '#2e6fa8',
+                strokeWidth: 2
+            });
+
+            map.geoObjects.add(grodnoRegion);
+        }
+    </script>
+
+    <!-- Яндекс.Карты API -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script>
+        // Проверяем загрузку Яндекс.Карт
+        if (typeof ymaps !== 'undefined') {
+            ymaps.ready(initMap);
+        } else {
+            // Альтернатива - простая карта с маркерами
+            document.getElementById('map').innerHTML = `
+                <div style="width: 100%; height: 100%; background: #f0f8ff; display: flex; align-items: center; justify-content: center; flex-direction: column; border-radius: 15px; padding: 20px; box-sizing: border-box;">
+                    <div style="font-size: 24px; color: #4a90c5; margin-bottom: 20px;">🗺️</div>
+                    <div style="font-size: 18px; color: #2e6fa8; font-weight: bold; margin-bottom: 10px;">Гродненская область</div>
+                    <div style="font-size: 14px; color: #666; text-align: center; max-width: 400px; margin-bottom: 20px;">
+                        Мы работаем во всех городах и посёлках<br/>
+                        <strong>Гродненской области</strong>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 500px; width: 100%;">
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Гродно</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Лида</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Слоним</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Волковыск</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Новогрудок</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Мосты</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Сморгонь</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Ошмяны</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Щучин</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Берёзовка</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Кореличи</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Дятлово</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Зельва</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Ивье</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Островец</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Вороново</div>
+                        <div style="padding: 6px; background: white; border-radius: 6px; text-align: center; font-size: 11px; color: #333;">Свислочь</div>
+                    </div>
+                    <div style="margin-top: 15px; font-size: 12px; color: #888; text-align: center;">
+                        И ещё 15+ городов и посёлков
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Анимация счетчиков
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000; // 2 секунды
+                const increment = target / (duration / 16); // 60 FPS
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                        counter.classList.add('animate');
+                        setTimeout(() => {
+                            counter.classList.remove('animate');
+                        }, 300);
+                    }
+                    const suffix = counter.getAttribute('data-suffix') || '';
+                    counter.textContent = Math.floor(current) + (target >= 10 && !suffix ? '+' : '') + suffix;
+                }, 16);
+            });
+        }
+        
+        // Анимация при появлении в поле зрения
+        function setupScrollAnimation() {
+            const statsSection = document.querySelector('.coverage-stats');
+            if (!statsSection) return;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(animateCounters, 200);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            observer.observe(statsSection);
+        }
+        
+        // Sticky navbar эффект при прокрутке
+        const navbar = document.querySelector('.navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            
+            // Добавляем класс для усиленной тени при прокрутке
+            if (currentScroll > 10) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        }, { passive: true }); // passive для оптимизации производительности
+
+        // Запуск анимации при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            setupScrollAnimation();
+        });
+        
+        // Загрузка футера
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            })
+            .catch(error => console.error('Ошибка загрузки футера:', error));
+    </script>
+    <script src="site.js" defer></script>
+
+    <!-- Подключение общего футера -->
+    <div id="footer-container"></div>
+</body>
+</html>
+
