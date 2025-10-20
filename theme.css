@@ -1,0 +1,122 @@
+/* Modern neutral theme: minimize blue, use balanced grayscale with subtle accent */
+:root {
+    --bg-page: #f5f6f8;
+    --bg-surface: #ffffff;
+    --text-primary: #0f172a; /* slate-900 */
+    --text-secondary: #475569; /* slate-600 */
+    --border-subtle: #e5e7eb; /* gray-200 */
+    --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    --accent: #16a34a; /* emerald-600 as subtle accent instead of blue */
+    --accent-strong: #15803d; /* emerald-700 */
+    --accent-weak: #86efac; /* emerald-300 */
+}
+
+/* Base */
+body {
+    background: var(--bg-page) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Cards/Containers */
+.service-content,
+.cities-container,
+.coverage-section,
+.advantages-grid .advantage-card,
+.modal-content {
+    background: var(--bg-surface) !important;
+    box-shadow: var(--shadow) !important;
+    border: 1px solid var(--border-subtle) !important;
+}
+
+/* Headings */
+.hero-content h1,
+.service-text h2,
+.page-header h1,
+.coverage-text h1,
+.cities-title {
+    color: var(--text-primary) !important;
+}
+
+.hero-subtitle,
+.service-text p,
+.coverage-description,
+.feature-item,
+.stat-label,
+.city-name {
+    color: var(--text-secondary) !important;
+}
+
+/* Navbar: dark, minimal blue */
+.navbar {
+    background: linear-gradient(180deg, #111827 0%, #0b1220 100%) !important; /* near-black */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
+}
+.nav-link:hover,
+.nav-link.active {
+    background: rgba(255,255,255,0.08) !important;
+}
+.nav-link.active::after {
+    background: var(--accent) !important;
+    box-shadow: none !important;
+}
+
+/* CTA button */
+.cta-button {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%) !important;
+    box-shadow: 0 10px 24px rgba(22, 163, 74, 0.35) !important;
+}
+.cta-button:hover {
+    box-shadow: 0 16px 32px rgba(22, 163, 74, 0.45) !important;
+}
+
+/* Links and accents */
+a,
+.service-button,
+.link-text {
+    color: var(--accent-strong) !important;
+}
+.service-button {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%) !important;
+    border: 1px solid rgba(21, 128, 61, 0.15) !important;
+}
+.service-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 28px rgba(22, 163, 74, 0.35) !important;
+}
+
+/* Stats */
+.stat-item { background: #fafafa !important; }
+.stat-number { color: var(--accent-strong) !important; }
+
+/* City buttons */
+.city-button {
+    border-color: var(--border-subtle) !important;
+}
+.city-button:hover {
+    border-color: var(--accent) !important;
+    color: var(--accent-strong) !important;
+    box-shadow: 0 10px 24px rgba(22, 163, 74, 0.20) !important;
+}
+
+/* Remove strong blue map caption */
+.map-caption { color: #94a3b8 !important; }
+
+/* Imagery: tone down blue tints */
+.service-image {
+    filter: saturate(0.6) contrast(1.05) !important;
+}
+
+/* Header logo text */
+.logo-title .hydro { color: var(--text-primary) !important; }
+.logo-subtitle { color: var(--text-secondary) !important; }
+
+/* Logo tile: reduce blue block */
+.logo-icon {
+    background: linear-gradient(180deg, #111827 0%, #0b1220 100%) !important;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25) !important;
+}
+
+/* Footer links minor accent */
+footer a:hover { color: var(--accent) !important; }
+
+
