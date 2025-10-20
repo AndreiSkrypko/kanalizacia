@@ -136,6 +136,7 @@
     top: 0;
     z-index: 1000;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .navbar.scrolled {
@@ -284,6 +285,8 @@
 
     /* Place the close (X) at the top-right when open */
     .navbar.open .burger {
+        position: fixed;
+        right: 12px;
         top: 8px;
         transform: none;
     }
