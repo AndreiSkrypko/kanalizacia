@@ -48,17 +48,14 @@ body {
 
 /* Navbar: dark, minimal blue */
 .navbar {
-    background: linear-gradient(180deg, #111827 0%, #0b1220 100%) !important; /* near-black */
+    background: linear-gradient(180deg, #374151 0%, #1f2937 100%) !important; /* gray gradient */
     box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
 }
+.nav-link,
+.nav-link:visited { color: #ffffff !important; }
 .nav-link:hover,
-.nav-link.active {
-    background: rgba(255,255,255,0.08) !important;
-}
-.nav-link.active::after {
-    background: var(--accent) !important;
-    box-shadow: none !important;
-}
+.nav-link.active { color: #ffffff !important; background: rgba(255,255,255,0.08) !important; }
+.nav-link.active::after { background: #ffffff !important; box-shadow: none !important; }
 
 /* CTA button */
 .cta-button {
@@ -112,8 +109,8 @@ a,
 
 /* Logo tile: reduce blue block */
 .logo-icon {
-    background: linear-gradient(180deg, #111827 0%, #0b1220 100%) !important;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.25) !important;
+    background: linear-gradient(180deg, #4b5563 0%, #374151 100%) !important; /* gray tile */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.20) !important;
 }
 
 /* Footer links minor accent */
