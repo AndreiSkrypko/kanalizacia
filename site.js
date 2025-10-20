@@ -55,9 +55,69 @@
     });
   }
 
+  // Mobile burger menu
+  function setupBurgerMenu() {
+    const navbar = document.querySelector('.navbar');
+    const navMenu = document.querySelector('.navbar .nav-menu');
+    if (!navbar || !navMenu) return;
+
+    // Create burger if missing
+    let burger = navbar.querySelector('.burger');
+    if (!burger) {
+      burger = document.createElement('button');
+      burger.className = 'burger';
+      burger.setAttribute('aria-label', 'Меню');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.innerHTML = '<span class="burger-box"><span class="burger-line"></span></span>';
+      navbar.appendChild(burger);
+    }
+
+    const openMenu = () => {
+      navbar.classList.add('open');
+      document.body.classList.add('menu-open');
+      burger.setAttribute('aria-expanded', 'true');
+    };
+
+    const closeMenu = () => {
+      navbar.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      burger.setAttribute('aria-expanded', 'false');
+    };
+
+    const toggleMenu = () => {
+      if (navbar.classList.contains('open')) closeMenu(); else openMenu();
+    };
+
+    // Handlers
+    burger.removeEventListener('click', toggleMenu);
+    burger.addEventListener('click', toggleMenu);
+
+    // Close on link click (before navigation transition)
+    navMenu.querySelectorAll('.nav-link').forEach((link) => {
+      link.addEventListener('click', () => closeMenu(), { once: true });
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!navbar.classList.contains('open')) return;
+      if (!navbar.contains(e.target)) closeMenu();
+    });
+
+    // Close on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) closeMenu();
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     ensureOverlay();
     enhanceInternalLinks();
+    setupBurgerMenu();
   });
 })();
 

@@ -187,24 +187,102 @@
     box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
 }
 
+/* Burger button (hidden on desktop) */
+.burger {
+    display: none;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.burger-box {
+    width: 24px;
+    height: 18px;
+    position: relative;
+}
+
+.burger-line,
+.burger-line::before,
+.burger-line::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+    transition: transform 0.25s ease, top 0.25s ease, opacity 0.2s ease;
+}
+
+.burger-line { top: 8px; }
+.burger-line::before { top: -8px; }
+.burger-line::after { top: 8px; }
+
+/* Burger active (X) */
+.navbar.open .burger-line {
+    transform: rotate(45deg);
+}
+.navbar.open .burger-line::before {
+    top: 0;
+    transform: rotate(90deg);
+}
+.navbar.open .burger-line::after {
+    top: 0;
+    opacity: 0;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
-        gap: 20px;
-        padding: 20px;
+        gap: 16px;
+        padding: 16px 20px;
     }
 
     .header-info {
+        width: 100%;
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
+    }
+
+    /* Show burger, collapse nav */
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .burger {
+        display: flex;
+        position: absolute;
+        right: 12px;
+        top: 8px;
     }
 
     .nav-menu {
+        display: none;
         flex-direction: column;
+        margin: 0;
+        padding: 8px 0;
+        background: linear-gradient(135deg, #5fa8d3 0%, #4a90c5 100%);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .navbar.open .nav-menu {
+        display: flex;
     }
 
     .nav-link {
         justify-content: center;
+        padding: 16px 20px;
     }
+}
+
+/* Prevent background scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
 }
