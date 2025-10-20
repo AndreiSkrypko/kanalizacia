@@ -254,13 +254,18 @@
         position: sticky;
         top: 0;
         z-index: 1000;
+        min-height: 56px; /* ensure visible bar height */
+        padding: 8px 0;
+        /* make it a positioning context and allow centering */
+        display: block;
     }
 
     .burger {
         display: flex;
         position: absolute;
         right: 12px;
-        top: 8px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .nav-menu {
