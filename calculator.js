@@ -238,18 +238,34 @@ class PriceCalculator {
         modal.classList.add('show');
         document.body.style.overflow = 'hidden';
         
-        // Если есть предзаполненный город, устанавливаем его
+        // Если есть предзаполненный город, попробуем установить его сразу
         if (this.selectedCity) {
+            console.log('Modal opened with selected city:', this.selectedCity);
+            // Попробуем сразу, а также при переходе на шаг контактов
             setTimeout(() => {
-                const cityField = document.querySelector('#city');
-                if (cityField) {
-                    cityField.value = this.selectedCity;
-                    cityField.readOnly = true;
-                    cityField.style.background = 'rgba(255, 255, 255, 0.1)';
-                    cityField.style.color = 'rgba(255, 255, 255, 0.8)';
-                    cityField.style.cursor = 'not-allowed';
-                }
+                this.presetCity();
             }, 100);
+        }
+    }
+    
+    presetCity() {
+        if (!this.selectedCity) return;
+        
+        // Ищем поле города в активном шаге
+        const activeStep = document.querySelector('.form-step.active');
+        const cityField = activeStep ? activeStep.querySelector('#city') : document.querySelector('#city');
+        
+        if (cityField) {
+            cityField.value = this.selectedCity;
+            cityField.readOnly = true;
+            cityField.style.background = 'rgba(255, 255, 255, 0.1)';
+            cityField.style.color = 'rgba(255, 255, 255, 0.8)';
+            cityField.style.cursor = 'not-allowed';
+            console.log('City field preset with:', this.selectedCity);
+            console.log('City field element:', cityField);
+        } else {
+            console.log('City field not found. Active step:', activeStep);
+            console.log('All form steps:', document.querySelectorAll('.form-step'));
         }
     }
 
@@ -353,6 +369,28 @@ class PriceCalculator {
         // Если последний шаг, показать расчет
         if (step === this.totalSteps - 1) {
             this.calculatePrice();
+        }
+        
+        // Если шаг контактных данных (шаг 5), заполнить предустановленный город
+        if (step === 5 && this.selectedCity) {
+            console.log('Reached contacts step, trying to preset city:', this.selectedCity);
+            
+            // Попробуем несколько раз с увеличивающейся задержкой
+            let attempts = 0;
+            const tryPresetCity = () => {
+                attempts++;
+                const cityField = document.querySelector('#city');
+                if (cityField) {
+                    this.presetCity();
+                } else if (attempts < 5) {
+                    console.log(`City field not found, attempt ${attempts}, retrying...`);
+                    setTimeout(tryPresetCity, attempts * 100);
+                } else {
+                    console.error('Failed to find city field after 5 attempts');
+                }
+            };
+            
+            setTimeout(tryPresetCity, 50);
         }
     }
 

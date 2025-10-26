@@ -543,24 +543,12 @@
             if (calc && calc.openModal) {
                 console.log('Calculator found, setting city and opening modal');
                 calc.selectedCity = city;
+                console.log('City set to:', calc.selectedCity);
                 calc.openModal();
-                
-                // Ждем, пока модальное окно откроется, затем заполняем город
-                setTimeout(() => {
-                    const cityField = document.querySelector('#city');
-                    if (cityField) {
-                        cityField.value = city;
-                        cityField.readOnly = true;
-                        cityField.style.background = 'rgba(255, 255, 255, 0.1)';
-                        cityField.style.color = 'rgba(255, 255, 255, 0.8)';
-                        cityField.style.cursor = 'not-allowed';
-                        console.log('City field filled:', city);
-                    } else {
-                        console.error('City field not found');
-                    }
-                }, 100);
             } else {
-                console.error('Calculator not found or not ready. Trying to wait for it...');
+                console.error('Calculator not found or not ready. Calculator object:', calc);
+                console.log('window.calculator:', window.calculator);
+                console.log('calculator:', typeof calculator !== 'undefined' ? calculator : 'undefined');
                 
                 // Попробуем еще раз через небольшую задержку
                 setTimeout(() => {
@@ -568,19 +556,8 @@
                     if (calcRetry && calcRetry.openModal) {
                         console.log('Calculator found on retry, opening modal');
                         calcRetry.selectedCity = city;
+                        console.log('City set on retry to:', calcRetry.selectedCity);
                         calcRetry.openModal();
-                        
-                        setTimeout(() => {
-                            const cityField = document.querySelector('#city');
-                            if (cityField) {
-                                cityField.value = city;
-                                cityField.readOnly = true;
-                                cityField.style.background = 'rgba(255, 255, 255, 0.1)';
-                                cityField.style.color = 'rgba(255, 255, 255, 0.8)';
-                                cityField.style.cursor = 'not-allowed';
-                                console.log('City field filled on retry:', city);
-                            }
-                        }, 100);
                     } else {
                         alert('Калькулятор не загружен. Пожалуйста, обновите страницу и попробуйте снова.');
                     }
