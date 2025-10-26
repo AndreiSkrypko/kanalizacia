@@ -535,23 +535,56 @@
         let selectedCity = '';
 
         function openCalculator(city) {
-            // Используем основной калькулятор с предзаполненным городом
-            if (window.calculator && window.calculator.openModal) {
-                window.calculator.selectedCity = city;
-                window.calculator.openModal();
+            console.log('Opening calculator for city:', city);
+            
+            // Проверяем доступность калькулятора (сначала window.calculator, потом calculator)
+            const calc = window.calculator || calculator;
+            
+            if (calc && calc.openModal) {
+                console.log('Calculator found, setting city and opening modal');
+                calc.selectedCity = city;
+                calc.openModal();
                 
                 // Ждем, пока модальное окно откроется, затем заполняем город
                 setTimeout(() => {
                     const cityField = document.querySelector('#city');
                     if (cityField) {
                         cityField.value = city;
-                        cityField.readOnly = true; // Делаем поле только для чтения
+                        cityField.readOnly = true;
                         cityField.style.background = 'rgba(255, 255, 255, 0.1)';
                         cityField.style.color = 'rgba(255, 255, 255, 0.8)';
+                        cityField.style.cursor = 'not-allowed';
+                        console.log('City field filled:', city);
+                    } else {
+                        console.error('City field not found');
                     }
                 }, 100);
             } else {
-                console.error('Calculator not found. Make sure calculator.js is loaded.');
+                console.error('Calculator not found or not ready. Trying to wait for it...');
+                
+                // Попробуем еще раз через небольшую задержку
+                setTimeout(() => {
+                    const calcRetry = window.calculator || calculator;
+                    if (calcRetry && calcRetry.openModal) {
+                        console.log('Calculator found on retry, opening modal');
+                        calcRetry.selectedCity = city;
+                        calcRetry.openModal();
+                        
+                        setTimeout(() => {
+                            const cityField = document.querySelector('#city');
+                            if (cityField) {
+                                cityField.value = city;
+                                cityField.readOnly = true;
+                                cityField.style.background = 'rgba(255, 255, 255, 0.1)';
+                                cityField.style.color = 'rgba(255, 255, 255, 0.8)';
+                                cityField.style.cursor = 'not-allowed';
+                                console.log('City field filled on retry:', city);
+                            }
+                        }, 100);
+                    } else {
+                        alert('Калькулятор не загружен. Пожалуйста, обновите страницу и попробуйте снова.');
+                    }
+                }, 1000);
             }
         }
 

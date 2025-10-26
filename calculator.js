@@ -575,4 +575,6 @@ class PriceCalculator {
 let calculator;
 document.addEventListener('DOMContentLoaded', () => {
     calculator = new PriceCalculator();
+    // Делаем калькулятор доступным глобально
+    window.calculator = calculator;
 });
