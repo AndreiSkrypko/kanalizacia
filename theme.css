@@ -114,7 +114,7 @@ a,
 }
 
 /* Header logo text */
-.logo-title .hydro { color: var(--text-primary) !important; }
+.logo-title .aqua { color: var(--accent-yellow) !important; }
 .logo-subtitle { color: var(--text-secondary) !important; }
 
 /* Logo tile: yellow-green gradient */

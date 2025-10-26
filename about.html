@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О нас - ГидроСтрой</title>
+    <title>О нас - AquaForge</title>
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="theme.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="calculator.css">
+    <link rel="stylesheet" href="contacts-modal.css">
     <style>
         * {
             margin: 0;
@@ -83,8 +84,8 @@
                 </svg>
             </div>
             <div class="logo-text">
-                <div class="logo-title"><span class="hydro">Гидро</span>Строй</div>
-                <div class="logo-subtitle">Колодцы и септики под ключ</div>
+                <div class="logo-title"><span class="aqua">Aqua</span>Forge</div>
+                <div class="logo-subtitle">Кузница водных систем</div>
             </div>
         </div>
 
@@ -122,7 +123,7 @@
                 <a href="about.html" class="nav-link active">О нас</a>
             </li>
             <li class="nav-item">
-                <a href="contacts.html" class="nav-link">Контакты</a>
+                <a href="#" class="nav-link" onclick="contactsModal.openModal(); return false;">Контакты</a>
             </li>
         </ul>
     </nav>
@@ -159,5 +160,6 @@
     </script>
     <script src="site.js" defer></script>
     <script src="calculator.js" defer></script>
+    <script src="contacts-modal.js" defer></script>
 </body>
 </html>
