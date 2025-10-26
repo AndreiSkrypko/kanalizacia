@@ -4,6 +4,7 @@ class PriceCalculator {
         this.currentStep = 0;
         this.totalSteps = 6;
         this.formData = {};
+        this.selectedCity = null;
         this.init();
     }
 
@@ -170,6 +171,10 @@ class PriceCalculator {
                                 <input type="tel" id="phone" name="phone" required placeholder="+375 (XX) XXX-XX-XX">
                             </div>
                             <div class="form-group">
+                                <label for="city">Город *</label>
+                                <input type="text" id="city" name="city" required placeholder="Ваш город">
+                            </div>
+                            <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" id="email" name="email" placeholder="your@email.com">
                             </div>
@@ -232,12 +237,36 @@ class PriceCalculator {
         const modal = document.getElementById('calculatorModal');
         modal.classList.add('show');
         document.body.style.overflow = 'hidden';
+        
+        // Если есть предзаполненный город, устанавливаем его
+        if (this.selectedCity) {
+            setTimeout(() => {
+                const cityField = document.querySelector('#city');
+                if (cityField) {
+                    cityField.value = this.selectedCity;
+                    cityField.readOnly = true;
+                    cityField.style.background = 'rgba(255, 255, 255, 0.1)';
+                    cityField.style.color = 'rgba(255, 255, 255, 0.8)';
+                    cityField.style.cursor = 'not-allowed';
+                }
+            }, 100);
+        }
     }
 
     closeModal() {
         const modal = document.getElementById('calculatorModal');
         modal.classList.remove('show');
         document.body.style.overflow = '';
+        
+        // Сбрасываем предзаполненный город
+        this.selectedCity = null;
+        const cityField = document.querySelector('#city');
+        if (cityField) {
+            cityField.readOnly = false;
+            cityField.style.background = '';
+            cityField.style.color = '';
+            cityField.style.cursor = '';
+        }
         
         // Сброс формы
         setTimeout(() => {
@@ -360,8 +389,9 @@ class PriceCalculator {
             case 5: // Контактные данные
                 const name = currentStepEl.querySelector('#name').value.trim();
                 const phone = currentStepEl.querySelector('#phone').value.trim();
-                console.log('Name:', name, 'Phone:', phone);
-                return name && phone;
+                const city = currentStepEl.querySelector('#city').value.trim();
+                console.log('Name:', name, 'Phone:', phone, 'City:', city);
+                return name && phone && city;
             default:
                 return true;
         }
@@ -383,7 +413,7 @@ class PriceCalculator {
                 message = 'Пожалуйста, заполните диаметр и количество колец';
                 break;
             case 5:
-                message = 'Пожалуйста, заполните имя и телефон';
+                message = 'Пожалуйста, заполните имя, телефон и город';
                 break;
         }
         
