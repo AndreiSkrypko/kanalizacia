@@ -89,7 +89,7 @@
     color: white;
     padding: 15px 30px;
     border: none;
-    border-radius: 30px;
+    border-radius: 10px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -122,16 +122,23 @@
 /* Navigation Menu */
 .navbar {
     padding: 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
-    transition: all 0.3s ease;
-    position: relative;
+    background: rgba(55, 65, 81, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar.scrolled {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(55, 65, 81, 0.95);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .nav-menu {
@@ -152,15 +159,19 @@
     gap: 5px;
     color: white;
     text-decoration: none;
-    padding: 20px 25px;
+    padding: 18px 28px;
     font-weight: 500;
-    transition: all 0.3s ease;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
 .nav-link:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     color: #ffffff;
+    transform: translateY(-1px);
 }
 
 .nav-link.active {
@@ -243,13 +254,17 @@
 
     /* Show burger, collapse nav */
     .navbar {
-        position: sticky;
+        position: fixed;
         top: 0;
+        left: 0;
+        right: 0;
         z-index: 1000;
-        min-height: 56px; /* ensure visible bar height */
+        min-height: 64px;
         padding: 8px 0;
-        /* make it a positioning context and allow centering */
         display: block;
+        background: rgba(31, 41, 55, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
     }
 
     .burger {
@@ -263,19 +278,31 @@
 
     .nav-menu {
         display: none;
-        flex-direction: column;
-        margin: 0;
-        padding: 8px 0;
-        background: inherit;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        position: absolute;
-        top: 56px; /* place dropdown below fixed navbar bar */
+        position: fixed;
+        top: 0;
         left: 0;
         right: 0;
+        bottom: 0;
+        background: rgba(31, 41, 55, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 80px 20px 40px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
     }
 
     .navbar.open .nav-menu {
         display: flex;
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
     }
 
     /* Keep close (X) exactly where burger button is */
@@ -288,7 +315,13 @@
 
     .nav-link {
         justify-content: center;
-        padding: 16px 20px;
+        padding: 20px 40px;
+        font-size: 18px;
+        font-weight: 500;
+        margin: 8px 0;
+        border-radius: 12px;
+        min-width: 200px;
+        text-align: center;
     }
 }
 

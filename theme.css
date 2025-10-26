@@ -1,20 +1,27 @@
-/* Modern neutral theme: minimize blue, use balanced grayscale with subtle accent */
+/* Modern yellow-green-gray theme */
 :root {
-    --bg-page: #f5f6f8;
+    --bg-page: #fafafa;
     --bg-surface: #ffffff;
-    --text-primary: #0f172a; /* slate-900 */
-    --text-secondary: #475569; /* slate-600 */
-    --border-subtle: #e5e7eb; /* gray-200 */
-    --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-    --accent: #16a34a; /* emerald-600 as subtle accent instead of blue */
-    --accent-strong: #15803d; /* emerald-700 */
-    --accent-weak: #86efac; /* emerald-300 */
+    --text-primary: #1f2937; /* dark gray */
+    --text-secondary: #6b7280; /* medium gray */
+    --border-subtle: #e5e7eb; /* light gray */
+    --shadow: 0 8px 24px rgba(31, 41, 55, 0.08);
+    --accent-green: #10b981; /* emerald-500 */
+    --accent-green-dark: #059669; /* emerald-600 */
+    --accent-green-light: #34d399; /* emerald-400 */
+    --accent-yellow: #f59e0b; /* amber-500 */
+    --accent-yellow-dark: #d97706; /* amber-600 */
+    --accent-yellow-light: #fbbf24; /* amber-400 */
+    --gray-dark: #374151; /* gray-700 */
+    --gray-medium: #6b7280; /* gray-500 */
+    --gray-light: #9ca3af; /* gray-400 */
 }
 
 /* Base */
 body {
     background: var(--bg-page) !important;
     color: var(--text-primary) !important;
+    padding-top: 64px; /* offset for fixed navbar */
 }
 
 /* Cards/Containers */
@@ -46,53 +53,56 @@ body {
     color: var(--text-secondary) !important;
 }
 
-/* Navbar: dark, minimal blue */
+/* Navbar: dark gray with yellow accents */
 .navbar {
-    background: linear-gradient(180deg, #374151 0%, #1f2937 100%) !important; /* gray gradient */
+    background: linear-gradient(180deg, var(--gray-dark) 0%, var(--text-primary) 100%) !important;
     box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
 }
 .nav-link,
 .nav-link:visited { color: #ffffff !important; }
 .nav-link:hover,
-.nav-link.active { color: #ffffff !important; background: rgba(255,255,255,0.08) !important; }
-.nav-link.active::after { background: #ffffff !important; box-shadow: none !important; }
+.nav-link.active { color: var(--accent-yellow-light) !important; background: rgba(245, 158, 11, 0.1) !important; }
+.nav-link.active::after { background: var(--accent-yellow) !important; box-shadow: none !important; }
 
-/* CTA button */
+/* CTA button - yellow primary */
 .cta-button {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%) !important;
-    box-shadow: 0 10px 24px rgba(22, 163, 74, 0.35) !important;
+    background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-yellow-dark) 100%) !important;
+    box-shadow: 0 10px 24px rgba(245, 158, 11, 0.35) !important;
+    color: white !important;
 }
 .cta-button:hover {
-    box-shadow: 0 16px 32px rgba(22, 163, 74, 0.45) !important;
+    box-shadow: 0 16px 32px rgba(245, 158, 11, 0.45) !important;
+    transform: translateY(-2px) !important;
 }
 
-/* Links and accents */
+/* Links and accents - green secondary */
 a,
 .service-button,
 .link-text {
-    color: var(--accent-strong) !important;
+    color: var(--accent-green-dark) !important;
 }
 .service-button {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%) !important;
-    border: 1px solid rgba(21, 128, 61, 0.15) !important;
+    background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-green-dark) 100%) !important;
+    border: 1px solid rgba(16, 185, 129, 0.15) !important;
+    color: white !important;
 }
 .service-button:hover {
     transform: translateY(-3px) !important;
-    box-shadow: 0 12px 28px rgba(22, 163, 74, 0.35) !important;
+    box-shadow: 0 12px 28px rgba(16, 185, 129, 0.35) !important;
 }
 
 /* Stats */
 .stat-item { background: #fafafa !important; }
-.stat-number { color: var(--accent-strong) !important; }
+.stat-number { color: var(--accent-green-dark) !important; }
 
 /* City buttons */
 .city-button {
     border-color: var(--border-subtle) !important;
 }
 .city-button:hover {
-    border-color: var(--accent) !important;
-    color: var(--accent-strong) !important;
-    box-shadow: 0 10px 24px rgba(22, 163, 74, 0.20) !important;
+    border-color: var(--accent-green) !important;
+    color: var(--accent-green-dark) !important;
+    box-shadow: 0 10px 24px rgba(16, 185, 129, 0.20) !important;
 }
 
 /* Remove strong blue map caption */
@@ -107,13 +117,13 @@ a,
 .logo-title .hydro { color: var(--text-primary) !important; }
 .logo-subtitle { color: var(--text-secondary) !important; }
 
-/* Logo tile: reduce blue block */
+/* Logo tile: yellow-green gradient */
 .logo-icon {
-    background: linear-gradient(180deg, #4b5563 0%, #374151 100%) !important; /* gray tile */
-    box-shadow: 0 6px 16px rgba(0,0,0,0.20) !important;
+    background: linear-gradient(180deg, var(--accent-yellow) 0%, var(--accent-green) 100%) !important;
+    box-shadow: 0 6px 16px rgba(245, 158, 11, 0.25) !important;
 }
 
 /* Footer links minor accent */
-footer a:hover { color: var(--accent) !important; }
+footer a:hover { color: var(--accent-yellow) !important; }
 
 
