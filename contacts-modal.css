@@ -5,13 +5,14 @@
     right: -550px;
     width: 550px;
     height: 100vh;
-    background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-green) 100%);
+    background: linear-gradient(135deg, #1a2e3d 0%, #0f1b26 100%);
     box-shadow: -15px 0 40px rgba(0, 0, 0, 0.25);
     z-index: 2500;
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    border-left: 3px solid rgba(22, 197, 94, 0.3);
 }
 
 .contacts-modal.show {
@@ -45,11 +46,11 @@
 }
 
 .contacts-modal-header h2 {
-    color: white;
+    color: #ffffff;
     font-size: 24px;
     font-weight: 700;
     margin: 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 20px rgba(22, 197, 94, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
     letter-spacing: 0.5px;
 }
 
@@ -57,8 +58,8 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
+    background: rgba(22, 197, 94, 0.15);
+    border: 1px solid rgba(22, 197, 94, 0.3);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -71,26 +72,30 @@
     transition: all 0.2s ease;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgba(22, 197, 94, 0.2);
 }
 
 .contacts-modal-close:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(22, 197, 94, 0.25);
+    border-color: rgba(22, 197, 94, 0.5);
     transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(22, 197, 94, 0.4);
 }
 
 .contacts-modal-body {
     padding: 25px 35px 35px;
     flex: 1;
-    background: rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.03);
     margin: 0 25px 25px;
     border-radius: 16px;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(22, 197, 94, 0.15);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     align-content: start;
+    box-shadow: 0 0 30px rgba(22, 197, 94, 0.05);
 }
 
 .contact-section {
@@ -113,8 +118,9 @@
     content: '';
     width: 3px;
     height: 16px;
-    background: linear-gradient(135deg, var(--accent-yellow), var(--accent-green));
+    background: linear-gradient(135deg, rgba(22, 197, 94, 1), rgba(34, 197, 94, 0.8));
     border-radius: 2px;
+    box-shadow: 0 0 8px rgba(22, 197, 94, 0.4);
 }
 
 .contact-item {
@@ -139,9 +145,9 @@
 }
 
 .phone-link:hover {
-    color: #ffffff;
+    color: #86efac;
     transform: translateX(4px);
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 0 15px rgba(22, 197, 94, 0.6);
 }
 
 .phone-link:last-child {
@@ -226,7 +232,7 @@
 
 .social-icon:hover {
     transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(22, 197, 94, 0.3);
 }
 
 /* WhatsApp - зеленый */
@@ -273,12 +279,12 @@
     width: 60px;
     height: 60px;
     margin: 0 auto 15px;
-    background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-green) 100%);
+    background: linear-gradient(135deg, rgba(22, 197, 94, 0.9) 0%, rgba(34, 197, 94, 0.7) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 30px rgba(22, 197, 94, 0.3);
 }
 
 .company-logo svg {
