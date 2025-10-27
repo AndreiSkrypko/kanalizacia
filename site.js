@@ -68,7 +68,7 @@
       burger.className = 'burger';
       burger.setAttribute('aria-label', 'Меню');
       burger.setAttribute('aria-expanded', 'false');
-      burger.innerHTML = '<span class="burger-box"><span class="burger-line"></span></span>';
+      burger.innerHTML = '<span></span><span></span><span></span>';
       navbar.appendChild(burger);
     }
 

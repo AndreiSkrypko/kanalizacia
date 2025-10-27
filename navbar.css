@@ -45,7 +45,6 @@
     margin: 0;
 }
 
-.logo-title .hydro { }
 
 .logo-subtitle {
     font-size: 14px;
@@ -83,7 +82,6 @@
     transition: color 0.3s;
 }
 
-.phone:hover { }
 
 .cta-button {
     color: white;
@@ -193,49 +191,45 @@
 /* Burger button (hidden on desktop) */
 .burger {
     display: none;
-    width: 44px;
-    height: 44px;
-    align-items: center;
-    justify-content: center;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
-    background: transparent;
-    border: none;
-    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    position: relative; /* make inner bars absolute to center precisely */
 }
 
-.burger-box {
-    width: 24px;
-    height: 18px;
-    position: relative;
-}
-
-.burger-line,
-.burger-line::before,
-.burger-line::after {
-    content: '';
+.burger span {
     position: absolute;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    width: 26px;
     height: 2px;
-    background: #9aa0a6; /* medium gray for better visibility on blue */
-    transition: transform 0.25s ease, top 0.25s ease, opacity 0.2s ease;
+    background: #ffffff;
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transform-origin: center;
+    transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease;
 }
 
-.burger-line { top: 8px; }
-.burger-line::before { top: -8px; }
-.burger-line::after { top: 8px; }
+/* initial bars positions */
+.burger span:nth-child(1) { top: 16px; }
+.burger span:nth-child(2) { top: 24px; }
+.burger span:nth-child(3) { top: 32px; }
 
-/* Burger active (X) */
-.navbar.open .burger-line {
-    transform: rotate(45deg);
+/* Анимация в крестик при открытии: идеально по центру */
+.navbar.open .burger span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
 }
-.navbar.open .burger-line::before {
-    top: 0;
-    transform: rotate(90deg);
-}
-.navbar.open .burger-line::after {
-    top: 0;
+
+.navbar.open .burger span:nth-child(2) {
     opacity: 0;
+}
+
+.navbar.open .burger span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 /* Responsive */
@@ -268,12 +262,14 @@
     }
 
     .burger {
-        display: flex;
-        position: absolute;
-        right: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1100; /* above dropdown */
+        display: flex !important;
+        position: fixed !important;
+        right: 15px !important;
+        top: 15px !important;
+        z-index: 100001 !important;
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
     .nav-menu {
@@ -283,45 +279,45 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(31, 41, 55, 0.98);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        width: 100%;
+        min-height: 100vh;
+        background: linear-gradient(180deg, rgba(17, 24, 39, 0.96) 0%, rgba(17, 24, 39, 0.94) 100%);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 12px;
         margin: 0;
-        padding: 80px 20px 40px;
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 96px 20px 28px 20px; /* leave space for burger header */
+        z-index: 99990;
         overflow-y: auto;
     }
 
     .navbar.open .nav-menu {
         display: flex;
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* Keep close (X) exactly where burger button is */
-    .navbar.open .burger {
-        position: absolute;
-        right: 12px;
-        top: 50%;
-        transform: translateY(-50%);
     }
 
     .nav-link {
-        justify-content: center;
-        padding: 20px 40px;
-        font-size: 18px;
-        font-weight: 500;
-        margin: 8px 0;
-        border-radius: 12px;
-        min-width: 200px;
+        display: block;
+        width: 100%;
+        max-width: 520px; /* wide, readable tap targets */
+        margin: 0 auto;
+        padding: 14px 18px;
         text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.10) !important;
+        border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        border-radius: 12px;
+        text-decoration: none !important;
+    }
+
+    .nav-link:hover {
+        background: rgba(255, 255, 255, 0.18) !important;
+        border-color: rgba(255, 255, 255, 0.45) !important;
+        transform: translateY(-1px);
     }
 }
 
