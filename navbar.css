@@ -191,13 +191,13 @@
 /* Burger button (hidden on desktop) */
 .burger {
     display: none;
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 40px;
     cursor: pointer;
     background: rgba(255, 255, 255, 0.15);
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 10px;
-    position: relative; /* make inner bars absolute to center precisely */
+    position: relative;
 }
 
 .burger span {
@@ -213,9 +213,9 @@
 }
 
 /* initial bars positions */
-.burger span:nth-child(1) { top: 16px; }
-.burger span:nth-child(2) { top: 24px; }
-.burger span:nth-child(3) { top: 32px; }
+.burger span:nth-child(1) { top: 12px; }
+.burger span:nth-child(2) { top: 19px; }
+.burger span:nth-child(3) { top: 26px; }
 
 /* Анимация в крестик при открытии: идеально по центру */
 .navbar.open .burger span:nth-child(1) {
@@ -265,7 +265,7 @@
         display: flex !important;
         position: fixed !important;
         right: 15px !important;
-        top: 15px !important;
+        top: 12px !important;
         z-index: 100001 !important;
         background: rgba(255, 255, 255, 0.2);
         border: 2px solid rgba(255, 255, 255, 0.4);
