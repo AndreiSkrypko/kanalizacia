@@ -39,6 +39,9 @@
         return false;
       });
       if (matched) matched.classList.add('active');
+      // Ensure interactions are bound once header is present
+      enhanceInternalLinks();
+      setupBurgerMenu();
       return true;
     };
 
