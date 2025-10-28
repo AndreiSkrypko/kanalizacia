@@ -1,4 +1,10 @@
 /* Modern yellow-green-gray theme */
+/* Global reset to match main page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 :root {
     --bg-page: #fafafa;
     --bg-surface: #ffffff;

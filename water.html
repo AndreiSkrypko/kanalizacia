@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Водоснабжение - AquaForge</title>
-    <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="footer.css">
     <style>
-        .page-content{min-height:60vh;display:flex;align-items:center;justify-content:center;background:#fff;margin:40px auto;max-width:1200px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.1)}
-        .page-title{font-size:2.4em;color:#2c3e50;text-align:center;margin-bottom:12px}
-        .page-subtitle{font-size:1.05em;color:#64748b;text-align:center;max-width:700px}
+        /* Use the same spacing system as index.html */
+        .page-content{background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 100%);padding:40px 0;position:relative;overflow:hidden}
+        .page-content .container{max-width:1200px;margin:0 auto;padding:0 40px}
+        .page-title{font-size:3.2em;background:linear-gradient(135deg,var(--accent-green) 0%, var(--accent-yellow) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:24px;font-weight:800;line-height:1.2}
+        .page-subtitle{font-size:1.4em;color:#64748b;max-width:800px;margin:0 auto 40px;line-height:1.6}
+        @media (max-width:1024px){.page-title{font-size:2.8em}}
+        @media (max-width:768px){.page-content{padding:32px 0}.page-content .container{padding:0 20px}.page-title{font-size:2.4em}.page-subtitle{font-size:1.1em;margin-bottom:28px}}
     </style>
     <script defer src="site.js"></script>
     <script defer src="contacts-modal.js"></script>
@@ -19,7 +23,7 @@
     <div id="header-container"></div>
 
     <div class="page-content">
-        <div>
+        <div class="container">
             <h1 class="page-title">Водоснабжение</h1>
             <p class="page-subtitle">Полноценная страница будет заполнена: бурение скважин, обвязка, ввод воды в дом, насосное оборудование и документация.</p>
         </div>

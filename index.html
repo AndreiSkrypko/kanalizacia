@@ -710,16 +710,7 @@
         }
 
         .review-avatar {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-green) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.1em;
+            display: none !important; /* Hide avatar circles */
         }
 
         .review-info h4 {
@@ -793,9 +784,7 @@
             }
 
             .review-tooltip .review-avatar {
-                width: 35px;
-                height: 35px;
-                font-size: 1em;
+                display: none !important; /* Hide avatar in tooltip too */
             }
 
             .review-tooltip .review-header {
@@ -892,6 +881,168 @@
         .whatsapp-float:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* FAQ Section - Modern Design */
+        .faq-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(251, 191, 36, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .faq-section .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .faq-section .section-header h2 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .faq-section .section-header p {
+            font-size: 1.2em;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .faq-question {
+            padding: 24px 28px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.05) 0%, rgba(251, 191, 36, 0.05) 100%);
+        }
+
+        .faq-question h3 {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 0;
+            flex: 1;
+            line-height: 1.4;
+        }
+
+        .faq-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
+            border-radius: 50%;
+            color: white;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 28px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 28px 24px 28px;
+            max-height: 200px;
+        }
+
+        .faq-answer p {
+            color: #475569;
+            line-height: 1.6;
+            margin: 0;
+            font-size: 0.95em;
+        }
+
+        /* Responsive FAQ */
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: 60px 0;
+            }
+
+            .faq-section .section-header h2 {
+                font-size: 2em;
+            }
+
+            .faq-section .section-header p {
+                font-size: 1em;
+            }
+
+            .faq-question {
+                padding: 20px 20px;
+            }
+
+            .faq-question h3 {
+                font-size: 1em;
+            }
+
+            .faq-icon {
+                width: 28px;
+                height: 28px;
+                margin-left: 12px;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 0 20px 20px 20px;
+            }
         }
 
         /* Responsive */
@@ -1128,7 +1279,7 @@
 
             <!-- 1. Слева картинка, справа текст - Канализация -->
             <div class="service-section service-left">
-                <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&q=80') center/cover;"></div>
+                <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/kolodets.webp') center/cover;"></div>
                 <div class="service-content">
                     <div class="service-text">
                         <h2>Монтаж канализации под ключ</h2>
@@ -1147,7 +1298,7 @@
 
             <!-- 2. Справа картинка, слева текст - Бурение скважин (Водоснабжение) -->
             <div class="service-section service-right" id="water">
-                <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80') center/cover;"></div>
+                <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/skvazina.webp') center/cover;"></div>
                 <div class="service-content">
                     <div class="service-text">
                         <h2>Бурение скважин</h2>
@@ -1167,7 +1318,7 @@
 
             <!-- 3. Слева картинка, справа текст - Аренда спецтехники -->
             <div class="service-section service-left">
-                <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=1200&q=80') center/cover;"></div>
+                <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/manitu.webp') center/cover;"></div>
                 <div class="service-content">
                     <div class="service-text">
                         <h2>Аренда спецтехники</h2>
@@ -1188,7 +1339,7 @@
 
             <!-- 4. Справа картинка, слева текст - Наша продукция -->
             <div class="service-section service-right">
-                <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&q=80') center/cover;"></div>
+                <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/kolca.webp') center/cover;"></div>
                 <div class="service-content">
                     <div class="service-text">
                         <h2>Наша продукция</h2>
@@ -1352,6 +1503,102 @@
                             <div class="review-stars">★★★★★</div>
                         </div>
                         <p class="review-text">"Предложили рассрочку на 6 месяцев без процентов. Очень выручило! Не пришлось брать кредит в банке!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section - Modern Design -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Часто задаваемые вопросы</h2>
+                <p>Ответы на самые популярные вопросы о наших услугах</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Сколько времени занимает монтаж канализации?</h3>
+                        <div class="faq-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Сроки монтажа зависят от сложности проекта. Стандартная канализация из бетонных колец устанавливается за 1-2 дня. Для автономных станций требуется 2-3 дня с учетом подключения и настройки оборудования.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Какая глубина скважины оптимальна для частного дома?</h3>
+                        <div class="faq-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Глубина скважины зависит от геологических особенностей участка. Обычно это 30-80 метров для песчаных водоносных слоев и 80-150 метров для артезианских скважин. Мы проводим геологическую разведку для точного определения глубины.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Предоставляете ли вы гарантию на работы?</h3>
+                        <div class="faq-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, мы предоставляем гарантию на все виды работ: 2 года на монтаж канализации, 3 года на бурение скважин, 1 год на аренду спецтехники. Гарантия распространяется на качество материалов и выполнение работ.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Работаете ли вы в выходные дни?</h3>
+                        <div class="faq-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Мы работаем по будням с 8:00 до 18:00. В выходные дни работаем по предварительной договоренности для срочных заказов. Консультации и расчеты проводим в любое время.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Какие документы нужны для бурения скважины?</h3>
+                        <div class="faq-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Для бурения скважины необходимо: документы на земельный участок, разрешение на бурение (оформляем мы), техническое задание. Мы помогаем с оформлением всех необходимых документов.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Можно ли заказать только материалы без монтажа?</h3>
+                        <div class="faq-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Конечно! Мы реализуем все материалы собственного производства: бетонные кольца, автономные станции, люки, трубы. Доставка по Гродно и области. Цены ниже рыночных благодаря собственному производству.</p>
                     </div>
                 </div>
             </div>
@@ -1600,6 +1847,33 @@
 
             lastScroll = currentScroll;
         }, { passive: true }); // passive для оптимизации производительности
+
+        // FAQ Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    if (isActive) {
+                        item.classList.remove('active');
+                    } else {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
     </script>
     <script src="site.js" defer></script>
     <script src="calculator.js" defer></script>
