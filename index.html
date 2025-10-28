@@ -65,10 +65,13 @@
         /* Hero Section - Premium Design */
         .hero-section {
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: 120px 20px 100px;
+            padding: 40px 20px 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
         }
 
         .hero-section::before {
@@ -86,8 +89,17 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
+            max-width: none;
+            padding: 0 40px;
+        }
+
+        @media (min-width: 1400px) {
+            .hero-content {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 0;
+            }
         }
 
         .hero-content h1 {
@@ -99,7 +111,6 @@
             margin-bottom: 24px;
             font-weight: 800;
             line-height: 1.2;
-            animation: fadeInUp 1s ease-out;
         }
 
         .hero-subtitle {
@@ -108,7 +119,6 @@
             max-width: 800px;
             margin: 0 auto 40px;
             line-height: 1.6;
-            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
         @keyframes fadeInUp {
@@ -120,6 +130,229 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+
+        /* Enhanced Hero Subtitle */
+        .hero-subtitle {
+            font-size: 1.2em;
+            color: #475569;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            line-height: 1.4;
+        }
+
+        .hero-subtitle strong {
+            color: #1e293b;
+            font-weight: 700;
+            display: block;
+            margin-top: 16px;
+            font-size: 1.1em;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        .hero-subtitle em {
+            color: #22c55e;
+            font-weight: 600;
+            display: block;
+            margin-top: 12px;
+            font-size: 0.95em;
+            font-style: normal;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Savings Highlight */
+        .savings-highlight {
+            margin: 30px 0 40px;
+            animation: savingsFadeIn 1.2s ease-out 0.8s both;
+        }
+
+        .savings-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px 35px;
+            border: 2px solid rgba(34, 197, 94, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .savings-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.03) 0%, rgba(251, 191, 36, 0.03) 100%);
+            pointer-events: none;
+        }
+
+        .savings-percentage {
+            text-align: center;
+            min-width: 140px;
+            position: relative;
+        }
+
+        .percentage-number {
+            display: block;
+            font-size: 3.5em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 5px;
+            animation: percentageCount 2s ease-out 1.2s both;
+        }
+
+        .percentage-text {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #374151;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .savings-reasons {
+            flex: 1;
+        }
+
+        .savings-reasons h3 {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .reasons-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .reasons-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            border-left: 4px solid #22c55e;
+            transition: all 0.3s ease;
+            animation: reasonSlideIn 0.8s ease-out calc(1.4s + var(--delay, 0)) both;
+        }
+
+        .reasons-list li:nth-child(1) { --delay: 0s; }
+        .reasons-list li:nth-child(2) { --delay: 0.2s; }
+        .reasons-list li:nth-child(3) { --delay: 0.4s; }
+        .reasons-list li:nth-child(4) { --delay: 0.6s; }
+
+        .reasons-list li:hover {
+            transform: translateX(5px);
+            background: rgba(34, 197, 94, 0.05);
+            border-left-color: #16a34a;
+        }
+
+        .reason-icon {
+            font-size: 1.5em;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .reason-text {
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        @keyframes savingsFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes percentageCount {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes reasonSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+
+
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+
+        .button-icon {
+            font-size: 1.3em;
+        }
+
+        .stat-dash {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.3), transparent);
+            max-width: 200px;
+            position: relative;
+        }
+
+        .stat-dash::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #22c55e, #fbbf24);
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4);
         }
 
         /* Service Sections */
@@ -606,47 +839,169 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 100px 20px 80px;
-            }
-
+        @media (max-width: 1024px) {
             .hero-content h1 {
-                font-size: 2.4em;
+                font-size: 2.8em;
             }
 
             .hero-subtitle {
-                font-size: 1.2em;
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 20px 50px;
+                min-height: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2em;
+                line-height: 1.1;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1em;
+                margin-bottom: 30px;
+            }
+
+            .hero-subtitle strong {
+                font-size: 1em;
+                margin-top: 12px;
+                display: block;
+            }
+
+            .hero-subtitle em {
+                font-size: 0.9em;
+                margin-top: 8px;
+                letter-spacing: 0.3px;
+            }
+
+            .savings-highlight {
+                margin: 25px 0 35px;
+            }
+
+            .savings-content {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px 15px;
+                text-align: center;
+            }
+
+            .percentage-number {
+                font-size: 2.8em;
+            }
+
+            .savings-reasons h3 {
+                font-size: 1.1em;
+                margin-bottom: 15px;
+            }
+
+            .reasons-list li {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 10px;
+                margin-bottom: 15px;
+                padding: 18px 15px;
+                border-radius: 15px;
+            }
+
+            .reason-icon {
+                font-size: 1.6em;
+                margin-top: 0;
+            }
+
+            .reason-text {
+                font-size: 0.9em;
+                line-height: 1.4;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                justify-content: center;
+                gap: 12px;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
             }
 
             .service-section {
                 flex-direction: column !important;
                 min-height: auto;
+                margin: 20px 0;
             }
 
             .service-image {
-                min-height: 350px;
+                min-height: 250px;
+                order: 2;
             }
 
             .service-content {
-                padding: 40px 20px;
+                padding: 30px 20px;
+                order: 1;
             }
 
             .service-text h2 {
-                font-size: 1.8em;
+                font-size: 1.6em;
+                margin-bottom: 20px;
             }
 
             .service-text p {
-                font-size: 1em;
+                font-size: 0.95em;
+                margin-bottom: 25px;
             }
 
+            .whatsapp-float {
+                bottom: 15px;
+                right: 15px;
+                width: 48px;
+                height: 48px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 40px 15px 35px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8em;
+            }
+
+            .hero-subtitle {
+                font-size: 1em;
+                margin-bottom: 25px;
+            }
+
+            .savings-content {
+                padding: 15px 12px;
+            }
+
+            .percentage-number {
+                font-size: 2.5em;
+            }
+
+            .reasons-list li {
+                padding: 15px 12px;
+                margin-bottom: 12px;
+            }
+
+            .service-content {
+                padding: 25px 15px;
+            }
+
+            .service-text h2 {
+                font-size: 1.4em;
+            }
 
             .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 26px;
+                bottom: 12px;
+                right: 12px;
+                width: 44px;
+                height: 44px;
+                font-size: 22px;
             }
         }
     </style>
@@ -677,14 +1032,14 @@
             </div>
             <div class="logo-text">
                 <div class="logo-title"><span class="aqua">Aqua</span>Forge</div>
-                <div class="logo-subtitle">Кузница водных систем</div>
+                <div class="logo-subtitle">Мы куем надежные водные системы! Профессиональный монтаж колодцев, септиков и систем водоснабжения</div>
             </div>
         </div>
 
         <div class="header-info">
-            <div class="location">
+            <a href="geography.html" class="location-badge">
                 Гродно и Гродненская область
-            </div>
+            </a>
             <div class="contacts">
                 <a href="tel:+375291234567" class="phone">+375 (29) 123-45-67</a>
                 <a href="tel:+375333456789" class="phone">+375 (33) 345-67-89</a>
@@ -721,10 +1076,54 @@
     </nav>
 
     <!-- Main Content -->
+    <!-- Hero Section -->
     <div class="hero-section">
         <div class="hero-content">
-            <h1>🔥 AquaForge - Кузница водных систем</h1>
-            <p class="hero-subtitle">Мы куем надежные водные системы! Профессиональный монтаж колодцев, септиков и систем водоснабжения в Гродно и Гродненской области</p>
+
+
+            <p class="hero-subtitle">
+                <strong>При заказе канализации у нас — полный цикл работ от одних рук с высочайшим качеством выполнения и индивидуальным подходом</strong>
+                <em>Все материалы, фурнитура и техника — наши собственные • Без посредников • Гарантия качества • Экономия средств</em>
+            </p>
+
+            <!-- Savings Highlight -->
+            <div class="savings-highlight">
+                <div class="savings-content">
+                    <div class="savings-percentage">
+                        <span class="percentage-number">30%</span>
+                        <span class="percentage-text">экономии</span>
+                    </div>
+                    <div class="savings-reasons">
+                        <h3>Почему у нас дешевле?</h3>
+                        <ul class="reasons-list">
+                            <li>
+                                <span class="reason-icon">🏗️</span>
+                                <span class="reason-text">Собственная строительная техника и оборудование</span>
+                            </li>
+                            <li>
+                                <span class="reason-icon">🏭</span>
+                                <span class="reason-text">Собственное производство труб, фитингов и бетонных изделий</span>
+                            </li>
+                            <li>
+                                <span class="reason-icon">🚛</span>
+                                <span class="reason-text">Прямые поставки без посредников и наценок</span>
+                            </li>
+                            <li>
+                                <span class="reason-icon">⚡</span>
+                                <span class="reason-text">Оптимизированные процессы и отсутствие простоев</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="hero-buttons">
+                <a href="#contacts" class="cta-button primary">
+                    <span class="button-icon">📞</span>
+                    Получить консультацию
+                </a>
+            </div>
         </div>
     </div>
 

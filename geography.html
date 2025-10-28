@@ -433,73 +433,8 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="logo">
-            <div class="logo-icon">
-                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Forge Hammer Head -->
-                    <path d="M20 12 L44 12 L46 18 L44 24 L20 24 L18 18 Z" fill="white" opacity="0.95"/>
-                    <rect x="30" y="24" width="4" height="20" fill="white" opacity="0.9"/>
-                    
-                    <!-- Water Drop (Aqua element) -->
-                    <path d="M32 4 C32 4, 26 12, 26 18 C26 23, 28.5 26, 32 26 C35.5 26, 38 23, 38 18 C38 12, 32 4, 32 4 Z" fill="white" opacity="0.9"/>
-                    
-                    <!-- Forge Sparks -->
-                    <circle cx="14" cy="20" r="2" fill="white" opacity="0.8"/>
-                    <circle cx="50" cy="22" r="1.5" fill="white" opacity="0.7"/>
-                    <circle cx="52" cy="16" r="1.8" fill="white" opacity="0.9"/>
-                    <circle cx="12" cy="28" r="1.2" fill="white" opacity="0.6"/>
-                    
-                    <!-- Water Waves -->
-                    <path d="M8 48 Q18 44, 28 48 T48 48 T64 48" stroke="white" stroke-width="2.5" fill="none" opacity="0.8"/>
-                    <path d="M6 54 Q16 51, 26 54 T46 54 T62 54" stroke="white" stroke-width="2" fill="none" opacity="0.6"/>
-                </svg>
-            </div>
-            <div class="logo-text">
-                <div class="logo-title"><span class="aqua">Aqua</span>Forge</div>
-                <div class="logo-subtitle">Кузница водных систем</div>
-            </div>
-        </div>
-
-        <div class="header-info">
-            <div class="location">
-                Гродно и Гродненская область
-            </div>
-            <div class="contacts">
-                <a href="tel:+375291234567" class="phone">+375 (29) 123-45-67</a>
-                <a href="tel:+375333456789" class="phone">+375 (33) 345-67-89</a>
-            </div>
-            <a href="#" class="cta-button">Расчет стоимости онлайн</a>
-        </div>
-    </header>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="index.html" class="nav-link">Наши услуги</a>
-            </li>
-            <li class="nav-item">
-                <a href="geography.html" class="nav-link active">География услуг</a>
-            </li>
-            <li class="nav-item">
-                <a href="equipment.html" class="nav-link">Оборудование</a>
-            </li>
-            <li class="nav-item">
-                <a href="rent.html" class="nav-link">Аренда спецтехники</a>
-            </li>
-            <li class="nav-item">
-                <a href="rings.html" class="nav-link">Бетонные кольца</a>
-            </li>
-            <li class="nav-item">
-                <a href="about.html" class="nav-link">О нас</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link" onclick="contactsModal.openModal(); return false;">Контакты</a>
-            </li>
-        </ul>
-    </nav>
+    <!-- Подключение общего header -->
+    <div id="header-container"></div>
 
     <!-- Coverage Info Section -->
     <div class="coverage-section">
@@ -969,6 +904,16 @@
             });
         });
         
+        // Загрузка header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+                // Обновляем активный пункт меню
+                document.querySelector('a[href="geography.html"]').classList.add('active');
+            })
+            .catch(error => console.error('Ошибка загрузки header:', error));
+
         // Загрузка футера
         fetch('footer.html')
             .then(response => response.text())
