@@ -39,9 +39,10 @@
         return false;
       });
       if (matched) matched.classList.add('active');
-      // Ensure interactions are bound once header is present
+      // Ensure interactions are bound once header is present and navbar title updated
       enhanceInternalLinks();
       setupBurgerMenu();
+      setupNavbarTitle();
       return true;
     };
 
@@ -149,10 +150,26 @@
     });
   }
 
+  // Create or update centered navbar title for mobile
+  function setupNavbarTitle() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    let titleEl = navbar.querySelector('.navbar-title');
+    if (!titleEl) {
+      titleEl = document.createElement('div');
+      titleEl.className = 'navbar-title';
+      navbar.appendChild(titleEl);
+    }
+    const sourceTitle = document.querySelector('.header .logo-title');
+    const titleHtml = (sourceTitle?.innerHTML || 'AquaForge').trim();
+    titleEl.innerHTML = titleHtml;
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     ensureOverlay();
     enhanceInternalLinks();
     setupBurgerMenu();
+    setupNavbarTitle();
     // Ensure active nav link persists across pages after header is loaded
     setupActiveNavSync();
   });

@@ -441,6 +441,36 @@
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
+    /* Centered brand title in navbar on mobile */
+    .navbar-title {
+        position: fixed;
+        top: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #ffffff;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+        font-size: 16px;
+        z-index: 100000;
+        pointer-events: none;
+        text-transform: none;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    }
+
+    /* Preserve gradient inside brand title like desktop (.logo-title .aqua) */
+    .navbar-title .aqua {
+        background: linear-gradient(135deg, #22c55e 0%, #fbbf24 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Hide header logo/icon on mobile to avoid duplicate title */
+    .header .logo-icon,
+    .header .logo-text {
+        display: none !important;
+    }
+
     .nav-menu {
         display: none;
         position: fixed;
