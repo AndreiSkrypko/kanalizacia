@@ -97,7 +97,7 @@
         @media (min-width: 1400px) {
             .hero-content {
                 max-width: 1400px;
-                margin: 0 auto;
+            margin: 0 auto;
                 padding: 0;
             }
         }
@@ -355,35 +355,74 @@
             box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4);
         }
 
-        /* Service Sections */
-        .service-section {
-            display: flex;
-            min-height: 600px;
-            align-items: stretch;
-            border-bottom: 1px solid rgba(179, 220, 237, 0.3);
+        /* Services Section - Compact with Photos */
+        .services-section {
+            padding: 40px 0 80px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
         }
 
-        .service-section::before {
+        .services-section::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-            transition: left 0.8s ease;
-            z-index: 1;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(34, 197, 94, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(251, 191, 36, 0.03) 0%, transparent 50%);
+            pointer-events: none;
         }
 
-        .service-section:hover::before {
-            left: 100%;
+        .services-section .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-section .section-header h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .services-section .section-header p {
+            font-size: 1.2em;
+            color: var(--gray-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .service-section {
+            display: flex;
+            min-height: 450px;
+            align-items: stretch;
+            margin-bottom: 40px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+                        0 2px 8px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .service-section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15),
+                        0 4px 16px rgba(0, 0, 0, 0.12);
         }
 
         .service-section:last-of-type {
-            border-bottom: none;
+            margin-bottom: 0;
         }
 
         .service-left {
@@ -396,11 +435,16 @@
 
         .service-image {
             flex: 1;
-            min-height: 600px;
+            min-height: 450px;
             background-size: cover !important;
             background-position: center !important;
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .service-section:hover .service-image {
+            transform: scale(1.02);
         }
 
         .service-content {
@@ -408,65 +452,77 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 50px;
+            padding: 40px 30px;
             background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
             position: relative;
-            border-radius: 0;
-        }
-
-        .service-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-            background: linear-gradient(to right, rgba(248, 250, 252, 0.95), rgba(255, 255, 255, 1));
-            z-index: 0;
-        }
-
-        .service-left .service-content::before {
-            background: linear-gradient(to left, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 1));
-        }
-
-        .service-right .service-content::before {
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 1));
+            z-index: 1;
         }
 
         .service-text {
-            max-width: 550px;
+            max-width: 500px;
             position: relative;
             z-index: 1;
         }
 
         .service-text h2 {
-            font-size: 2.4em;
+            font-size: 2em;
             background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 24px;
-            font-weight: 800;
+            margin-bottom: 20px;
+            font-weight: 700;
             line-height: 1.2;
         }
 
         .service-text p {
-            font-size: 1.2em;
-            color: #64748b;
-            line-height: 1.7;
-            margin-bottom: 30px;
+            font-size: 1.1em;
+            color: var(--gray-medium);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .service-subitems {
+            margin-bottom: 20px;
+        }
+
+        .subitem {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(34, 197, 94, 0.1);
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .subitem-text {
+            font-size: 0.95em;
+            color: var(--text-dark);
+            font-weight: 500;
         }
 
         .service-list {
             list-style: none;
             padding: 0;
-            margin: 25px 0;
+            margin: 20px 0;
         }
 
         .service-list li {
-            font-size: 1.05em;
-            color: #444;
-            padding: 10px 0;
-            border-bottom: 1px solid #e8f4f8;
+            font-size: 0.95em;
+            color: var(--text-dark);
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: bold;
         }
 
         .service-list li:last-child {
@@ -477,14 +533,14 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 14px 28px;
+            padding: 12px 24px;
             background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-green-dark) 100%);
             color: white;
             text-decoration: none;
-            font-size: 1.05em;
+            font-size: 0.95em;
             font-weight: 600;
             border-radius: 8px;
-            margin-top: 25px;
+            margin-top: 20px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
             position: relative;
@@ -513,7 +569,7 @@
 
         .service-button::after {
             content: '→';
-            font-size: 1.2em;
+            font-size: 1.1em;
             transition: transform 0.3s ease;
         }
 
@@ -1007,73 +1063,8 @@
     </style>
 </head>
 <body>
-    <!-- Header with Logo and Contacts -->
-    <header class="header">
-        <div class="logo">
-            <div class="logo-icon">
-                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Forge Hammer Head -->
-                    <path d="M20 12 L44 12 L46 18 L44 24 L20 24 L18 18 Z" fill="white" opacity="0.95"/>
-                    <rect x="30" y="24" width="4" height="20" fill="white" opacity="0.9"/>
-                    
-                    <!-- Water Drop (Aqua element) -->
-                    <path d="M32 4 C32 4, 26 12, 26 18 C26 23, 28.5 26, 32 26 C35.5 26, 38 23, 38 18 C38 12, 32 4, 32 4 Z" fill="white" opacity="0.9"/>
-                    
-                    <!-- Forge Sparks -->
-                    <circle cx="14" cy="20" r="2" fill="white" opacity="0.8"/>
-                    <circle cx="50" cy="22" r="1.5" fill="white" opacity="0.7"/>
-                    <circle cx="52" cy="16" r="1.8" fill="white" opacity="0.9"/>
-                    <circle cx="12" cy="28" r="1.2" fill="white" opacity="0.6"/>
-                    
-                    <!-- Water Waves -->
-                    <path d="M8 48 Q18 44, 28 48 T48 48 T64 48" stroke="white" stroke-width="2.5" fill="none" opacity="0.8"/>
-                    <path d="M6 54 Q16 51, 26 54 T46 54 T62 54" stroke="white" stroke-width="2" fill="none" opacity="0.6"/>
-                </svg>
-            </div>
-            <div class="logo-text">
-                <div class="logo-title"><span class="aqua">Aqua</span>Forge</div>
-                <div class="logo-subtitle">Мы куем надежные водные системы! Профессиональный монтаж колодцев, септиков и систем водоснабжения</div>
-            </div>
-        </div>
-
-        <div class="header-info">
-            <a href="geography.html" class="location-badge">
-                Гродно и Гродненская область
-            </a>
-            <div class="contacts">
-                <a href="tel:+375291234567" class="phone">+375 (29) 123-45-67</a>
-                <a href="tel:+375333456789" class="phone">+375 (33) 345-67-89</a>
-            </div>
-            <a href="#" class="cta-button">Расчет стоимости онлайн</a>
-        </div>
-    </header>
-
-    <!-- Navigation Menu -->
-    <nav class="navbar">
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="index.html" class="nav-link active">Наши услуги</a>
-            </li>
-            <li class="nav-item">
-                <a href="geography.html" class="nav-link">География услуг</a>
-            </li>
-            <li class="nav-item">
-                <a href="equipment.html" class="nav-link">Оборудование</a>
-            </li>
-            <li class="nav-item">
-                <a href="rent.html" class="nav-link">Аренда спецтехники</a>
-            </li>
-            <li class="nav-item">
-                <a href="rings.html" class="nav-link">Бетонные кольца</a>
-            </li>
-            <li class="nav-item">
-                <a href="about.html" class="nav-link">О нас</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link" onclick="contactsModal.openModal(); return false;">Контакты</a>
-            </li>
-        </ul>
-    </nav>
+    <!-- Общий header/nav -->
+    <div id="header-container"></div>
 
     <!-- Main Content -->
     <!-- Hero Section -->
@@ -1092,7 +1083,7 @@
                     <div class="savings-percentage">
                         <span class="percentage-number">30%</span>
                         <span class="percentage-text">экономии</span>
-                    </div>
+                </div>
                     <div class="savings-reasons">
                         <h3>Почему у нас дешевле?</h3>
                         <ul class="reasons-list">
@@ -1116,7 +1107,7 @@
                     </div>
                 </div>
             </div>
-
+            
 
             <div class="hero-buttons">
                 <a href="#contacts" class="cta-button primary">
@@ -1127,63 +1118,91 @@
         </div>
     </div>
 
-    <!-- Services Sections -->
-    <!-- 1. Слева картинка, справа текст - Канализация -->
-    <section class="service-section service-left">
-        <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&q=80') center/cover;">
-        </div>
-        <div class="service-content">
-            <div class="service-text">
-                <h2>🚰 Монтаж канализации под ключ</h2>
-                <p>Комплексное решение для частных домов и коммерческих объектов. Проектирование, установка септиков, прокладка труб, подключение сантехники.</p>
-                <ul class="service-list">
-                    <li>✓ Проектирование системы канализации</li>
-                    <li>✓ Установка септиков и станций очистки</li>
-                    <li>✓ Прокладка канализационных труб</li>
-                    <li>✓ Монтаж внутренней разводки</li>
-                    <li>✓ Гарантия на все работы</li>
-                </ul>
-                <a href="#" class="service-button">Узнать подробнее</a>
+    <!-- Services Section - Compact with Photos -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Наши услуги</h2>
+                <p>Комплексное решение всех задач водоснабжения и канализации</p>
             </div>
-        </div>
-    </section>
 
-    <!-- 2. Справа картинка, слева текст - Автономные станции -->
-    <section class="service-section service-right">
-        <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80') center/cover !important; background-size: cover !important; background-position: center !important;">
-        </div>
-        <div class="service-content">
-            <div class="service-text">
-                <h2>⚡ Монтаж автономных станций</h2>
-                <p>Установка современных систем водоснабжения и водоочистки. Обеспечим ваш дом чистой водой круглый год.</p>
-                <ul class="service-list">
-                    <li>✓ Подбор оптимальной станции</li>
-                    <li>✓ Профессиональный монтаж оборудования</li>
-                    <li>✓ Установка систем фильтрации</li>
-                    <li>✓ Настройка и тестирование</li>
-                    <li>✓ Сервисное обслуживание</li>
-                </ul>
-                <a href="#" class="service-button">Узнать подробнее</a>
+            <!-- 1. Слева картинка, справа текст - Канализация -->
+            <div class="service-section service-left">
+                <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&q=80') center/cover;"></div>
+                <div class="service-content">
+                    <div class="service-text">
+                        <h2>Монтаж канализации под ключ</h2>
+                        <p>Канализация из бетонных колец под ключ, автономные станции при высоком уровне грунтовых вод.</p>
+                        <ul class="service-list">
+                            <li>Проектирование и расчет системы</li>
+                            <li>Установка бетонных колец и септиков</li>
+                            <li>Монтаж автономных станций очистки</li>
+                            <li>Работы при высоком уровне грунтовых вод</li>
+                            <li>Гарантия на все виды работ</li>
+                        </ul>
+                        <a href="#" class="service-button">Узнать подробнее</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- 3. Слева картинка, справа текст - Бурение скважин -->
-    <section class="service-section service-left">
-        <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80') center/cover !important; background-size: cover !important; background-position: center !important;">
-        </div>
-        <div class="service-content">
-            <div class="service-text">
-                <h2>💧 Бурение скважин под воду</h2>
-                <p>Профессиональное бурение скважин на воду любой сложности. Современное оборудование, опытная бригада, быстрые сроки.</p>
-                <ul class="service-list">
-                    <li>✓ Геологическая разведка участка</li>
-                    <li>✓ Бурение скважин до 150 метров</li>
-                    <li>✓ Установка обсадных труб</li>
-                    <li>✓ Монтаж насосного оборудования</li>
-                    <li>✓ Оформление документов</li>
-                </ul>
-                <a href="#" class="service-button">Узнать подробнее</a>
+            <!-- 2. Справа картинка, слева текст - Бурение скважин (Водоснабжение) -->
+            <div class="service-section service-right" id="water">
+                <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80') center/cover;"></div>
+                <div class="service-content">
+                    <div class="service-text">
+                        <h2>Бурение скважин</h2>
+                        <p>Полный цикл работ по водоснабжению: бурение скважин, обвязка скважины, ввод воды в дом.</p>
+                        <ul class="service-list">
+                            <li>Геологическая разведка участка</li>
+                            <li>Бурение скважин до 150 метров</li>
+                            <li>Обвязка скважины</li>
+                            <li>Ввод воды в дом</li>
+                            <li>Монтаж насосного оборудования</li>
+                            <li>Оформление документов</li>
+                        </ul>
+                        <a href="#" class="service-button">Узнать подробнее</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Слева картинка, справа текст - Аренда спецтехники -->
+            <div class="service-section service-left">
+                <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=1200&q=80') center/cover;"></div>
+                <div class="service-content">
+                    <div class="service-text">
+                        <h2>Аренда спецтехники</h2>
+                        <p>Современная спецтехника для любых задач строительства и ремонта. Опытные операторы и качественное оборудование.</p>
+                        <ul class="service-list">
+                            <li>Экскаватор</li>
+                            <li>Манипулятор</li>
+                            <li>Самосвал</li>
+                            <li>Фронтальный погрузчик</li>
+                            <li>Бурровые установки</li>
+                            <li>Трубоукладчики</li>
+                            <li>Операторы с опытом</li>
+                        </ul>
+                        <a href="#" class="service-button">Узнать подробнее</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Справа картинка, слева текст - Наша продукция -->
+            <div class="service-section service-right">
+                <div class="service-image" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&q=80') center/cover;"></div>
+                <div class="service-content">
+                    <div class="service-text">
+                        <h2>Наша продукция</h2>
+                        <p>Собственное производство материалов высокого качества. Все необходимое для систем водоснабжения и канализации.</p>
+                        <ul class="service-list">
+                            <li>Бетонные кольца</li>
+                            <li>Автономные станции</li>
+                            <li>Люки полимерные</li>
+                            <li>Люк чугунный</li>
+                            <li>Трубы полимерные</li>
+                        </ul>
+                        <a href="#" class="service-button">Узнать подробнее</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1343,6 +1362,18 @@
     <div id="footer-container"></div>
 
     <script>
+        // Загружаем общий header для единых стилей
+        fetch('header.html')
+            .then(r => r.text())
+            .then(h => {
+                const headerMount = document.getElementById('header-container');
+                if (headerMount) {
+                    headerMount.innerHTML = h;
+                    // активный пункт
+                    const current = document.querySelector('a[href="index.html"]');
+                    if (current) current.classList.add('active');
+                }
+            });
         console.log('Сайт загружен успешно!');
         
         // Загрузка футера

@@ -22,6 +22,38 @@
     return overlay;
   }
 
+  // Mark current nav link as active based on location
+  function setupActiveNavSync() {
+    const tryMark = () => {
+      const navLinks = document.querySelectorAll('.navbar .nav-link');
+      if (!navLinks || navLinks.length === 0) return false;
+      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+      navLinks.forEach(link => link.classList.remove('active'));
+      let matched = Array.from(navLinks).find(a => {
+        const href = a.getAttribute('href');
+        if (!href) return false;
+        const hrefPath = href.split('/').pop();
+        if (hrefPath === currentPath) return true;
+        // Treat root as index.html
+        if ((currentPath === '' || currentPath === 'index.html') && (hrefPath === '' || hrefPath === './' || hrefPath === 'index.html')) return true;
+        return false;
+      });
+      if (matched) matched.classList.add('active');
+      return true;
+    };
+
+    // Immediate try (in case header is already in DOM)
+    if (tryMark()) return;
+
+    // Observe header container for when header.html is injected
+    const headerContainer = document.getElementById('header-container');
+    if (!headerContainer) return;
+    const observer = new MutationObserver(() => {
+      if (tryMark()) observer.disconnect();
+    });
+    observer.observe(headerContainer, { childList: true, subtree: true });
+  }
+
   function handleLinkClick(event) {
     const anchor = event.currentTarget;
 
@@ -118,6 +150,8 @@
     ensureOverlay();
     enhanceInternalLinks();
     setupBurgerMenu();
+    // Ensure active nav link persists across pages after header is loaded
+    setupActiveNavSync();
   });
 })();
 

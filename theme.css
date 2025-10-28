@@ -22,6 +22,8 @@ body {
     background: var(--bg-page) !important;
     color: var(--text-primary) !important;
     padding-top: 64px; /* offset for fixed navbar */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    line-height: 1.6 !important;
 }
 
 /* Cards/Containers */
