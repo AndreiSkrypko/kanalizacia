@@ -297,13 +297,14 @@
     gap: 5px;
     color: white;
     text-decoration: none;
-    padding: 18px 28px;
+    padding: 6px 14px; /* compact vertical padding */
     font-weight: 500;
-    font-size: 15px;
+    font-size: 15px; /* restore original size */
     letter-spacing: -0.01em;
     border-radius: 8px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    line-height: 1.2;
 }
 
 /* Unified underline indicator (hover + active) */
@@ -353,10 +354,10 @@
     position: relative;
 }
 
-.burger span {
+    .burger span {
     position: absolute;
     left: 50%;
-    width: 26px;
+        width: 22px;
     height: 2px;
     background: #ffffff;
     border-radius: 2px;
@@ -366,9 +367,9 @@
 }
 
 /* initial bars positions */
-.burger span:nth-child(1) { top: 12px; }
-.burger span:nth-child(2) { top: 19px; }
-.burger span:nth-child(3) { top: 26px; }
+    .burger span:nth-child(1) { top: 7px; }
+    .burger span:nth-child(2) { top: 14px; }
+    .burger span:nth-child(3) { top: 21px; }
 
 /* Анимация в крестик при открытии: идеально по центру */
 .navbar.open .burger span:nth-child(1) {
@@ -422,8 +423,8 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        min-height: 64px;
-        padding: 8px 0;
+        min-height: 36px; /* much thinner */
+        padding: 0; /* remove vertical padding */
         display: block;
         background: rgba(31, 41, 55, 0.95);
         backdrop-filter: blur(12px);
@@ -433,24 +434,27 @@
     .burger {
         display: flex !important;
         position: fixed !important;
-        right: 15px !important;
-        top: 12px !important;
+        right: 6px !important;
+        top: 4px !important; /* keep inside 36px navbar */
         z-index: 100001 !important;
         background: rgba(255, 255, 255, 0.2);
         border: 2px solid rgba(255, 255, 255, 0.4);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        width: 36px;
+        height: 28px;
+        transform: none;
     }
 
     /* Centered brand title in navbar on mobile */
     .navbar-title {
         position: fixed;
-        top: 14px;
+        top: 6px;
         left: 50%;
         transform: translateX(-50%);
         color: #ffffff;
         font-weight: 800;
-        letter-spacing: 0.2px;
-        font-size: 16px;
+        letter-spacing: 0.05px;
+        font-size: 16px; /* restore original mobile size */
         z-index: 100000;
         pointer-events: none;
         text-transform: none;
@@ -500,11 +504,11 @@
     .nav-link {
         display: block;
         width: 100%;
-        max-width: 520px; /* wide, readable tap targets */
+        max-width: 520px; /* readable tap targets */
         margin: 0 auto;
-        padding: 14px 18px;
+        padding: 6px 10px; /* tighter */
         text-align: center;
-        font-size: 16px;
+        font-size: 12px;
         font-weight: 600;
         color: #ffffff !important;
         background: rgba(255, 255, 255, 0.10) !important;
