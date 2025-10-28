@@ -929,10 +929,10 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
         }
 
-        /* FAQ Section - Modern Design */
+        /* FAQ Section - Compact Design with Image */
         .faq-section {
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: 60px 0;
+            padding: 40px 0;
             position: relative;
             overflow: hidden;
         }
@@ -951,58 +951,226 @@
 
         .faq-section .section-header {
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
             position: relative;
             z-index: 2;
         }
 
         .faq-section .section-header h2 {
-            font-size: 2.5em;
+            font-size: 2.2em;
             background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             font-weight: 800;
         }
 
         .faq-section .section-header p {
-            font-size: 1.2em;
+            font-size: 1.1em;
             color: #64748b;
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
         }
 
         .faq-container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .faq-image {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(251, 191, 36, 0.1) 100%);
+            border-radius: 16px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-image::before {
+            content: '💬';
+            font-size: 4em;
+            opacity: 0.3;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .faq-image-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .faq-image h3 {
+            font-size: 1.8em;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .faq-image p {
+            color: var(--text-secondary);
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        /* FAQ Form Styles */
+        .faq-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            font-size: 0.95em;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+            font-family: inherit;
+        }
+
+        .faq-submit-btn {
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-submit-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+        }
+
+        .faq-submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .faq-submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-icon {
+            font-size: 1.1em;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-submit-btn:hover .btn-icon {
+            transform: translateX(2px);
+        }
+
+        /* Form Success/Error States */
+        .form-success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .form-error {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .form-message {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 12px;
+            font-size: 0.9em;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            background: rgba(16, 185, 129, 0.1);
+            color: #059669;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .form-message.error {
+            background: rgba(239, 68, 68, 0.1);
+            color: #dc2626;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .faq-questions {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
         .faq-item {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            border-radius: 16px;
-            margin-bottom: 20px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .faq-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .faq-question {
-            padding: 24px 28px;
+            padding: 18px 20px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
             transition: all 0.3s ease;
             position: relative;
         }
@@ -1012,7 +1180,7 @@
         }
 
         .faq-question h3 {
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: 600;
             color: #1e293b;
             margin: 0;
@@ -1021,8 +1189,8 @@
         }
 
         .faq-icon {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1031,7 +1199,7 @@
             color: white;
             transition: transform 0.3s ease;
             flex-shrink: 0;
-            margin-left: 16px;
+            margin-left: 12px;
         }
 
         .faq-item.active .faq-icon {
@@ -1039,55 +1207,88 @@
         }
 
         .faq-answer {
-            padding: 0 28px;
+            padding: 0 20px;
             max-height: 0;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.7);
         }
 
         .faq-item.active .faq-answer {
-            padding: 0 28px 24px 28px;
-            max-height: 200px;
+            padding: 0 20px 18px 20px;
+            max-height: 150px;
         }
 
         .faq-answer p {
             color: #475569;
-            line-height: 1.6;
+            line-height: 1.5;
             margin: 0;
-            font-size: 0.95em;
+            font-size: 0.9em;
         }
 
         /* Responsive FAQ */
         @media (max-width: 768px) {
             .faq-section {
-                padding: 60px 0;
+                padding: 40px 0;
             }
 
             .faq-section .section-header h2 {
-                font-size: 2em;
+                font-size: 1.8em;
             }
 
             .faq-section .section-header p {
                 font-size: 1em;
             }
 
-            .faq-question {
-                padding: 20px 20px;
+            .faq-container {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
 
-            .faq-question h3 {
+            .faq-image {
+                padding: 24px;
+                min-height: 300px;
+            }
+
+            .faq-image h3 {
+                font-size: 1.4em;
+            }
+
+            .faq-image p {
                 font-size: 1em;
             }
 
+            .faq-form {
+                gap: 12px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 10px 14px;
+                font-size: 0.9em;
+            }
+
+            .faq-submit-btn {
+                padding: 12px 16px;
+                font-size: 0.95em;
+            }
+
+            .faq-question {
+                padding: 16px 18px;
+            }
+
+            .faq-question h3 {
+                font-size: 0.95em;
+            }
+
             .faq-icon {
-                width: 28px;
-                height: 28px;
-                margin-left: 12px;
+                width: 24px;
+                height: 24px;
+                margin-left: 10px;
             }
 
             .faq-item.active .faq-answer {
-                padding: 0 20px 20px 20px;
+                padding: 0 18px 16px 18px;
             }
         }
 
@@ -1564,88 +1765,142 @@
             </div>
             
             <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Сколько времени занимает монтаж канализации?</h3>
-                        <div class="faq-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Сроки монтажа зависят от сложности проекта. Стандартная канализация из бетонных колец устанавливается за 1-2 дня. Для автономных станций требуется 2-3 дня с учетом подключения и настройки оборудования.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Какая глубина скважины оптимальна для частного дома?</h3>
-                        <div class="faq-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Глубина скважины зависит от геологических особенностей участка. Обычно это 30-80 метров для песчаных водоносных слоев и 80-150 метров для артезианских скважин. Мы проводим геологическую разведку для точного определения глубины.</p>
+                <div class="faq-image">
+                    <div class="faq-image-content">
+                        <h3>Есть вопросы?</h3>
+                        <p>Наши специалисты готовы ответить на любые вопросы о водоснабжении и канализации. Задайте свой вопрос прямо здесь!</p>
+                        
+                        <form class="faq-form" id="faqForm">
+                            <div class="form-group">
+                                <input type="text" id="faqName" name="name" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="faqPhone" name="phone" placeholder="Телефон" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="faqQuestion" name="question" placeholder="Ваш вопрос" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="faq-submit-btn">
+                                <span class="btn-text">Отправить вопрос</span>
+                                <span class="btn-icon">📤</span>
+                            </button>
+                        </form>
                     </div>
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Предоставляете ли вы гарантию на работы?</h3>
-                        <div class="faq-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                
+                <div class="faq-questions">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Сколько времени занимает монтаж канализации?</h3>
+                            <div class="faq-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Сроки монтажа зависят от сложности проекта. Стандартная канализация из бетонных колец устанавливается за 1-2 дня. Для автономных станций требуется 2-3 дня с учетом подключения и настройки оборудования.</p>
                         </div>
                     </div>
-                    <div class="faq-answer">
-                        <p>Да, мы предоставляем гарантию на все виды работ: 2 года на монтаж канализации, 3 года на бурение скважин, 1 год на аренду спецтехники. Гарантия распространяется на качество материалов и выполнение работ.</p>
-                    </div>
-                </div>
 
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Работаете ли вы в выходные дни?</h3>
-                        <div class="faq-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Какая глубина скважины оптимальна для частного дома?</h3>
+                            <div class="faq-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Глубина скважины зависит от геологических особенностей участка. Обычно это 30-80 метров для песчаных водоносных слоев и 80-150 метров для артезианских скважин. Мы проводим геологическую разведку для точного определения глубины.</p>
                         </div>
                     </div>
-                    <div class="faq-answer">
-                        <p>Мы работаем по будням с 8:00 до 18:00. В выходные дни работаем по предварительной договоренности для срочных заказов. Консультации и расчеты проводим в любое время.</p>
-                    </div>
-                </div>
 
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Какие документы нужны для бурения скважины?</h3>
-                        <div class="faq-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Предоставляете ли вы гарантию на работы?</h3>
+                            <div class="faq-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, мы предоставляем гарантию на все виды работ: 2 года на монтаж канализации, 3 года на бурение скважин, 1 год на аренду спецтехники. Гарантия распространяется на качество материалов и выполнение работ.</p>
                         </div>
                     </div>
-                    <div class="faq-answer">
-                        <p>Для бурения скважины необходимо: документы на земельный участок, разрешение на бурение (оформляем мы), техническое задание. Мы помогаем с оформлением всех необходимых документов.</p>
-                    </div>
-                </div>
 
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Можно ли заказать только материалы без монтажа?</h3>
-                        <div class="faq-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Работаете ли вы в выходные дни?</h3>
+                            <div class="faq-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Мы работаем по будням с 8:00 до 18:00. В выходные дни работаем по предварительной договоренности для срочных заказов. Консультации и расчеты проводим в любое время.</p>
                         </div>
                     </div>
-                    <div class="faq-answer">
-                        <p>Конечно! Мы реализуем все материалы собственного производства: бетонные кольца, автономные станции, люки, трубы. Доставка по Гродно и области. Цены ниже рыночных благодаря собственному производству.</p>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Какие документы нужны для бурения скважины?</h3>
+                            <div class="faq-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Для бурения скважины необходимо: документы на земельный участок, разрешение на бурение (оформляем мы), техническое задание. Мы помогаем с оформлением всех необходимых документов.</p>
+                        </div>
                     </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Можно ли заказать только материалы без монтажа?</h3>
+                            <div class="faq-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Конечно! Мы реализуем все материалы собственного производства: бетонные кольца, автономные станции, люки, трубы. Доставка по Гродно и области. Цены ниже рыночных благодаря собственному производству.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Какова стоимость бурения скважины?</h3>
+                            <div class="faq-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Стоимость зависит от глубины и типа скважины. Песчаная скважина от 1500 руб/м, артезианская от 2000 руб/м. Точную стоимость рассчитываем после геологической разведки.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Какие автономные станции вы устанавливаете?</h3>
+                            <div class="faq-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Устанавливаем станции Топас, Юнилос, БиоДека, Евробион и другие. Подбираем оптимальную модель в зависимости от количества проживающих и особенностей участка.</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -1919,6 +2174,103 @@
                     }
                 });
             });
+
+            // FAQ Form functionality
+            const faqForm = document.getElementById('faqForm');
+            if (faqForm) {
+                faqForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = faqForm.querySelector('.faq-submit-btn');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const btnIcon = submitBtn.querySelector('.btn-icon');
+                    
+                    // Get form data
+                    const formData = new FormData(faqForm);
+                    const data = {
+                        name: formData.get('name'),
+                        phone: formData.get('phone'),
+                        question: formData.get('question'),
+                        timestamp: new Date().toLocaleString('ru-RU')
+                    };
+                    
+                    // Show loading state
+                    submitBtn.disabled = true;
+                    btnText.textContent = 'Отправляем...';
+                    btnIcon.textContent = '⏳';
+                    
+                    // Remove existing messages
+                    const existingMessage = faqForm.querySelector('.form-message');
+                    if (existingMessage) {
+                        existingMessage.remove();
+                    }
+                    
+                    // Simulate API call (replace with your Telegram bot endpoint)
+                    setTimeout(() => {
+                        // Here you would send data to your Telegram bot
+                        console.log('FAQ Form Data:', data);
+                        
+                        // For now, show success message
+                        showFormMessage(faqForm, 'success', 'Спасибо! Ваш вопрос отправлен. Мы свяжемся с вами в ближайшее время.');
+                        
+                        // Reset form
+                        faqForm.reset();
+                        
+                        // Reset button
+                        submitBtn.disabled = false;
+                        btnText.textContent = 'Отправить вопрос';
+                        btnIcon.textContent = '📤';
+                        
+                        // TODO: Replace this with actual Telegram bot API call
+                        // Example: sendToTelegramBot(data);
+                        
+                    }, 1500);
+                });
+            }
+            
+            function showFormMessage(form, type, message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `form-message ${type}`;
+                messageDiv.textContent = message;
+                messageDiv.style.display = 'block';
+                
+                form.appendChild(messageDiv);
+                
+                // Auto-hide after 5 seconds
+                setTimeout(() => {
+                    messageDiv.style.opacity = '0';
+                    setTimeout(() => {
+                        messageDiv.remove();
+                    }, 300);
+                }, 5000);
+            }
+            
+            // Phone number formatting
+            const phoneInput = document.getElementById('faqPhone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.startsWith('8')) {
+                        value = '+7' + value.slice(1);
+                    } else if (value.startsWith('7')) {
+                        value = '+' + value;
+                    }
+                    
+                    // Format: +7 (XXX) XXX-XX-XX
+                    if (value.length > 1) {
+                        value = value.replace(/(\+7)(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/, function(match, p1, p2, p3, p4, p5) {
+                            let formatted = p1;
+                            if (p2) formatted += ' (' + p2;
+                            if (p3) formatted += ') ' + p3;
+                            if (p4) formatted += '-' + p4;
+                            if (p5) formatted += '-' + p5;
+                            return formatted;
+                        });
+                    }
+                    
+                    e.target.value = value;
+                });
+            }
         });
     </script>
     <script src="site.js" defer></script>
