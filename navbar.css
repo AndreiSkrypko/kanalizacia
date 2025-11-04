@@ -408,8 +408,8 @@
     justify-content: center;
     align-items: center; /* vertically center links */
     list-style: none;
-    margin: 0;
-    padding: 4px 0; /* thinner navbar */
+    margin: 0 0 -8px 0; /* отрицательный margin-bottom поднимает нижнюю часть */
+    padding: 4px 0 0 0;
 }
 
 .nav-item {
@@ -430,6 +430,7 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     line-height: 1.2;
+    margin-top: 8px; /* опускаем только кнопки, не увеличивая навбар */
 }
 
 /* Unified underline indicator (hover + active) */
@@ -482,8 +483,8 @@
     .burger span {
     position: absolute;
     left: 50%;
-        width: 22px;
-    height: 2px;
+    width: 24px;
+    height: 2.5px;
     background: #ffffff;
     border-radius: 2px;
     transform: translateX(-50%);
@@ -491,10 +492,10 @@
     transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease;
 }
 
-/* initial bars positions */
-    .burger span:nth-child(1) { top: 7px; }
-    .burger span:nth-child(2) { top: 14px; }
-    .burger span:nth-child(3) { top: 21px; }
+/* initial bars positions - равномерно расположены */
+    .burger span:nth-child(1) { top: 11px; }
+    .burger span:nth-child(2) { top: 17px; }
+    .burger span:nth-child(3) { top: 23px; }
 
 /* Анимация в крестик при открытии: идеально по центру */
 .navbar.open .burger span:nth-child(1) {
@@ -548,26 +549,30 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        min-height: 36px; /* much thinner */
-        padding: 0; /* remove vertical padding */
+        min-height: 44px; /* немного увеличена высота */
+        padding: 0 0 8px 0; /* немного опущена нижняя часть навбара */
         display: block;
         background: rgba(31, 41, 55, 0.95);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     .burger {
         display: flex !important;
         position: fixed !important;
         right: 6px !important;
-        top: 4px !important; /* keep inside 36px navbar */
+        top: 2px !important; /* немного отступ сверху */
         z-index: 100001 !important;
         background: rgba(255, 255, 255, 0.2);
         border: 2px solid rgba(255, 255, 255, 0.4);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         width: 36px;
-        height: 28px;
+        height: 36px; /* компактная высота */
         transform: none;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
     }
 
     /* Centered brand title in navbar on mobile */
