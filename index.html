@@ -1639,6 +1639,137 @@
             font-size: 0.9em;
         }
 
+        /* Final CTA Section */
+        .final-cta-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(251, 191, 36, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .final-cta-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta-text h2 {
+            font-size: 3em;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .final-cta-subtitle {
+            font-size: 1.3em;
+            color: #64748b;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .final-cta-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .final-cta-benefit {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #1e293b;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .final-cta-benefit svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            color: #22c55e;
+        }
+
+        .final-cta-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .final-cta-button {
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-button svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .final-cta-button.primary {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+        }
+
+        .final-cta-button.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.4);
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+        }
+
+        .final-cta-button.secondary {
+            background: #ffffff;
+            color: #1e293b;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .final-cta-button.secondary:hover {
+            background: #f8fafc;
+            border-color: #22c55e;
+            color: #22c55e;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.15);
+        }
+
+        .final-cta-button:active {
+            transform: translateY(-1px);
+        }
+
         /* Responsive FAQ */
         @media (max-width: 768px) {
             .faq-section {
@@ -1702,6 +1833,35 @@
 
             .faq-item.active .faq-answer {
                 padding: 0 18px 16px 18px;
+            }
+
+            /* Final CTA Mobile */
+            .final-cta-section {
+                padding: 60px 0;
+            }
+
+            .final-cta-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .final-cta-text h2 {
+                font-size: 2.2em;
+            }
+
+            .final-cta-subtitle {
+                font-size: 1.1em;
+            }
+
+            .final-cta-benefits {
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .final-cta-button {
+                padding: 18px 30px;
+                font-size: 1em;
             }
         }
 
@@ -2475,6 +2635,52 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section - Call to Action -->
+    <section class="final-cta-section">
+        <div class="container">
+            <div class="final-cta-content">
+                <div class="final-cta-text">
+                    <h2>Решим вашу задачу под ключ</h2>
+                    <p class="final-cta-subtitle">Получите бесплатную консультацию и расчет стоимости уже сегодня. Работаем по всему Гродненскому району!</p>
+                    <div class="final-cta-benefits">
+                        <div class="final-cta-benefit">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Бесплатный выезд и консультация</span>
+                        </div>
+                        <div class="final-cta-benefit">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Расчет в течение 24 часов</span>
+                        </div>
+                        <div class="final-cta-benefit">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Гарантия до 5 лет</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="final-cta-actions">
+                    <a href="#contacts" class="final-cta-button primary">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 5C3 3.89543 3.89543 3 5 3H8.27924C8.70967 3 9.09181 3.27543 9.22792 3.68377L10.7257 8.17721C10.8831 8.65332 10.6694 9.17071 10.2243 9.38872L7.96701 10.5165C9.06925 12.9612 11.0388 14.9308 13.4835 16.033L14.6113 13.7757C14.8293 13.3306 15.3467 13.1169 15.8228 13.2743L20.3162 14.7721C20.7246 14.9082 21 15.2903 21 15.7208V19C21 20.1046 20.1046 21 19 21H18C9.71573 21 3 14.2843 3 6V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Позвонить сейчас
+                    </a>
+                    <button onclick="openCalculator()" class="final-cta-button secondary">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 7H6C4.89543 7 4 7.89543 4 9V18C4 19.1046 4.89543 20 6 20H15C16.1046 20 17 19.1046 17 18V15M9 7C9 8.10457 9.89543 9 11 9H13C14.1046 9 15 8.10457 15 7M9 7C9 5.89543 9.89543 5 11 5H13C14.1046 5 15 5.89543 15 7M12 12H21M12 12L15 9M12 12L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Рассчитать стоимость
+                    </button>
                 </div>
             </div>
         </div>
