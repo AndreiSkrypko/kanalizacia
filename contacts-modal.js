@@ -23,34 +23,6 @@ class ContactsModal {
                 </div>
                 
                 <div class="contacts-modal-body">
-                    <!-- Company Info -->
-                    <div class="contact-section">
-                        <div class="company-info">
-                            <div class="company-logo">
-                                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                                    <!-- Forge Hammer Head -->
-                                    <path d="M20 12 L44 12 L46 18 L44 24 L20 24 L18 18 Z" fill="white" opacity="0.95"/>
-                                    <rect x="30" y="24" width="4" height="20" fill="white" opacity="0.9"/>
-                                    
-                                    <!-- Water Drop (Aqua element) -->
-                                    <path d="M32 4 C32 4, 26 12, 26 18 C26 23, 28.5 26, 32 26 C35.5 26, 38 23, 38 18 C38 12, 32 4, 32 4 Z" fill="white" opacity="0.9"/>
-                                    
-                                    <!-- Forge Sparks -->
-                                    <circle cx="14" cy="20" r="2" fill="white" opacity="0.8"/>
-                                    <circle cx="50" cy="22" r="1.5" fill="white" opacity="0.7"/>
-                                    <circle cx="52" cy="16" r="1.8" fill="white" opacity="0.9"/>
-                                    <circle cx="12" cy="28" r="1.2" fill="white" opacity="0.6"/>
-                                    
-                                    <!-- Water Waves -->
-                                    <path d="M8 48 Q18 44, 28 48 T48 48 T64 48" stroke="white" stroke-width="2.5" fill="none" opacity="0.8"/>
-                                    <path d="M6 54 Q16 51, 26 54 T46 54 T62 54" stroke="white" stroke-width="2" fill="none" opacity="0.6"/>
-                                </svg>
-                            </div>
-                            <div class="company-name">AquaForge</div>
-                            <div class="company-slogan">Кузница водных систем</div>
-                        </div>
-                    </div>
-
                     <!-- Phone Numbers -->
                     <div class="contact-section">
                         <h3>Телефоны</h3>
@@ -63,15 +35,15 @@ class ContactsModal {
 
                     <!-- Location -->
                     <div class="contact-section">
-                        <h3>География работы</h3>
+                        <h3>Где работаем</h3>
                         <div class="contact-item">
-                            <div class="location-text">Работаем в Гродно и Гродненской области</div>
+                            <div class="location-text">Гродно и Гродненская область</div>
                         </div>
                     </div>
 
                     <!-- Email -->
                     <div class="contact-section">
-                        <h3>Электронная почта</h3>
+                        <h3>Email</h3>
                         <div class="contact-item">
                             <a href="mailto:info@aquaforge.by" class="email-link">info@aquaforge.by</a>
                         </div>

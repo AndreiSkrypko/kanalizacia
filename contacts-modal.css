@@ -5,14 +5,15 @@
     right: -550px;
     width: 550px;
     height: 100vh;
-    background: linear-gradient(135deg, #1a2e3d 0%, #0f1b26 100%);
-    box-shadow: -15px 0 40px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+    box-shadow: -15px 0 40px rgba(0, 0, 0, 0.15);
     z-index: 2500;
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    border-left: 3px solid rgba(22, 197, 94, 0.3);
+    border-left: 4px solid;
+    border-image: linear-gradient(180deg, #22c55e 0%, #fbbf24 100%) 1;
 }
 
 .contacts-modal.show {
@@ -25,9 +26,9 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: 2400;
     opacity: 0;
     visibility: hidden;
@@ -40,87 +41,105 @@
 }
 
 .contacts-modal-header {
-    padding: 25px 25px 15px;
+    padding: 30px 30px 20px;
     position: relative;
     flex-shrink: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+    border-bottom: 2px solid;
+    border-image: linear-gradient(90deg, rgba(34, 197, 94, 0.2), rgba(251, 191, 36, 0.2)) 1;
 }
 
 .contacts-modal-header h2 {
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: 700;
+    color: #1e293b;
+    font-size: 28px;
+    font-weight: 800;
     margin: 0;
-    text-shadow: 0 0 20px rgba(22, 197, 94, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
-    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #fbbf24 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+    animation: gradientShift 6s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .contacts-modal-close {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(22, 197, 94, 0.15);
-    border: 1px solid rgba(22, 197, 94, 0.3);
+    top: 24px;
+    right: 24px;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    border: 2px solid rgba(34, 197, 94, 0.3);
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    color: white;
-    font-size: 20px;
+    border-radius: 10px;
+    color: #16a34a;
+    font-size: 24px;
+    font-weight: 700;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 0 15px rgba(22, 197, 94, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.2);
 }
 
 .contacts-modal-close:hover {
-    background: rgba(22, 197, 94, 0.25);
-    border-color: rgba(22, 197, 94, 0.5);
-    transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(22, 197, 94, 0.4);
+    background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+    border-color: #22c55e;
+    color: #16a34a;
+    transform: scale(1.05) rotate(90deg);
+    box-shadow: 0 4px 16px rgba(34, 197, 94, 0.3);
 }
 
 .contacts-modal-body {
-    padding: 25px 35px 35px;
+    padding: 30px;
     flex: 1;
-    background: rgba(255, 255, 255, 0.03);
-    margin: 0 25px 25px;
-    border-radius: 16px;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(22, 197, 94, 0.15);
+    background: transparent;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 24px;
     align-content: start;
-    box-shadow: 0 0 30px rgba(22, 197, 94, 0.05);
 }
 
 .contact-section {
     margin-bottom: 0;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    transition: none;
+}
+
+.contact-section:hover {
+    transform: none;
+    box-shadow: none;
 }
 
 .contact-section h3 {
-    color: white;
-    font-size: 15px;
-    font-weight: 600;
-    margin: 0 0 12px 0;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    letter-spacing: 0.3px;
+    color: #1e293b;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    letter-spacing: -0.01em;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
 }
 
 .contact-section h3::before {
     content: '';
-    width: 3px;
-    height: 16px;
-    background: linear-gradient(135deg, rgba(22, 197, 94, 1), rgba(34, 197, 94, 0.8));
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(180deg, #22c55e 0%, #fbbf24 100%);
     border-radius: 2px;
-    box-shadow: 0 0 8px rgba(22, 197, 94, 0.4);
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
 }
 
 .contact-item {
@@ -128,26 +147,37 @@
     border-radius: 0;
     padding: 0;
     margin-bottom: 0;
-    transition: all 0.3s ease;
 }
 
 .phone-link {
-    display: block;
-    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1e293b;
     text-decoration: none;
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    transition: all 0.2s ease;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(251, 191, 36, 0.08) 100%);
+    border-radius: 12px;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
-    letter-spacing: 0.3px;
+    position: relative;
+}
+
+.phone-link::before {
+    content: '📞';
+    font-size: 20px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
 }
 
 .phone-link:hover {
-    color: #86efac;
+    color: #16a34a;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(251, 191, 36, 0.15) 100%);
     transform: translateX(4px);
-    text-shadow: 0 0 15px rgba(22, 197, 94, 0.6);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
 }
 
 .phone-link:last-child {
@@ -155,84 +185,111 @@
 }
 
 .work-time {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 11px;
-    font-weight: 500;
-    margin-top: 6px;
-    padding: 3px 6px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 12px;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.8) 0%, rgba(241, 245, 249, 0.8) 100%);
+    border-radius: 10px;
     text-align: center;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    border: none;
     white-space: nowrap;
+}
+
+.work-time::before {
+    content: '🕐';
+    margin-right: 8px;
 }
 
 .location-text {
-    color: white;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.4;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    color: #1e293b;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.6;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(251, 191, 36, 0.08) 100%);
+    border-radius: 12px;
+    border: none;
+}
+
+.location-text::before {
+    content: '📍';
+    margin-right: 8px;
+    font-size: 18px;
 }
 
 .email-link {
-    display: block;
-    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1e293b;
     text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 6px 0;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    transition: all 0.2s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(251, 191, 36, 0.08) 100%);
+    border-radius: 12px;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
 }
 
+.email-link::before {
+    content: '✉️';
+    font-size: 18px;
+}
+
 .email-link:hover {
-    color: var(--accent-yellow);
-    border-bottom-color: var(--accent-yellow);
+    color: #16a34a;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(251, 191, 36, 0.15) 100%);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
 }
 
 .social-section {
     text-align: center;
+    grid-column: 1 / -1;
 }
 
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin-top: 16px;
+    gap: 16px;
+    margin-top: 8px;
 }
 
 .social-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .social-icon::before {
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
 }
 
 .social-icon:hover::before {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .social-icon:hover {
-    transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(22, 197, 94, 0.3);
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25),
+                0 4px 12px rgba(34, 197, 94, 0.2);
 }
 
 /* WhatsApp - зеленый */
@@ -264,50 +321,6 @@
     position: relative;
 }
 
-.company-info {
-    background: transparent;
-    border-radius: 0;
-    padding: 0 0 20px 0;
-    text-align: center;
-    margin-bottom: 0;
-    border: none;
-    grid-column: 1 / -1;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.company-logo {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 15px;
-    background: linear-gradient(135deg, rgba(22, 197, 94, 0.9) 0%, rgba(34, 197, 94, 0.7) 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 30px rgba(22, 197, 94, 0.3);
-}
-
-.company-logo svg {
-    width: 32px;
-    height: 32px;
-    fill: white;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
-}
-
-.company-name {
-    color: white;
-    font-size: 20px;
-    font-weight: 700;
-    margin: 0 0 6px 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.company-slogan {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 14px;
-    font-style: italic;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
@@ -317,27 +330,78 @@
     }
     
     .contacts-modal-header {
-        padding: 20px 20px 12px;
+        padding: 24px 20px 16px;
     }
     
     .contacts-modal-body {
         padding: 20px;
-        margin: 0 15px 15px;
         display: flex;
         flex-direction: column;
         gap: 20px;
     }
     
     .contacts-modal-header h2 {
-        font-size: 22px;
+        font-size: 24px;
     }
     
-    .contact-item {
-        padding: 14px;
+    .contacts-modal-close {
+        top: 20px;
+        right: 20px;
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+    
+    .contact-section {
+        padding: 20px;
+    }
+    
+    .contact-section h3 {
+        font-size: 16px;
+        margin-bottom: 16px;
     }
     
     .phone-link {
-        font-size: 17px;
+        font-size: 16px;
+        padding: 10px 14px;
+    }
+    
+    .work-time {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+    
+    .location-text {
+        font-size: 14px;
+        padding: 10px 14px;
+    }
+    
+    .email-link {
+        font-size: 14px;
+        padding: 10px 14px;
+    }
+    
+    .company-info {
+        padding: 24px 20px;
+    }
+    
+    .company-logo {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 16px;
+    }
+    
+    .company-logo svg {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .company-name {
+        font-size: 24px;
+    }
+    
+    .company-slogan {
+        font-size: 14px;
     }
     
     .social-icons {
@@ -345,13 +409,13 @@
     }
     
     .social-icon {
-        width: 44px;
-        height: 44px;
+        width: 48px;
+        height: 48px;
     }
     
     .social-icon svg {
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
     }
 }
 
