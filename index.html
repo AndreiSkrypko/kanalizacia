@@ -1114,14 +1114,24 @@
         }
 
         .service-text h2 {
-            font-size: 2em;
-            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #1f2937;
             margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.2;
+            line-height: 1.3;
+            position: relative;
+        }
+        
+        /* Легкий зеленый акцент для заголовков услуг */
+        .service-text h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 1.2em;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            margin-right: 12px;
+            vertical-align: middle;
+            border-radius: 2px;
         }
 
         .service-text p {
@@ -1176,6 +1186,22 @@
 
         .service-list li:last-child {
             border-bottom: none;
+        }
+
+        /* Стили для ссылок в тексте услуг */
+        .service-text p a,
+        .service-list li a {
+            color: #16a34a;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(22, 163, 74, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .service-text p a:hover,
+        .service-list li a:hover {
+            color: #15803d;
+            border-bottom-color: #15803d;
         }
 
         .service-button { 
@@ -2792,15 +2818,15 @@
                 <div class="service-content">
                     <div class="service-text">
                         <h2>Монтаж канализации под ключ</h2>
-                        <p>Канализация из бетонных колец под ключ, автономные станции при высоком уровне грунтовых вод.</p>
+                        <p>Канализация из <a href="rings.html">бетонных колец</a> под ключ, автономные станции при высоком уровне грунтовых вод.</p>
                         <ul class="service-list">
                             <li>Проектирование и расчет системы</li>
-                            <li>Установка бетонных колец и септиков</li>
+                            <li>Установка <a href="rings.html">бетонных колец</a> и септиков</li>
                             <li>Монтаж автономных станций очистки</li>
                             <li>Работы при высоком уровне грунтовых вод</li>
                             <li>Гарантия на все виды работ</li>
                         </ul>
-                        <a href="#" class="service-button">Узнать подробнее</a>
+                        <a href="kanalizaciya.html" class="service-button">Узнать подробнее</a>
                     </div>
                 </div>
             </div>
@@ -2827,7 +2853,7 @@
                             <li>Монтаж насосного оборудования</li>
                             <li>Оформление документов</li>
                         </ul>
-                        <a href="#" class="service-button">Узнать подробнее</a>
+                        <a href="water.html" class="service-button">Узнать подробнее</a>
                     </div>
                 </div>
             </div>
@@ -2855,7 +2881,7 @@
                             <li>Трубоукладчики</li>
                             <li>Операторы с опытом</li>
                         </ul>
-                        <a href="#" class="service-button">Узнать подробнее</a>
+                        <a href="rent.html" class="service-button">Узнать подробнее</a>
                     </div>
                 </div>
             </div>
@@ -2875,13 +2901,13 @@
                         <h2>Наша продукция</h2>
                         <p>Собственное производство материалов высокого качества. Все необходимое для систем водоснабжения и канализации.</p>
                         <ul class="service-list">
-                            <li>Бетонные кольца</li>
+                            <li><a href="rings.html">Бетонные кольца</a></li>
                             <li>Автономные станции</li>
                             <li>Люки полимерные</li>
                             <li>Люк чугунный</li>
                             <li>Трубы полимерные</li>
                         </ul>
-                        <a href="#" class="service-button">Узнать подробнее</a>
+                        <a href="rings.html" class="service-button">Узнать подробнее</a>
                     </div>
                 </div>
             </div>
@@ -2908,7 +2934,7 @@
                             <li>Проходка коммуникаций через стены</li>
                             <li>Работы в сложных условиях</li>
                         </ul>
-                        <a href="#" class="service-button">Узнать подробнее</a>
+                        <a href="equipment.html" class="service-button">Узнать подробнее</a>
                     </div>
                 </div>
             </div>
