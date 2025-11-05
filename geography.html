@@ -21,7 +21,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #1e293b;
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            background: linear-gradient(135deg, #f0fdf4 0%, #fefce8 50%, #f0f9ff 100%);
             min-height: 100vh;
         }
 
@@ -73,10 +73,12 @@
 
         /* Coverage Section - Premium Design */
         .coverage-section {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 25%, #fefce8 50%, #f0f9ff 75%, #ffffff 100%);
             padding: 100px 20px;
             position: relative;
             overflow: hidden;
+            border-top: 2px solid;
+            border-image: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.2), rgba(251, 191, 36, 0.2), rgba(34, 197, 94, 0.2), transparent) 1;
         }
 
         .coverage-section::before {
@@ -86,8 +88,22 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 80%, rgba(34, 197, 94, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(251, 191, 36, 0.05) 0%, transparent 50%);
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(34, 197, 94, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(251, 191, 36, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 55%);
+            pointer-events: none;
+        }
+        
+        .coverage-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #22c55e 20%, #fbbf24 50%, #22c55e 80%, transparent);
+            opacity: 0.4;
             pointer-events: none;
         }
 
@@ -215,14 +231,22 @@
         }
 
         .cities-container {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            border-radius: 25px;
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 253, 244, 0.95) 50%, rgba(254, 252, 232, 0.95) 100%),
+                radial-gradient(circle at 20% 50%, rgba(34, 197, 94, 0.08) 0%, transparent 50%);
+            backdrop-filter: blur(24px) saturate(180%);
+            border-radius: 28px;
             padding: 60px 50px 100px 50px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 
+                0 24px 64px rgba(34, 197, 94, 0.15),
+                0 12px 32px rgba(251, 191, 36, 0.1),
+                0 6px 20px rgba(0, 0, 0, 0.08),
+                inset 0 2px 4px rgba(255, 255, 255, 0.9);
             position: relative;
             min-height: auto;
             overflow: visible;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 3px solid;
+            border-image: linear-gradient(135deg, rgba(34, 197, 94, 0.4), rgba(251, 191, 36, 0.4), rgba(34, 197, 94, 0.4)) 1;
         }
 
         .cities-container::before {
@@ -232,9 +256,24 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(34, 197, 94, 0.03) 0%, transparent 50%);
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(34, 197, 94, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(251, 191, 36, 0.12) 0%, transparent 50%);
             pointer-events: none;
-            border-radius: 25px;
+            border-radius: 28px;
+        }
+        
+        .cities-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #22c55e 25%, #fbbf24 50%, #22c55e 75%, transparent);
+            opacity: 0.5;
+            pointer-events: none;
+            border-radius: 28px 28px 0 0;
         }
 
         .cities-title { 
@@ -309,13 +348,17 @@
         }
 
         .city-button {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            border: 2px solid rgba(226, 232, 240, 0.8);
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 253, 244, 0.95) 50%, rgba(254, 252, 232, 0.95) 100%),
+                radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.05) 0%, transparent 70%);
+            backdrop-filter: blur(16px) saturate(180%);
+            border: 3px solid;
+            border-image: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(251, 191, 36, 0.3)) 1;
             padding: 25px 20px;
-            border-radius: 15px;
+            border-radius: 18px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 14px;
             font-weight: 600;
             color: #333;
@@ -325,7 +368,11 @@
             gap: 12px;
             min-height: 130px;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 
+                0 8px 24px rgba(34, 197, 94, 0.12),
+                0 4px 12px rgba(251, 191, 36, 0.08),
+                0 2px 6px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
             position: relative;
             overflow: hidden;
         }
@@ -347,9 +394,16 @@
         }
 
         .city-button:hover { 
-            transform: translateY(-8px) scale(1.02); 
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-            border-color: #22c55e;
+            transform: translateY(-10px) scale(1.03); 
+            box-shadow: 
+                0 20px 48px rgba(34, 197, 94, 0.3),
+                0 10px 24px rgba(251, 191, 36, 0.2),
+                0 4px 12px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
+            border-image: linear-gradient(135deg, rgba(34, 197, 94, 0.6), rgba(251, 191, 36, 0.6), rgba(34, 197, 94, 0.6)) 1;
+            background: 
+                linear-gradient(135deg, rgba(240, 253, 244, 0.98) 0%, rgba(254, 252, 232, 0.98) 50%, rgba(240, 253, 244, 0.98) 100%),
+                radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.15) 0%, transparent 70%);
         }
 
         .city-icon {

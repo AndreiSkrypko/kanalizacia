@@ -76,13 +76,19 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
-    animation: logoShine 3s ease-in-out infinite;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    /* Убрана бесконечная анимация для оптимизации */
 }
 
-@keyframes logoShine {
-    0%, 100% { transform: translate(-50%, -50%) rotate(0deg); opacity: 0; }
-    50% { transform: translate(-50%, -50%) rotate(180deg); opacity: 1; }
+/* Отключение анимаций для пользователей с prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
 .logo-icon svg {
