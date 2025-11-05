@@ -117,22 +117,37 @@
             right: 0;
             bottom: 0;
             left: 55%;
-            background: url('images/index_1.png') right center / cover no-repeat;
+            background-image: url('images/index_1.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: calc(100% + 80px) center; /* сдвиг изображения вправо */
             pointer-events: none;
             z-index: 1;
-            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 95%);
-            mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 95%);
+            -webkit-mask-image: linear-gradient(to left,
+                rgba(0,0,0,1) 84%,
+                rgba(0,0,0,0.85) 90%,
+                rgba(0,0,0,0.4) 96%,
+                rgba(0,0,0,0) 99%
+            );
+            mask-image: linear-gradient(to left,
+                rgba(0,0,0,1) 84%,
+                rgba(0,0,0,0.85) 90%,
+                rgba(0,0,0,0.4) 96%,
+                rgba(0,0,0,0) 99%
+            );
         }
         
         @media (min-width: 1600px) {
             .hero-visual {
                 left: 50%;
+                background-position: calc(100% + 120px) center; /* больше сдвиг на широких */
             }
         }
         
         @media (min-width: 1920px) {
             .hero-visual {
                 left: 45%;
+                background-position: calc(100% + 160px) center; /* максимум вправо на 1920+ */
             }
         }
 
@@ -145,7 +160,7 @@
             z-index: 2;
             width: 100%;
             max-width: none;
-            padding: 0 40px 0 100px; /* сдвиг влево уменьшен */
+            padding: 0 40px 0 12px; /* текст максимально влево, но с небольшим полем */
             /* Упрощенная анимация появления - только opacity */
             opacity: 0;
             transition: opacity 0.4s ease-out;
@@ -172,7 +187,7 @@
             .hero-content {
                 max-width: 1400px;
                 margin: 0 auto;
-                padding: 0 60px;
+                padding: 0 40px 0 12px; /* удерживаем текст у левого края */
             }
             
             .hero-section {
@@ -184,7 +199,7 @@
         @media (min-width: 1600px) {
             .hero-content {
                 max-width: 1600px;
-                padding: 0 80px;
+                padding: 0 60px 0 12px; /* на очень широких — немного больше справа */
             }
         }
         
@@ -2748,7 +2763,6 @@
         <div class="container">
             <div class="section-header">
                 <h2>Наши услуги</h2>
-                <p>Комплексное решение всех задач водоснабжения и канализации</p>
             </div>
 
             <!-- 1. Слева картинка, справа текст - Канализация -->
@@ -2892,7 +2906,6 @@
         <div class="container">
             <div class="section-header">
                 <h2>Почему выбирают AquaForge</h2>
-                <p>Наши преимущества подтверждены отзывами клиентов</p>
             </div>
 
             <!-- Advantages 3D Carousel -->
@@ -3163,7 +3176,6 @@
         <div class="container">
             <div class="section-header">
                 <h2>Часто задаваемые вопросы</h2>
-                <p>Ответы на самые популярные вопросы о наших услугах</p>
             </div>
             
             <div class="faq-container">
