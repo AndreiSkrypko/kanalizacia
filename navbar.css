@@ -625,6 +625,11 @@
         transform: translateY(-2px);
     }
 
+    /* Скрыть первую иконку соцсети (ближайшую к названию) на мобильных */
+    .navbar-social-icon:first-child {
+        display: none !important;
+    }
+
     /* Кнопка "Расчет стоимости" в navbar на мобильных */
     .navbar-cta-button {
         padding: 6px 12px;
