@@ -507,8 +507,8 @@
 
 /* Анимация в крестик при открытии: идеально по центру */
 .navbar.open .burger span:nth-child(1) {
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
+    top: 50% !important;
+    transform: translate(-50%, -50%) rotate(45deg) !important;
 }
 
 .navbar.open .burger span:nth-child(2) {
@@ -516,8 +516,14 @@
 }
 
 .navbar.open .burger span:nth-child(3) {
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg);
+    top: 50% !important;
+    transform: translate(-50%, -50%) rotate(-45deg) !important;
+}
+
+@media (max-width: 768px) {
+    .navbar.open .burger {
+        transform: translateY(-50%) !important;
+    }
 }
 
 .logo-subtitle:hover {
@@ -557,8 +563,8 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        min-height: 44px; /* немного увеличена высота */
-        padding: 0 0 8px 0; /* немного опущена нижняя часть навбара */
+        min-height: 60px; /* увеличена высота для удобства */
+        padding: 8px 0; /* вертикальные отступы */
         display: block;
         background: rgba(31, 41, 55, 0.95);
         backdrop-filter: blur(12px);
@@ -570,14 +576,14 @@
         display: flex !important;
         position: fixed !important;
         right: 10px !important;
-        top: 8px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
         z-index: 100001 !important;
         background: rgba(0,0,0,0.45);
         border: 2px solid rgba(255,255,255,0.6);
         box-shadow: 0 6px 20px rgba(0,0,0,0.35);
         width: 44px;
         height: 44px;
-        transform: none;
         align-items: center;
         justify-content: center;
         border-radius: 12px;
@@ -586,13 +592,13 @@
     /* Centered brand title in navbar on mobile */
     .navbar-title {
         position: fixed;
-        top: 6px;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         color: #ffffff;
         font-weight: 800;
         letter-spacing: 0.05px;
-        font-size: 16px; /* restore original mobile size */
+        font-size: 18px;
         z-index: 100000;
         pointer-events: none;
         text-transform: none;
@@ -630,7 +636,7 @@
         align-items: stretch;
         gap: 12px;
         margin: 0;
-        padding: 96px 20px 28px 20px; /* leave space for burger header */
+        padding: 72px 20px 28px 20px; /* leave space for burger header */
         z-index: 99990;
         overflow-y: auto;
     }

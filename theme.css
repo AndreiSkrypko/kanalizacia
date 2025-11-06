@@ -32,6 +32,13 @@ body {
     line-height: 1.6 !important;
 }
 
+/* Mobile: компенсация увеличенной высоты шапки */
+@media (max-width: 768px) {
+    body {
+        padding-top: 76px !important; /* 60px navbar + 16px отступ */
+    }
+}
+
 /* Cards/Containers */
 .service-content,
 .cities-container,
