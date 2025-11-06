@@ -32,10 +32,10 @@ body {
     line-height: 1.6 !important;
 }
 
-/* Mobile: компенсация увеличенной высоты шапки */
+/* Mobile: компенсация высоты navbar (header скрыт) */
 @media (max-width: 768px) {
     body {
-        padding-top: 76px !important; /* 60px navbar + 16px отступ */
+        padding-top: 64px !important; /* 60px navbar + 4px отступ */
     }
 }
 

@@ -496,7 +496,7 @@
     background: #ffffff !important;
     border-radius: 2px;
     transform: translateX(-50%);
-    transform-origin: center;
+    transform-origin: center center;
     transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease;
 }
 
@@ -505,10 +505,10 @@
     .burger span:nth-child(2) { top: 17px; }
     .burger span:nth-child(3) { top: 23px; }
 
-/* Анимация в крестик при открытии: идеально по центру */
+/* Анимация в крестик при открытии: идеально по центру бургера */
 .navbar.open .burger span:nth-child(1) {
-    top: 50% !important;
-    transform: translate(-50%, -50%) rotate(45deg) !important;
+    top: calc(50% - 1.5px) !important;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg) !important;
 }
 
 .navbar.open .burger span:nth-child(2) {
@@ -516,14 +516,8 @@
 }
 
 .navbar.open .burger span:nth-child(3) {
-    top: 50% !important;
-    transform: translate(-50%, -50%) rotate(-45deg) !important;
-}
-
-@media (max-width: 768px) {
-    .navbar.open .burger {
-        transform: translateY(-50%) !important;
-    }
+    top: calc(50% - 1.5px) !important;
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg) !important;
 }
 
 .logo-subtitle:hover {
@@ -533,27 +527,9 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    /* Скрываем header на мобильных */
     .header {
-        flex-direction: column;
-        gap: 16px;
-        padding: 16px 20px;
-    }
-
-    .logo-subtitle {
-        font-size: 14px;
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .header-info {
-        width: 100%;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .location-badge {
-        justify-content: center;
-        font-size: 14px;
+        display: none !important;
     }
 
     /* Show burger, collapse nav */
