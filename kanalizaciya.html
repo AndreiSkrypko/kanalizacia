@@ -3,21 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Виды канализации - AquaForge</title>
+    <title>Виды канализации - AquaPro</title>
     <link rel="stylesheet" href="theme.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="contacts-modal.css">
     <style>
-        /* Use the same spacing system as index.html */
-        .page-content {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
             background: linear-gradient(135deg, #f0fdf4 0%, #fefce8 50%, #f0f9ff 100%);
-            padding: 40px 0;
-            position: relative;
-            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        /* Enhanced Navbar Styles */
+        .header {
+            background: rgba(248, 250, 252, 0.8) !important;
+            backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .header.scrolled {
+            background: rgba(248, 250, 252, 0.95) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .nav-link {
+            position: relative !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-yellow));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::before {
+            width: 80%;
+        }
+
+        .button-icon {
+            font-size: 1.3em;
+        }
+
+        /* Page Content - широкий контейнер */
+        .page-content {
+            max-width: 1280px;
+            margin: 40px auto;
+            padding: 20px;
         }
         
         .page-content .container {
+            /* Стили удалены - контейнер без рамок */
             background: 
                 linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 253, 244, 0.95) 50%, rgba(254, 252, 232, 0.95) 100%),
                 radial-gradient(circle at 20% 50%, rgba(34, 197, 94, 0.08) 0%, transparent 50%);
@@ -25,61 +77,196 @@
             border-radius: 28px;
             padding: 60px 40px;
             margin: 60px auto;
-            border: 3px solid;
-            border-image: linear-gradient(135deg, rgba(34, 197, 94, 0.4), rgba(251, 191, 36, 0.4), rgba(34, 197, 94, 0.4)) 1;
-            box-shadow: 
-                0 24px 64px rgba(34, 197, 94, 0.15),
-                0 12px 32px rgba(251, 191, 36, 0.1),
-                0 6px 20px rgba(0, 0, 0, 0.08),
-                inset 0 2px 4px rgba(255, 255, 255, 0.9);
-            position: relative;
-            overflow: hidden;
         }
         
-        .page-content .container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(40px);
-            opacity: 0.6;
-            pointer-events: none;
-            z-index: 0;
+        .page-title {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-subtitle {
+            font-size: 1.2em;
+            color: #64748b;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Стили заголовков h2 - более сбалансированные */
+        .page-content h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+            margin-top: 0;
+            line-height: 1.3;
         }
         
-        .page-content .container::after {
+        /* Легкий зеленый акцент для заголовков */
+        .page-content h2::before {
             content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(40px);
-            opacity: 0.6;
-            pointer-events: none;
-            z-index: 0;
+            display: inline-block;
+            width: 4px;
+            height: 1.2em;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            margin-right: 12px;
+            vertical-align: middle;
+            border-radius: 2px;
         }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2em;
+            }
+
+            .page-content {
+                padding: 20px 15px;
+            }
+        }
+        
+        /* Убираем все стили контейнера */
         .page-content .container {
-            max-width: 1600px;
-            position: relative;
-            z-index: 1;
+            background: none !important;
+            backdrop-filter: none !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
         }
-        .page-title{font-size:3.2em;background:linear-gradient(135deg,var(--accent-green) 0%, var(--accent-yellow) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:24px;font-weight:800;line-height:1.2}
-        .page-subtitle{font-size:1.4em;color:#64748b;max-width:800px;margin:0 auto 40px;line-height:1.6}
-        @media (max-width:1024px){.page-title{font-size:2.8em}}
-        @media (max-width:768px){.page-content{padding:32px 0}.page-content .container{padding:0 20px}.page-title{font-size:2.4em}.page-subtitle{font-size:1.1em;margin-bottom:28px}}
         
         /* Fix for contacts modal z-index */
         .contacts-modal,
         .contacts-modal-overlay {
             position: fixed !important;
             z-index: 9999 !important;
+        }
+
+        /* Sewage Systems Cards */
+        .sewage-systems {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .sewage-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 253, 244, 0.95) 50%, rgba(254, 252, 232, 0.95) 100%);
+            backdrop-filter: blur(16px) saturate(180%);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.12), 0 4px 12px rgba(251, 191, 36, 0.08);
+        }
+
+        .sewage-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(34, 197, 94, 0.2),
+                        0 6px 16px rgba(251, 191, 36, 0.15);
+        }
+
+        .sewage-card-header {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+        }
+
+        .sewage-card-header h2 {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .sewage-appliances {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .appliance-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9em;
+            color: #64748b;
+            padding: 6px 10px;
+            background: rgba(34, 197, 94, 0.08);
+            border-radius: 8px;
+        }
+
+        .appliance-item svg {
+            color: #16a34a;
+        }
+
+        .sewage-specs {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(248, 250, 252, 0.8);
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .spec-item:hover {
+            background: rgba(34, 197, 94, 0.05);
+            transform: translateX(4px);
+        }
+
+        .spec-item svg {
+            flex-shrink: 0;
+        }
+
+        .spec-item span {
+            font-size: 1em;
+            color: #1f2937;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .sewage-systems {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                margin-top: 32px;
+            }
+
+            .sewage-card {
+                padding: 24px;
+            }
+
+            .sewage-card-header h2 {
+                font-size: 1.5em;
+            }
+
+            .appliance-item {
+                font-size: 0.85em;
+                padding: 5px 8px;
+            }
+
+            .spec-item span {
+                font-size: 0.95em;
+            }
         }
     </style>
     <script defer src="site.js"></script>
@@ -91,7 +278,162 @@
     <div class="page-content">
         <div class="container">
             <h1 class="page-title">Виды канализации</h1>
-            <p class="page-subtitle">Полноценная страница будет заполнена контентом. Здесь разместим варианты: бетонные кольца, автономные станции, проектирование и монтаж.</p>
+            <p class="page-subtitle">Автономные станции биоочистки КИТ для частных домов и дач. Компактные, энергоэффективные и надежные решения для очистки сточных вод.</p>
+            
+            <div class="sewage-systems">
+                <!-- КИТ 4 -->
+                <div class="sewage-card">
+                    <div class="sewage-card-header">
+                        <h2>КИТ 4 (500)</h2>
+                        <div class="sewage-appliances">
+                            <span class="appliance-item">2× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                            <span class="appliance-item">1× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+                            <span class="appliance-item">1× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 8h20"></path></svg></span>
+                            <span class="appliance-item">1× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg></span>
+                            <span class="appliance-item">1× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg></span>
+                        </div>
+                    </div>
+                    <div class="sewage-specs">
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span>до 4 человек</span>
+                        </div>
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span>0,85 м³/сут производительность</span>
+                        </div>
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                            <span>230 л залповый сброс</span>
+                        </div>
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                            <span>0,06 кВт энергопотребление</span>
+                        </div>
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>1,1 × 1,1 × 1,83 м габаритные размеры</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КИТ 5 -->
+                <div class="sewage-card">
+                    <div class="sewage-card-header">
+                        <h2>КИТ 5 (500)</h2>
+                        <div class="sewage-appliances">
+                            <span class="appliance-item">2× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                            <span class="appliance-item">2× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+                            <span class="appliance-item">1× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 8h20"></path></svg></span>
+                            <span class="appliance-item">1× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg></span>
+                            <span class="appliance-item">1× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg></span>
+                        </div>
+                    </div>
+                    <div class="sewage-specs">
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span>до 5 человек</span>
+                        </div>
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span>1 м³/сут производительность</span>
+                        </div>
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                            <span>265 л залповый сброс</span>
+                        </div>
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                            <span>0,08 кВт энергопотребление</span>
+                        </div>
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>1,1 × 1,1 × 2,03 м габаритные размеры</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КИТ 8 -->
+                <div class="sewage-card">
+                    <div class="sewage-card-header">
+                        <h2>КИТ 8 (500)</h2>
+                        <div class="sewage-appliances">
+                            <span class="appliance-item">3× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                            <span class="appliance-item">2× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+                            <span class="appliance-item">1× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2 8h20"></path></svg></span>
+                            <span class="appliance-item">1× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg></span>
+                            <span class="appliance-item">1× <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg></span>
+                        </div>
+                    </div>
+                    <div class="sewage-specs">
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span>до 8 человек</span>
+                        </div>
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span>1,6 м³/сут производительность</span>
+                        </div>
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                            <span>395 л залповый сброс</span>
+                        </div>
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                            <span>0,08 кВт энергопотребление</span>
+                        </div>
+                        <div class="spec-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>1,5 × 1,5 × 1,83 м габаритные размеры</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
