@@ -1666,99 +1666,58 @@
             margin-top: 12px;
         }
 
-        /* Reviews Carousel for Mobile */
-        .reviews-carousel-mobile {
-            display: none;
-        }
-
-        .carousel-container {
-            overflow: hidden;
-            position: relative;
-            margin: 30px 0;
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.4s ease-in-out;
-            will-change: transform;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            flex-shrink: 0;
-        }
-
-        .review-card-mobile {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 24px;
-            border-left: 4px solid #22c55e;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border: 1px solid #f1f5f9;
-            margin: 0 10px;
-        }
-
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 20px;
-        }
-
-        .carousel-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #cbd5e1;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            padding: 0;
-        }
-
-        .carousel-dot.active {
-            background: #22c55e;
-            width: 24px;
-            border-radius: 4px;
-        }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .why-choose-us {
-                padding: 80px 0;
+                padding: 40px 0;
             }
 
             .why-choose-us .section-header {
-                margin-bottom: 60px;
+                margin-bottom: 48px;
+                padding: 0 16px;
+                position: relative;
+                z-index: 10;
             }
 
             .why-choose-us .section-header h2 {
-                font-size: 2.2em;
+                font-size: 1.8em;
+                text-align: center;
+                margin-bottom: 0;
             }
 
             .advantages-carousel-3d-wrapper {
-                padding: 0 20px;
-                margin: 40px auto;
+                padding: 0 16px;
+                margin: 50px auto 0;
+                position: relative;
+                z-index: 1;
             }
 
             .carousel-3d-viewport {
-                height: 450px;
+                height: 420px;
                 perspective: 1000px;
+                padding-top: 30px;
             }
 
             .carousel-3d-card {
-                width: 320px;
-                height: 420px;
-                margin-left: -160px;
-                margin-top: -210px;
+                width: 300px;
+                height: 400px;
+                margin-left: -150px;
+                margin-top: -200px;
+                z-index: 1 !important;
+            }
+
+            .carousel-3d-card.active {
+                z-index: 2 !important;
+                transform: translateX(-40px) translateZ(0) rotateY(0deg) scale(1) !important;
             }
 
             .carousel-3d-card.prev {
-                transform: translateX(-280px) translateZ(-150px) rotateY(35deg) scale(0.8);
+                transform: translateX(-260px) translateZ(-150px) rotateY(35deg) scale(0.8);
             }
 
             .carousel-3d-card.next {
-                transform: translateX(280px) translateZ(-150px) rotateY(-35deg) scale(0.8);
+                transform: translateX(260px) translateZ(-150px) rotateY(-35deg) scale(0.8);
             }
 
             .carousel-3d-card.far-prev,
@@ -1770,46 +1729,46 @@
                 display: none !important;
             }
 
-            .carousel-3d-card {
-                width: 320px;
-                height: 420px;
-                margin-left: -160px;
-                margin-top: -210px;
-            }
-
             .advantage-card {
-                padding: 25px;
+                padding: 22px 20px;
+                border-radius: 16px;
             }
 
             .advantage-title {
-                font-size: 1.2em;
+                font-size: 1.15em;
+                margin-bottom: 12px;
             }
 
             .advantage-description {
-                font-size: 0.95em;
+                font-size: 0.9em;
+                line-height: 1.5;
             }
 
             .advantage-review {
-                padding: 15px;
+                padding: 14px;
+                margin-top: 16px;
+                border-radius: 12px;
             }
 
             .review-text {
-                font-size: 0.9em;
+                font-size: 0.85em;
+                line-height: 1.5;
             }
 
             .review-tooltip {
                 width: 280px;
-                padding: 15px;
+                padding: 14px;
                 font-size: 0.85em;
+                border-radius: 12px;
             }
 
             .review-tooltip .review-avatar {
-                display: none !important; /* Hide avatar in tooltip too */
+                display: none !important;
             }
 
             .review-tooltip .review-header {
                 gap: 10px;
-                margin-bottom: 12px;
+                margin-bottom: 10px;
             }
 
             .review-tooltip .review-info h4 {
@@ -1831,41 +1790,78 @@
         }
 
         @media (max-width: 480px) {
+            .achievements-section {
+                padding: 30px 0;
+            }
+
+            .achievements-section .container {
+                padding: 0 16px;
+            }
+
             .achievements-grid {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 14px;
             }
 
             .achievement-card {
-                padding: 20px 15px;
+                padding: 18px 16px;
+                border-radius: 14px;
             }
 
             .achievement-number {
-                font-size: 2.2em;
+                font-size: 2em;
             }
 
             .achievement-label {
-                font-size: 0.95em;
+                font-size: 0.9em;
             }
 
             .achievement-description {
-                font-size: 0.8em;
+                font-size: 0.85em;
+                line-height: 1.5;
             }
 
             .review-tooltip {
-                width: 260px;
+                width: calc(100% - 20px);
                 left: 10px;
                 right: 10px;
                 transform: none;
+                border-radius: 12px;
             }
 
             .achievement-card:hover .review-tooltip {
-                transform: translateY(-10px);
+                transform: translateY(-8px);
             }
 
             .review-tooltip::after {
                 left: 50%;
                 transform: translateX(-50%);
+            }
+
+            .carousel-3d-viewport {
+                height: 380px;
+                padding-top: 25px;
+            }
+
+            .carousel-3d-card {
+                width: 280px;
+                height: 380px;
+                margin-left: -140px;
+                margin-top: -190px;
+                z-index: 1 !important;
+            }
+
+            .carousel-3d-card.active {
+                z-index: 2 !important;
+                transform: translateX(-35px) translateZ(0) rotateY(0deg) scale(1) !important;
+            }
+
+            .carousel-3d-card.prev {
+                transform: translateX(-240px) translateZ(-150px) rotateY(35deg) scale(0.75);
+            }
+
+            .carousel-3d-card.next {
+                transform: translateX(240px) translateZ(-150px) rotateY(-35deg) scale(0.75);
             }
         }
 
@@ -1946,13 +1942,9 @@
         }
 
         .faq-image::before {
-            content: '💬';
-            font-size: 4em;
-            opacity: 0.3;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            /* Убираем декоративный эмодзи, чтобы не появлялся артефакт под полем телефона */
+            content: '';
+            display: none;
         }
 
         .faq-image-content {
@@ -2399,95 +2391,126 @@
         /* Responsive FAQ */
         @media (max-width: 768px) {
             .faq-section {
-                padding: 40px 0;
+                padding: 30px 0;
+            }
+
+            .faq-section .section-header {
+                margin-bottom: 24px;
+                padding: 0 16px;
             }
 
             .faq-section .section-header h2 {
-                font-size: 1.8em;
+                font-size: 1.6em;
             }
 
             .faq-section .section-header p {
-                font-size: 1em;
+                font-size: 0.95em;
             }
 
             .faq-container {
                 grid-template-columns: 1fr;
                 gap: 24px;
+                padding: 0 16px;
             }
 
             .faq-image {
-                padding: 24px;
-                min-height: 300px;
+                padding: 24px 20px;
+                min-height: 280px;
+                border-radius: 14px;
             }
 
             .faq-image h3 {
-                font-size: 1.4em;
+                font-size: 1.3em;
             }
 
             .faq-image p {
-                font-size: 1em;
+                font-size: 0.95em;
             }
 
             .faq-form {
-                gap: 12px;
+                gap: 14px;
             }
 
             .form-group input,
             .form-group textarea {
-                padding: 10px 14px;
-                font-size: 0.9em;
+                padding: 12px 14px;
+                font-size: 0.95em;
+                border-radius: 10px;
             }
 
             .faq-submit-btn {
-                padding: 12px 16px;
+                padding: 14px 20px;
                 font-size: 0.95em;
+                border-radius: 10px;
             }
 
             .faq-question {
-                padding: 16px 18px;
+                padding: 14px 16px;
+                border-radius: 10px;
             }
 
             .faq-question h3 {
                 font-size: 0.95em;
+                line-height: 1.4;
             }
 
             .faq-icon {
-                width: 24px;
-                height: 24px;
+                width: 22px;
+                height: 22px;
                 margin-left: 10px;
             }
 
             .faq-item.active .faq-answer {
-                padding: 0 18px 16px 18px;
+                padding: 0 16px 14px 16px;
+                font-size: 0.9em;
             }
 
-                         /* Final CTA Mobile */
-             .final-cta-section {
-                 padding: 30px 0;
-             }
+            /* Final CTA Mobile */
+            .final-cta-section {
+                padding: 30px 0;
+            }
+
+            .final-cta-section .container {
+                padding: 0 16px;
+            }
 
             .final-cta-content {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 28px;
                 text-align: center;
             }
 
             .final-cta-text h2 {
-                font-size: 2.2em;
+                font-size: 1.8em;
+                line-height: 1.2;
             }
 
             .final-cta-subtitle {
-                font-size: 1.1em;
+                font-size: 1em;
+                line-height: 1.5;
             }
 
             .final-cta-benefits {
-                align-items: flex-start;
-                text-align: left;
+                align-items: center;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .final-cta-benefit {
+                font-size: 0.9em;
+            }
+
+            .final-cta-actions {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
             }
 
             .final-cta-button {
-                padding: 18px 30px;
-                font-size: 1em;
+                padding: 14px 24px;
+                font-size: 0.95em;
+                width: 100%;
+                max-width: 100%;
             }
         }
 
@@ -2504,88 +2527,100 @@
 
         @media (max-width: 768px) {
             .hero-section {
-                padding: 44px 16px 36px;
+                padding: 20px 16px 28px;
                 min-height: auto;
+                border-bottom: none;
+            }
+
+            .hero-content {
+                padding: 0 !important;
+                text-align: center;
             }
 
             .hero-main-title {
-                font-size: 2.4em;
-                line-height: 1.1;
+                font-size: 2em;
+                line-height: 1.2;
                 margin-bottom: 16px;
+                text-align: center;
             }
 
             .hero-content h1 {
-                font-size: 2.2em;
-                line-height: 1.1;
+                font-size: 1.8em;
+                line-height: 1.2;
+                text-align: center;
             }
 
             .hero-description {
-                margin-bottom: 30px;
+                margin-bottom: 24px;
+                text-align: center;
             }
 
             .hero-main-text {
-                font-size: 1.2em;
+                font-size: 1.1em;
                 margin-bottom: 12px;
+                line-height: 1.5;
             }
 
             .hero-advantage {
-                font-size: 1.1em;
-                margin-bottom: 10px;
+                font-size: 1em;
+                margin-bottom: 8px;
             }
 
             .hero-benefit {
-                font-size: 1em;
+                font-size: 0.95em;
             }
 
             .hero-subtitle {
-                font-size: 1.1em;
-                margin-bottom: 30px;
+                font-size: 1em;
+                margin-bottom: 24px;
+                text-align: center;
             }
 
             .hero-subtitle strong {
-                font-size: 1em;
-                margin-top: 12px;
+                font-size: 0.95em;
+                margin-top: 10px;
                 display: block;
             }
 
             .hero-subtitle em {
-                font-size: 0.9em;
-                margin-top: 8px;
+                font-size: 0.85em;
+                margin-top: 6px;
                 letter-spacing: 0.3px;
             }
 
             .savings-highlight {
-                margin: 25px 0 35px;
+                margin: 20px 0 28px;
             }
 
             .savings-content {
                 flex-direction: column;
-                gap: 20px;
-                padding: 20px 15px;
+                gap: 18px;
+                padding: 20px 16px;
                 text-align: center;
                 max-width: 100%;
                 margin: 0;
+                border-radius: 16px;
             }
 
             .percentage-number {
-                font-size: 2.8em;
+                font-size: 2.5em;
             }
 
             .savings-reasons h3 {
-                font-size: 1.2em;
-                margin-bottom: 10px;
+                font-size: 1.15em;
+                margin-bottom: 12px;
             }
 
             .reasons-list li {
-                text-align: center;
-                margin-bottom: 8px;
-                padding: 10px 12px;
-                border-radius: 10px;
+                text-align: left;
+                margin-bottom: 10px;
+                padding: 12px 14px;
+                border-radius: 12px;
             }
 
             .reason-text {
                 font-size: 0.9em;
-                line-height: 1.4;
+                line-height: 1.5;
             }
 
             .hero-buttons {
@@ -2593,34 +2628,73 @@
                 justify-content: center;
                 gap: 12px;
                 width: 100%;
-                max-width: 300px;
+                max-width: 100%;
                 margin: 0 auto;
+            }
+
+            .hero-buttons .cta-button {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .container {
+                padding: 0 16px;
+                margin: 24px auto;
+            }
+
+            .services-section {
+                padding: 30px 0;
+            }
+
+            .services-section .section-header {
+                margin-bottom: 28px;
+                padding: 0 16px;
+            }
+
+            .services-section .section-header h2 {
+                font-size: 1.8em;
+                text-align: center;
+            }
+
+            .services-section .section-header p {
+                font-size: 0.95em;
             }
 
             .service-section {
                 flex-direction: column !important;
                 min-height: auto;
-                margin: 16px 0;
+                margin: 20px 0;
+                border-radius: 16px;
+                overflow: hidden;
             }
 
             .service-image {
-                min-height: 250px;
+                min-height: 220px;
                 order: 2;
             }
 
             .service-content {
-                padding: 24px 16px;
+                padding: 20px 16px;
                 order: 1;
             }
 
             .service-text h2 {
-                font-size: 1.6em;
-                margin-bottom: 20px;
+                font-size: 1.5em;
+                margin-bottom: 16px;
+                text-align: center;
             }
 
             .service-text p {
                 font-size: 0.95em;
-                margin-bottom: 25px;
+                margin-bottom: 20px;
+                text-align: center;
+                line-height: 1.6;
+            }
+
+            .service-button {
+                width: 100%;
+                max-width: 100%;
+                text-align: center;
             }
         }
 
@@ -3080,93 +3154,6 @@
                 <div class="carousel-3d-indicators"></div>
             </div>
 
-            <!-- Reviews Carousel for Mobile -->
-            <div class="reviews-carousel-mobile">
-                <div class="carousel-container">
-                    <div class="carousel-track">
-                        <!-- Review 1 -->
-                        <div class="carousel-slide">
-                            <div class="review-card-mobile">
-                                <div class="review-author">
-                                    <div class="review-info">
-                                        <h4>Игорь Васильевич</h4>
-                                        <div class="review-location">г. Гродно</div>
-                                    </div>
-                                    <div class="review-stars">★★★★★</div>
-                                </div>
-                                <p class="review-text">"Обращался в AquaForge уже второй раз за 10 лет. Первый раз делали колодец, теперь септик. Опыт и профессионализм чувствуется сразу!"</p>
-                            </div>
-                        </div>
-                        <!-- Review 2 -->
-                        <div class="carousel-slide">
-                            <div class="review-card-mobile">
-                                <div class="review-author">
-                                    <div class="review-info">
-                                        <h4>Александр</h4>
-                                        <div class="review-location">д. Скидель</div>
-                                    </div>
-                                    <div class="review-stars">★★★★★</div>
-                                </div>
-                                <p class="review-text">"Кольца для колодца делали прямо на участке! Качество бетона отличное, геометрия идеальная. Видно, что свое производство!"</p>
-                            </div>
-                        </div>
-                        <!-- Review 3 -->
-                        <div class="carousel-slide">
-                            <div class="review-card-mobile">
-                                <div class="review-author">
-                                    <div class="review-info">
-                                        <h4>Михаил Петрович</h4>
-                                        <div class="review-location">г. Волковыск</div>
-                                    </div>
-                                    <div class="review-stars">★★★★★</div>
-                                </div>
-                                <p class="review-text">"Приехали со своей буровой установкой - современная, мощная. Пробурили 60 метров за полдня! Техника в отличном состоянии!"</p>
-                            </div>
-                        </div>
-                        <!-- Review 4 -->
-                        <div class="carousel-slide">
-                            <div class="review-card-mobile">
-                                <div class="review-author">
-                                    <div class="review-info">
-                                        <h4>Елена Ивановна</h4>
-                                        <div class="review-location">г. Лида</div>
-                                    </div>
-                                    <div class="review-stars">★★★★★</div>
-                                </div>
-                                <p class="review-text">"Бригада работала как часы! Каждый знает свое дело, никто не стоит без дела. Мастер все объяснил, показал!"</p>
-                            </div>
-                        </div>
-                        <!-- Review 5 -->
-                        <div class="carousel-slide">
-                            <div class="review-card-mobile">
-                                <div class="review-author">
-                                    <div class="review-info">
-                                        <h4>Владимир Сергеевич</h4>
-                                        <div class="review-location">г. Слоним</div>
-                                    </div>
-                                    <div class="review-stars">★★★★★</div>
-                                </div>
-                                <p class="review-text">"Через год после установки септика была небольшая проблема. Приехали по гарантии, все исправили бесплатно!"</p>
-                            </div>
-                        </div>
-                        <!-- Review 6 -->
-                        <div class="carousel-slide">
-                            <div class="review-card-mobile">
-                                <div class="review-author">
-                                    <div class="review-info">
-                                        <h4>Наталья</h4>
-                                        <div class="review-location">г. Новогрудок</div>
-                                    </div>
-                                    <div class="review-stars">★★★★★</div>
-                                </div>
-                                <p class="review-text">"Предложили рассрочку на 6 месяцев без процентов. Очень выручило! Не пришлось брать кредит в банке!"</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Navigation Dots -->
-                <div class="carousel-dots"></div>
-            </div>
         </div>
     </section>
 
@@ -3783,117 +3770,6 @@
                 });
             }
 
-            // Reviews Carousel for Mobile
-            const carousel = document.querySelector('.carousel-track');
-            const dotsContainer = document.querySelector('.carousel-dots');
-            const slides = document.querySelectorAll('.carousel-slide');
-            
-            if (carousel && slides.length > 0) {
-                let currentSlide = 0;
-                let startX = 0;
-                let currentX = 0;
-                let isDragging = false;
-
-                // Create dots
-                slides.forEach((_, index) => {
-                    const dot = document.createElement('button');
-                    dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
-                    dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-                    dot.addEventListener('click', () => goToSlide(index));
-                    dotsContainer.appendChild(dot);
-                });
-
-                function updateCarousel() {
-                    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-                    
-                    // Update dots
-                    document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-                        dot.classList.toggle('active', index === currentSlide);
-                    });
-                }
-
-                function goToSlide(index) {
-                    currentSlide = Math.max(0, Math.min(index, slides.length - 1));
-                    updateCarousel();
-                }
-
-                function nextSlide() {
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    updateCarousel();
-                }
-
-                function prevSlide() {
-                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                    updateCarousel();
-                }
-
-                // Touch events for swipe
-                carousel.addEventListener('touchstart', (e) => {
-                    startX = e.touches[0].clientX;
-                    isDragging = true;
-                }, { passive: true });
-
-                carousel.addEventListener('touchmove', (e) => {
-                    if (!isDragging) return;
-                    currentX = e.touches[0].clientX;
-                    const diffX = startX - currentX;
-                    carousel.style.transform = `translateX(calc(-${currentSlide * 100}% - ${diffX}px))`;
-                }, { passive: true });
-
-                carousel.addEventListener('touchend', () => {
-                    if (!isDragging) return;
-                    isDragging = false;
-                    
-                    const diffX = startX - currentX;
-                    const threshold = 50;
-                    
-                    if (Math.abs(diffX) > threshold) {
-                        if (diffX > 0) {
-                            nextSlide();
-                        } else {
-                            prevSlide();
-                        }
-                    } else {
-                        updateCarousel();
-                    }
-                });
-
-                // Auto-play (optional)
-                let autoPlayInterval;
-                function startAutoPlay() {
-                    autoPlayInterval = setInterval(() => {
-                        nextSlide();
-                    }, 5000);
-                }
-
-                function stopAutoPlay() {
-                    if (autoPlayInterval) {
-                        clearInterval(autoPlayInterval);
-                    }
-                }
-
-                // Start auto-play when carousel is visible
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            startAutoPlay();
-                        } else {
-                            stopAutoPlay();
-                        }
-                    });
-                });
-
-                if (carousel.parentElement) {
-                    observer.observe(carousel.parentElement);
-                }
-
-                // Pause on hover/touch
-                carousel.addEventListener('mouseenter', stopAutoPlay);
-                carousel.addEventListener('mouseleave', startAutoPlay);
-                
-                // Initialize
-                updateCarousel();
-            }
 
             // 3D Carousel for Advantages
             const carousel3DCards = document.querySelectorAll('.carousel-3d-card');
