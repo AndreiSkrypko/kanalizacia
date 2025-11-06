@@ -2698,6 +2698,17 @@
             }
         }
 
+        /* Убираем пазлы и фиксируем высоту изображения услуг на мобильных */
+        .puzzle-image { 
+            height: 220px; 
+            min-height: 220px; 
+        }
+        .puzzle-image .puzzle-piece { 
+            display: none; 
+        }
+    }
+
+    @media (max-width: 480px) {
         @media (max-width: 480px) {
             .hero-section {
                 padding: 32px 12px 28px;
@@ -3407,7 +3418,17 @@
             puzzleImages.forEach(puzzleImage => {
                 const imageUrl = puzzleImage.getAttribute('data-image');
                 const pieces = puzzleImage.querySelectorAll('.puzzle-piece');
-                
+
+                const isMobile = window.matchMedia('(max-width: 768px)').matches;
+                if (isMobile) {
+                    // На мобильных отключаем пазл и показываем обычный фон
+                    puzzleImage.style.backgroundImage = `url('${imageUrl}')`;
+                    puzzleImage.style.backgroundSize = 'cover';
+                    puzzleImage.style.backgroundPosition = 'center';
+                    pieces.forEach(piece => { piece.style.display = 'none'; });
+                    return; // пропускаем наблюдатель и анимации
+                }
+
                 // Устанавливаем фоновое изображение для каждой части
                 pieces.forEach(piece => {
                     piece.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('${imageUrl}')`;
