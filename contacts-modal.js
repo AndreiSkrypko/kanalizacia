@@ -23,28 +23,13 @@ class ContactsModal {
                 </div>
                 
                 <div class="contacts-modal-body">
-                    <!-- Phone Numbers -->
+                    <!-- Phone Numbers and Email -->
                     <div class="contact-section">
-                        <h3>Телефоны</h3>
+                        <h3>Контакты</h3>
                         <div class="contact-item">
                             <a href="tel:+375291234567" class="phone-link">+375 (29) 123-45-67</a>
                             <a href="tel:+375333456789" class="phone-link">+375 (33) 345-67-89</a>
                             <div class="work-time">Работаем ежедневно с 8:00 до 22:00</div>
-                        </div>
-                    </div>
-
-                    <!-- Location -->
-                    <div class="contact-section">
-                        <h3>Где работаем</h3>
-                        <div class="contact-item">
-                            <div class="location-text">Гродно и Гродненская область</div>
-                        </div>
-                    </div>
-
-                    <!-- Email -->
-                    <div class="contact-section">
-                        <h3>Email</h3>
-                        <div class="contact-item">
                             <a href="mailto:info@aquaforge.by" class="email-link">info@aquaforge.by</a>
                         </div>
                     </div>
