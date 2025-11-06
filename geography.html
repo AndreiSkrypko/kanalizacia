@@ -386,25 +386,79 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            /* Hide headers on mobile */
-            .coverage-text h2,
-            .cities-title {
-                display: none;
+            .coverage-section {
+                margin: 20px auto !important;
+                padding: 16px !important;
             }
 
             .coverage-content {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 30px;
+            }
+
+            .coverage-text h2 {
+                font-size: 1.6em;
+                margin-bottom: 12px;
+                text-align: center;
+                line-height: 1.2;
+            }
+
+            .coverage-description {
+                font-size: 1em;
+                text-align: center;
+                margin-bottom: 28px;
+                line-height: 1.6;
+                color: #555;
             }
 
             .coverage-stats {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                margin-bottom: 28px;
             }
 
+            .stat-item {
+                padding: 18px 10px;
+                border-radius: 12px;
+                box-shadow: 0 6px 20px rgba(34, 197, 94, 0.1), 0 3px 10px rgba(251, 191, 36, 0.08) !important;
+            }
+
+            .stat-number {
+                font-size: 1.9em;
+                margin-bottom: 4px;
+            }
+
+            .stat-label {
+                font-size: 0.75em;
+                letter-spacing: 0.3px;
+            }
+
+            .coverage-features {
+                gap: 12px;
+                margin-top: 24px;
+            }
+
+            .feature-item {
+                font-size: 0.95em;
+                padding: 12px 0 12px 16px;
+                background: rgba(255, 255, 255, 0.4);
+                border-radius: 10px;
+                backdrop-filter: blur(8px);
+            }
+
+            .map-container {
+                height: 350px;
+                border-radius: 12px;
+            }
+
+            .map-caption {
+                font-size: 0.85em;
+                margin-top: 12px;
+            }
             
             .map-section {
-                margin: 60px auto 100px auto;
-                padding: 0 20px;
+                margin: 30px auto;
+                padding: 0 16px;
             }
 
             .cities-container {
@@ -412,27 +466,99 @@
             }
             
             .cities-section {
-                margin: 60px auto 100px auto;
-                padding: 0 20px;
+                margin: 30px auto;
+                padding: 0 16px;
             }
 
+            .cities-title {
+                font-size: 1.5em;
+                margin-bottom: 12px;
+                text-align: center;
+                line-height: 1.2;
+            }
+
+            .cities-section p {
+                font-size: 0.9em !important;
+                margin-bottom: 20px !important;
+                padding: 0 8px;
+            }
 
             .cities-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 10px;
-                margin: 40px 0 40px 0;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                margin: 20px 0;
             }
             
             .city-button {
-                padding: 15px 10px;
-                min-height: 100px;
+                padding: 18px 12px;
+                min-height: 95px;
                 font-size: 12px;
+                border-radius: 14px;
+                box-shadow: 0 6px 20px rgba(34, 197, 94, 0.1), 0 3px 10px rgba(251, 191, 36, 0.08) !important;
             }
             
             .city-icon {
-                font-size: 1.5em;
+                font-size: 2em;
             }
             
+            .city-name {
+                font-size: 12px;
+                line-height: 1.4;
+                font-weight: 600;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .coverage-section {
+                padding: 12px !important;
+            }
+
+            .coverage-text h2 {
+                font-size: 1.4em;
+            }
+
+            .coverage-description {
+                font-size: 0.9em;
+            }
+
+            .coverage-stats {
+                gap: 8px;
+            }
+
+            .stat-item {
+                padding: 12px 6px;
+            }
+
+            .stat-number {
+                font-size: 1.5em;
+            }
+
+            .stat-label {
+                font-size: 0.7em;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+
+            .cities-title {
+                font-size: 1.3em;
+            }
+
+            .cities-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .city-button {
+                padding: 14px 10px;
+                min-height: 80px;
+            }
+
+            .city-icon {
+                font-size: 1.6em;
+            }
+
             .city-name {
                 font-size: 11px;
             }
