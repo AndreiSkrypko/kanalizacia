@@ -158,37 +158,39 @@ footer::after {
     font-weight: 600;
     margin-bottom: 8px;
     font-size: 1.15em;
-    color: #ffffff;
+    color: #ffffff !important;
     padding: 10px 16px;
-    background: rgba(34, 197, 94, 0.12);
-    border: 1px solid rgba(34, 197, 94, 0.2);
+    background: transparent !important;
+    border: none !important;
     border-radius: 10px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    transition: transform 0.2s ease;
+    position: static;
+    overflow: visible;
+    box-shadow: none !important;
 }
 
 .phone-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s ease;
+    display: none !important;
+}
+
+.phone-link::after {
+    display: none !important;
 }
 
 .phone-link:hover {
-    color: #ffffff;
-    background: rgba(34, 197, 94, 0.2);
-    border-color: rgba(34, 197, 94, 0.4);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+    color: #ffffff !important;
+    background: transparent !important;
+    border: none !important;
+    transform: translateX(3px);
+    box-shadow: none !important;
 }
 
 .phone-link:hover::before {
-    left: 100%;
+    display: none !important;
+}
+
+.phone-link:hover::after {
+    display: none !important;
 }
 
 .work-time {
@@ -457,17 +459,44 @@ footer::after {
     .phone-link {
         font-size: 1.05em;
         margin-bottom: 8px;
-        padding: 10px;
-        background: rgba(34, 197, 94, 0.1);
+        padding: 10px 16px;
+        background: transparent !important;
+        border: none !important;
         border-radius: 8px;
-        display: inline-block;
-        min-width: 200px;
-        transition: all 0.2s ease;
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+        transition: transform 0.2s ease;
+        text-align: center;
+        box-sizing: border-box;
+        position: static;
+        overflow: visible;
+        box-shadow: none !important;
+    }
+
+    .phone-link::before {
+        display: none !important;
+    }
+
+    .phone-link::after {
+        display: none !important;
     }
 
     .phone-link:hover {
-        background: rgba(34, 197, 94, 0.2);
-        transform: translateY(-2px);
+        background: transparent !important;
+        border: none !important;
+        transform: translateX(3px);
+        box-shadow: none !important;
+    }
+
+    .phone-link:hover::before {
+        display: none !important;
+    }
+
+    .phone-link:hover::after {
+        display: none !important;
     }
 
     .work-time,
@@ -575,8 +604,8 @@ footer::after {
 
     .phone-link {
         font-size: 1em;
-        min-width: 180px;
-        padding: 8px;
+        max-width: 260px;
+        padding: 10px 14px;
     }
 
     .work-time,
