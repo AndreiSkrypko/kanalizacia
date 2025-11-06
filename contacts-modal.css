@@ -186,7 +186,8 @@
     margin-bottom: 0;
 }
 
-.phone-link {
+.contacts-modal .phone-link,
+.contacts-modal-body .phone-link {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -206,18 +207,21 @@
     box-shadow: none;
 }
 
-.phone-link::before {
+.contacts-modal .phone-link::before,
+.contacts-modal-body .phone-link::before {
     content: '📞';
     font-size: 22px;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
     transition: transform 0.2s ease;
 }
 
-.phone-link::after {
+.contacts-modal .phone-link::after,
+.contacts-modal-body .phone-link::after {
     display: none !important;
 }
 
-.phone-link:hover {
+.contacts-modal .phone-link:hover,
+.contacts-modal-body .phone-link:hover {
     color: #1e293b !important;
     background: transparent !important;
     border: none !important;
@@ -226,15 +230,18 @@
     animation: none !important;
 }
 
-.phone-link:hover::before {
+.contacts-modal .phone-link:hover::before,
+.contacts-modal-body .phone-link:hover::before {
     transform: scale(1.1);
 }
 
-.phone-link:hover::after {
+.contacts-modal .phone-link:hover::after,
+.contacts-modal-body .phone-link:hover::after {
     display: none !important;
 }
 
-.phone-link:last-child {
+.contacts-modal .phone-link:last-child,
+.contacts-modal-body .phone-link:last-child {
     margin-bottom: 0;
 }
 
@@ -479,9 +486,11 @@
         margin-bottom: 16px;
     }
     
-    .phone-link {
+    .contacts-modal .phone-link,
+    .contacts-modal-body .phone-link {
         font-size: 16px;
         padding: 10px 14px;
+        color: #1e293b !important;
     }
     
     .work-time {

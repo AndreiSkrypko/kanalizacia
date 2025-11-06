@@ -152,7 +152,8 @@ footer::after {
     margin-bottom: 20px;
 }
 
-.phone-link {
+footer .phone-link,
+.footer-contacts .phone-link {
     display: inline-block;
     text-decoration: none;
     font-weight: 600;
@@ -169,15 +170,18 @@ footer::after {
     box-shadow: none !important;
 }
 
-.phone-link::before {
+footer .phone-link::before,
+.footer-contacts .phone-link::before {
     display: none !important;
 }
 
-.phone-link::after {
+footer .phone-link::after,
+.footer-contacts .phone-link::after {
     display: none !important;
 }
 
-.phone-link:hover {
+footer .phone-link:hover,
+.footer-contacts .phone-link:hover {
     color: #ffffff !important;
     background: transparent !important;
     border: none !important;
@@ -185,11 +189,13 @@ footer::after {
     box-shadow: none !important;
 }
 
-.phone-link:hover::before {
+footer .phone-link:hover::before,
+.footer-contacts .phone-link:hover::before {
     display: none !important;
 }
 
-.phone-link:hover::after {
+footer .phone-link:hover::after,
+.footer-contacts .phone-link:hover::after {
     display: none !important;
 }
 
@@ -456,7 +462,8 @@ footer::after {
         margin-bottom: 20px;
     }
 
-    .phone-link {
+    footer .phone-link,
+    .footer-contacts .phone-link {
         font-size: 1.05em;
         margin-bottom: 8px;
         padding: 10px 16px;
@@ -474,28 +481,35 @@ footer::after {
         position: static;
         overflow: visible;
         box-shadow: none !important;
+        color: #ffffff !important;
     }
 
-    .phone-link::before {
+    footer .phone-link::before,
+    .footer-contacts .phone-link::before {
         display: none !important;
     }
 
-    .phone-link::after {
+    footer .phone-link::after,
+    .footer-contacts .phone-link::after {
         display: none !important;
     }
 
-    .phone-link:hover {
+    footer .phone-link:hover,
+    .footer-contacts .phone-link:hover {
         background: transparent !important;
         border: none !important;
         transform: translateX(3px);
         box-shadow: none !important;
+        color: #ffffff !important;
     }
 
-    .phone-link:hover::before {
+    footer .phone-link:hover::before,
+    .footer-contacts .phone-link:hover::before {
         display: none !important;
     }
 
-    .phone-link:hover::after {
+    footer .phone-link:hover::after,
+    .footer-contacts .phone-link:hover::after {
         display: none !important;
     }
 
@@ -602,10 +616,12 @@ footer::after {
         padding: 6px 0;
     }
 
-    .phone-link {
+    footer .phone-link,
+    .footer-contacts .phone-link {
         font-size: 1em;
         max-width: 260px;
         padding: 10px 14px;
+        color: #ffffff !important;
     }
 
     .work-time,
