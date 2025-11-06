@@ -90,6 +90,185 @@
             line-height: 1.6;
         }
 
+        /* Equipment Grid */
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+        .equipment-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08),
+                        0 2px 10px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid rgba(34, 197, 94, 0.1);
+        }
+
+        .equipment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #22c55e 0%, #fbbf24 50%, #22c55e 100%);
+            background-size: 200% 100%;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .equipment-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(34, 197, 94, 0.25),
+                        0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+
+        .equipment-card:hover::before {
+            opacity: 1;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .equipment-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #fefce8 100%);
+        }
+
+        .equipment-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .equipment-card:hover .equipment-image {
+            transform: scale(1.1);
+        }
+
+        .equipment-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(34, 197, 94, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .equipment-card:hover .equipment-image-wrapper::after {
+            opacity: 1;
+        }
+
+        .equipment-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .equipment-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            margin-bottom: 18px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #fbbf24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 100%;
+            animation: gradientShift 4s ease infinite;
+            line-height: 1.3;
+        }
+
+        .equipment-specs {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px 0;
+            flex-grow: 1;
+        }
+
+        .equipment-specs li {
+            padding: 10px 0;
+            color: #475569;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .equipment-specs li:hover {
+            color: #1e293b;
+            transform: translateX(5px);
+        }
+
+        .equipment-specs li::before {
+            content: '✓';
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 1.2em;
+            min-width: 20px;
+            text-shadow: 0 2px 4px rgba(34, 197, 94, 0.2);
+        }
+
+        .equipment-button {
+            display: inline-block;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #fbbf24 100%);
+            background-size: 200% 100%;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: auto;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .equipment-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .equipment-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+            animation: gradientShift 2s ease infinite;
+        }
+
+        .equipment-button:hover::before {
+            left: 100%;
+        }
+
+        .equipment-button:active {
+            transform: translateY(-1px);
+        }
+
         @media (max-width: 768px) {
             .page-title {
                 font-size: 2em;
@@ -97,6 +276,24 @@
 
             .page-content {
                 padding: 20px 15px;
+            }
+
+            .equipment-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin-top: 30px;
+            }
+
+            .equipment-image-wrapper {
+                height: 240px;
+            }
+
+            .equipment-content {
+                padding: 20px;
+            }
+
+            .equipment-title {
+                font-size: 1.3em;
             }
         }
     </style>
@@ -109,7 +306,128 @@
     <div class="page-content">
         <div>
             <h1 class="page-title">Аренда спецтехники</h1>
-            <p class="page-subtitle">Страница находится в разработке. Скоро здесь будет информация о нашей спецтехнике.</p>
+            <p class="page-subtitle">Предлагаем в аренду современную спецтехнику для выполнения земляных работ, транспортировки и других задач</p>
+            
+            <div class="equipment-grid">
+                <!-- Митсубиси MM 55 SR -->
+                <div class="equipment-card">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/1.jpg" alt="Митсубиси MM 55 SR" class="equipment-image">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">Митсубиси MM 55 SR</h3>
+                        <ul class="equipment-specs">
+                            <li>Масса: 5,5 тонн</li>
+                            <li>Глубина копания: 4,2 метра</li>
+                        </ul>
+                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
+                    </div>
+                </div>
+
+                <!-- Ньюхолонд 115 -->
+                <div class="equipment-card">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/2.jpg" alt="Ньюхолонд 115" class="equipment-image">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">Ньюхолонд 115</h3>
+                        <ul class="equipment-specs">
+                            <li>Масса: 10 тонн</li>
+                            <li>Глубина копания: 6 метров</li>
+                        </ul>
+                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
+                    </div>
+                </div>
+
+                <!-- Эвакуатор -->
+                <div class="equipment-card">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/3.jpg" alt="Эвакуатор" class="equipment-image">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">Эвакуатор</h3>
+                        <ul class="equipment-specs">
+                            <li>Грузоподъёмность: 5 тонн</li>
+                        </ul>
+                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
+                    </div>
+                </div>
+
+                <!-- ТО-30 -->
+                <div class="equipment-card">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/4.jpg" alt="ТО-30" class="equipment-image">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">ТО-30</h3>
+                        <ul class="equipment-specs">
+                            <li>Специализированная техника</li>
+                        </ul>
+                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
+                    </div>
+                </div>
+
+                <!-- Самосвал -->
+                <div class="equipment-card">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/5.jpg" alt="Самосвал" class="equipment-image">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">Самосвал</h3>
+                        <ul class="equipment-specs">
+                            <li>Грузоподъёмность: 20 тонн</li>
+                        </ul>
+                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
+                    </div>
+                </div>
+
+                <!-- Мини-экскаватор -->
+                <div class="equipment-card">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/6.jpg" alt="Мини-экскаватор" class="equipment-image">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">Мини-экскаватор</h3>
+                        <ul class="equipment-specs">
+                            <li>Масса: 2 тонны</li>
+                            <li>Глубина копки: 2 метра</li>
+                            <li>Комплект ковшей: 20, 30, 40 см и планировочный 1 м</li>
+                        </ul>
+                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
+                    </div>
+                </div>
+
+                <!-- Амкадор 332 -->
+                <div class="equipment-card">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/7.jpg" alt="Амкадор 332" class="equipment-image">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">Амкадор 332</h3>
+                        <ul class="equipment-specs">
+                            <li>Фронтальный погрузчик повышенной проходимости</li>
+                            <li>Сменное навесное оборудование для различных задач</li>
+                            <li>Высокая производительность и маневренность</li>
+                        </ul>
+                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
+                    </div>
+                </div>
+
+                <!-- КамАЗ манипулятор -->
+                <div class="equipment-card">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/8.jpg" alt="КамАЗ манипулятор" class="equipment-image">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">КамАЗ манипулятор</h3>
+                        <ul class="equipment-specs">
+                            <li>Грузоподъёмность манипулятора</li>
+                            <li>Транспортировка грузов</li>
+                        </ul>
+                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
