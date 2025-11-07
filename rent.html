@@ -63,11 +63,14 @@
             font-size: 1.3em;
         }
 
-        /* Page Content - широкий контейнер */
+        /* Modern page layout */
         .page-content {
             max-width: 1280px;
             margin: 40px auto;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
         }
 
         .page-title {
@@ -79,221 +82,626 @@
             font-weight: 700;
             text-align: center;
             margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .rental-hero .page-title {
+            text-align: left;
+            margin: 0 0 14px 0;
         }
 
         .page-subtitle {
-            font-size: 1.2em;
-            color: #64748b;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            text-align: center;
-            line-height: 1.6;
+            font-size: 1.08em;
+            color: #475569;
+            max-width: 640px;
+            line-height: 1.75;
         }
 
-        /* Equipment Grid */
-        .equipment-grid {
+        .page-content h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .page-content h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 1.2em;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            margin-right: 12px;
+            vertical-align: middle;
+            border-radius: 2px;
+        }
+
+        .section-lead {
+            color: #475569;
+            line-height: 1.7;
+            margin: 0 0 22px 0;
+            max-width: 760px;
+        }
+
+        .rental-hero {
+            padding: 0 0 18px 0;
+            color: #0f172a;
+            margin-bottom: 30px;
+        }
+
+        .rental-hero-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 35px;
-            margin-top: 60px;
+            grid-template-columns: minmax(400px, 1fr) minmax(340px, 1fr);
+            gap: 24px;
+            align-items: center;
         }
 
-        .equipment-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08),
-                        0 2px 10px rgba(0, 0, 0, 0.04);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .rental-hero-content {
             display: flex;
             flex-direction: column;
+            gap: 12px;
+        }
+
+        .rental-hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .rental-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .rental-badge svg {
+            width: 18px;
+            height: 18px;
+            color: #22c55e;
+        }
+
+        .hero-benefits {
+            list-style: none;
+            margin: 12px 0 0;
+            padding: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .hero-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 1em;
+            color: #0f172a;
+            line-height: 1.48;
+        }
+
+        .hero-benefits li::before {
+            content: '✓';
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 24px;
+            justify-content: flex-start;
+        }
+
+        .cta-group .cta-button {
+            border-radius: 12px;
+            font-size: 0.95em;
+            padding: 12px 26px;
+        }
+
+        .cta-button.cta-outline {
+            background: transparent !important;
+            color: #0f766e !important;
+            border: 2px solid rgba(15, 118, 110, 0.35) !important;
+            box-shadow: 0 3px 12px rgba(15, 118, 110, 0.12) !important;
+        }
+
+        .cta-button.cta-outline:hover {
+            background: rgba(15, 118, 110, 0.1) !important;
+            border-color: rgba(15, 118, 110, 0.55) !important;
+        }
+
+        .rental-hero-visual {
             position: relative;
-            border: 1px solid rgba(34, 197, 94, 0.1);
-        }
-
-        .equipment-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #22c55e 0%, #fbbf24 50%, #22c55e 100%);
-            background-size: 200% 100%;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .equipment-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(34, 197, 94, 0.25),
-                        0 10px 25px rgba(0, 0, 0, 0.1);
-            border-color: rgba(34, 197, 94, 0.3);
-        }
-
-        .equipment-card:hover::before {
-            opacity: 1;
-            animation: gradientShift 3s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .equipment-image-wrapper {
-            position: relative;
+            border-radius: 20px;
             overflow: hidden;
-            height: 300px;
-            background: linear-gradient(135deg, #f0fdf4 0%, #fefce8 100%);
+            min-height: 300px;
         }
 
-        .equipment-image {
+        .rental-hero-visual img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            object-position: center top;
         }
 
-        .equipment-card:hover .equipment-image {
-            transform: scale(1.1);
+        .visual-caption {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            background: rgba(15, 23, 42, 0.75);
+            color: #f8fafc;
+            font-weight: 600;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 2;
         }
 
-        .equipment-image-wrapper::after {
+        .visual-caption svg {
+            width: 20px;
+            height: 20px;
+            color: #fbbf24;
+        }
+
+        .rental-features {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .rental-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .rental-feature-card {
+            position: relative;
+            padding: 14px 0 14px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .rental-feature-icon {
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f766e;
+        }
+
+        .rental-feature-card::before {
             content: '';
             position: absolute;
-            top: 0;
             left: 0;
-            right: 0;
+            top: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, transparent 0%, rgba(34, 197, 94, 0.05) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            width: 3px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(34, 197, 94, 0.45) 0%, rgba(16, 185, 129, 0.15) 100%);
         }
 
-        .equipment-card:hover .equipment-image-wrapper::after {
-            opacity: 1;
+        .rental-feature-card h3 {
+            font-size: 1.22em;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .rental-feature-card p {
+            color: #475569;
+            line-height: 1.55;
+        }
+
+        .equipment-section {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .equipment-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .equipment-item {
+            display: grid;
+            grid-template-columns: minmax(360px, 1fr) minmax(360px, 1fr);
+            gap: 32px;
+            align-items: center;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .equipment-item:nth-child(even) .equipment-image-wrapper {
+            order: 2;
+        }
+
+        .equipment-item:last-child {
+            border-bottom: none;
+        }
+
+        .equipment-image-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            min-height: 300px;
+        }
+
+        .equipment-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .equipment-content {
-            padding: 30px;
-            flex-grow: 1;
+            position: relative;
+            z-index: 1;
             display: flex;
             flex-direction: column;
-            position: relative;
+            gap: 16px;
         }
 
         .equipment-title {
-            font-size: 1.6em;
+            font-size: 1.7em;
             font-weight: 700;
-            margin-bottom: 18px;
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #fbbf24 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            background-size: 200% 100%;
-            animation: gradientShift 4s ease infinite;
-            line-height: 1.3;
+            color: #0f172a;
+        }
+
+        .equipment-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .equipment-tag {
+            padding: 6px 16px;
+            border-radius: 999px;
+            background: rgba(34, 197, 94, 0.12);
+            color: #0f766e;
+            font-weight: 600;
+            font-size: 0.94em;
         }
 
         .equipment-specs {
             list-style: none;
             padding: 0;
-            margin: 0 0 25px 0;
-            flex-grow: 1;
+            margin: 0;
+            display: grid;
+            gap: 10px;
+            color: #475569;
         }
 
         .equipment-specs li {
-            padding: 10px 0;
-            color: #475569;
-            font-size: 1em;
             display: flex;
-            align-items: center;
             gap: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .equipment-specs li:hover {
-            color: #1e293b;
-            transform: translateX(5px);
+            align-items: flex-start;
+            line-height: 1.55;
         }
 
         .equipment-specs li::before {
-            content: '✓';
+            content: '•';
             color: #22c55e;
-            font-weight: 700;
             font-size: 1.2em;
-            min-width: 20px;
-            text-shadow: 0 2px 4px rgba(34, 197, 94, 0.2);
+            line-height: 1;
         }
 
-        .equipment-button {
-            display: inline-block;
-            padding: 14px 28px;
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #fbbf24 100%);
-            background-size: 200% 100%;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 700;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-top: auto;
-            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+        .equipment-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            margin-top: 6px;
+        }
+
+        .equipment-rate {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .equipment-actions .cta-button {
+            padding: 10px 22px !important;
+            font-size: 0.92em !important;
+            border-radius: 12px !important;
+            box-shadow: 0 6px 18px rgba(34, 197, 94, 0.3),
+                        0 3px 10px rgba(34, 197, 94, 0.18),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+        }
+
+        .discount-section {
+            padding: 28px;
+            color: #0f172a;
+            display: grid;
+            gap: 24px;
+            background: linear-gradient(135deg, rgba(240, 253, 244, 0.85) 0%, rgba(255, 255, 255, 0.9) 60%, rgba(254, 252, 232, 0.85) 100%);
+            border-radius: 18px;
+            border: 1px solid rgba(34, 197, 94, 0.12);
+        }
+
+        .discount-section h2 {
+            font-size: 2.2em;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .discount-section p {
+            margin: 0;
+            line-height: 1.65;
+            color: #475569;
+        }
+
+        .discount-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .discount-item {
             position: relative;
-            overflow: hidden;
+            padding: 4px 0 4px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
-        .equipment-button::before {
+        .discount-item strong {
+            font-size: 1.14em;
+            color: #0f172a;
+        }
+
+        .discount-item::before {
             content: '';
             position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 3px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(34, 197, 94, 0.4) 0%, rgba(16, 185, 129, 0.15) 100%);
+        }
+
+        .workflow-section {
+            display: grid;
+            gap: 26px;
+        }
+
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+
+        .workflow-step {
+            position: relative;
+            padding: 20px 0 20px 18px;
+        }
+
+        .workflow-step-number {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(34, 197, 94, 0.18);
+            color: #0f766e;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .workflow-step h3 {
+            font-size: 1.22em;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .workflow-step p {
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .workflow-step::before {
+            content: '';
+            position: absolute;
+            left: 0;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s ease;
+            bottom: 0;
+            width: 3px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(34, 197, 94, 0.4) 0%, rgba(16, 185, 129, 0.12) 100%);
         }
 
-        .equipment-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
-            animation: gradientShift 2s ease infinite;
+        @media (min-width: 1400px) {
+            .page-content {
+                max-width: 1440px;
+                padding: 32px 40px 40px;
+                gap: 56px;
+            }
+
+            .rental-hero-grid {
+                grid-template-columns: minmax(520px, 1fr) minmax(460px, 0.9fr);
+                gap: 48px;
+            }
+
+            .rental-hero-visual {
+                min-height: 360px;
+            }
+
+            .equipment-showcase {
+                gap: 36px;
+            }
+
+            .equipment-item {
+                grid-template-columns: minmax(420px, 1fr) minmax(420px, 1fr);
+                gap: 40px;
+            }
         }
 
-        .equipment-button:hover::before {
-            left: 100%;
+        @media (max-width: 1024px) {
+            .rental-hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rental-hero-visual {
+                min-height: 280px;
+                order: -1;
+            }
+
+            .equipment-item {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                padding: 16px 0;
+            }
+
+            .equipment-item:nth-child(even) .equipment-image-wrapper {
+                order: initial;
+            }
         }
 
-        .equipment-button:active {
-            transform: translateY(-1px);
+        @media (max-width: 900px) {
+            .rental-hero {
+                padding: 16px 0 18px;
+            }
+
+            .rental-hero-grid {
+                gap: 20px;
+            }
+
+            .rental-hero-visual {
+                min-height: 260px;
+            }
+
         }
 
         @media (max-width: 768px) {
-            .page-title {
-                font-size: 2em;
-            }
-
             .page-content {
-                padding: 20px 15px;
+                margin: 28px auto 50px;
+                padding: 0 18px 24px;
+                gap: 48px;
             }
 
-            .equipment-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-                margin-top: 30px;
+            .page-title {
+                font-size: 2.1em;
             }
 
-            .equipment-image-wrapper {
-                height: 240px;
-            }
-
-            .equipment-content {
+            .rental-hero {
                 padding: 20px;
             }
 
-            .equipment-title {
-                font-size: 1.3em;
+            .hero-benefits {
+                gap: 12px;
+            }
+
+            .rental-hero-visual {
+                min-height: 240px;
+            }
+
+            .rental-hero-visual img {
+                min-height: 100%;
+            }
+
+            .equipment-image-wrapper {
+                min-height: 220px;
+            }
+
+            .equipment-meta {
+                gap: 8px;
+            }
+
+            .equipment-tag {
+                font-size: 0.88em;
+                padding: 6px 14px;
+            }
+
+            .equipment-rate {
+                width: 100%;
+            }
+
+            .equipment-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .equipment-actions .cta-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .rental-hero-visual {
+                min-height: 240px;
+            }
+
+            .rental-hero-visual img {
+                object-position: center top;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .page-content {
+                padding: 0 14px 20px;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .rental-hero {
+                padding: 18px;
+            }
+
+            .rental-badge {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cta-group .cta-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .equipment-meta {
+                gap: 8px;
+            }
+
+            .equipment-tag {
+                font-size: 0.88em;
+                padding: 6px 14px;
+            }
+
+            .equipment-rate {
+                width: 100%;
+            }
+
+            .equipment-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .equipment-actions .cta-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .rental-hero-visual {
+                min-height: 240px;
+            }
+
+            .rental-hero-visual img {
+                object-position: center top;
             }
         }
     </style>
@@ -304,131 +712,340 @@
 
     <!-- Page Content -->
     <div class="page-content">
-        <div>
-            <h1 class="page-title">Аренда спецтехники</h1>
-            <p class="page-subtitle">Предлагаем в аренду современную спецтехнику для выполнения земляных работ, транспортировки и других задач</p>
-            
-            <div class="equipment-grid">
-                <!-- Митсубиси MM 55 SR -->
-                <div class="equipment-card">
-                    <div class="equipment-image-wrapper">
-                        <img src="images/technik/1.jpg" alt="Митсубиси MM 55 SR" class="equipment-image">
+        <section class="rental-hero">
+            <div class="rental-hero-grid">
+                <div class="rental-hero-content">
+                    <h1 class="page-title">Аренда спецтехники с опытным оператором</h1>
+                    <p class="page-subtitle">Подберём технику под любую задачу: от бурения и земляных работ до перевозки тяжёлых грузов. Приезжаем быстро, работаем аккуратно, берём на себя всю ответственность за результат.</p>
+
+                    <div class="rental-hero-badges">
+                        <div class="rental-badge">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3L2 12H5V21H11V15H13V21H19V12H22L12 3Z" fill="currentColor" />
+                            </svg>
+                            С оператором и топливом
+                        </div>
+                        <div class="rental-badge">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 8V13H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                            Старт в течение 2 часов
+                        </div>
+                        <div class="rental-badge">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4H20V20H4V4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                                <path d="M8 9H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M8 13H13" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                            Гибкая система скидок
+                        </div>
+                        <div class="rental-badge">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M21 10C21 15.5228 16.5228 20 11 20C5.47715 20 1 15.5228 1 10C1 4.47715 5.47715 0 11 0C16.5228 0 21 4.47715 21 10Z" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                            Официальный договор
+                        </div>
                     </div>
-                    <div class="equipment-content">
-                        <h3 class="equipment-title">Митсубиси MM 55 SR</h3>
-                        <ul class="equipment-specs">
-                            <li>Масса: 5,5 тонн</li>
-                            <li>Глубина копания: 4,2 метра</li>
+
+                    <ul class="hero-benefits">
+                        <li>Все машины приходят с сертифицированным оператором, топливом и регулярным техосмотром.</li>
+                        <li>Персональный менеджер контролирует логистику, безопасность и соблюдение сроков на площадке.</li>
+                        <li>Скидки до 15% при продолжительных проектах и пакетах «скважина + земляные работы».</li>
                         </ul>
-                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
+
+                    <div class="cta-group">
+                        <a href="#" class="cta-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Подобрать технику</a>
+                        <a href="#discounts" class="cta-button cta-outline">Узнать про скидки</a>
                     </div>
                 </div>
 
-                <!-- Ньюхолонд 115 -->
-                <div class="equipment-card">
-                    <div class="equipment-image-wrapper">
-                        <img src="images/technik/2.jpg" alt="Ньюхолонд 115" class="equipment-image">
-                    </div>
-                    <div class="equipment-content">
-                        <h3 class="equipment-title">Ньюхолонд 115</h3>
-                        <ul class="equipment-specs">
-                            <li>Масса: 10 тонн</li>
-                            <li>Глубина копания: 6 метров</li>
-                        </ul>
-                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
-                    </div>
-                </div>
-
-                <!-- Эвакуатор -->
-                <div class="equipment-card">
-                    <div class="equipment-image-wrapper">
-                        <img src="images/technik/3.jpg" alt="Эвакуатор" class="equipment-image">
-                    </div>
-                    <div class="equipment-content">
-                        <h3 class="equipment-title">Эвакуатор</h3>
-                        <ul class="equipment-specs">
-                            <li>Грузоподъёмность: 5 тонн</li>
-                        </ul>
-                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
-                    </div>
-                </div>
-
-                <!-- ТО-30 -->
-                <div class="equipment-card">
-                    <div class="equipment-image-wrapper">
-                        <img src="images/technik/4.jpg" alt="ТО-30" class="equipment-image">
-                    </div>
-                    <div class="equipment-content">
-                        <h3 class="equipment-title">ТО-30</h3>
-                        <ul class="equipment-specs">
-                            <li>Специализированная техника</li>
-                        </ul>
-                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
-                    </div>
-                </div>
-
-                <!-- Самосвал -->
-                <div class="equipment-card">
-                    <div class="equipment-image-wrapper">
-                        <img src="images/technik/5.jpg" alt="Самосвал" class="equipment-image">
-                    </div>
-                    <div class="equipment-content">
-                        <h3 class="equipment-title">Самосвал</h3>
-                        <ul class="equipment-specs">
-                            <li>Грузоподъёмность: 20 тонн</li>
-                        </ul>
-                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
-                    </div>
-                </div>
-
-                <!-- Мини-экскаватор -->
-                <div class="equipment-card">
-                    <div class="equipment-image-wrapper">
-                        <img src="images/technik/6.jpg" alt="Мини-экскаватор" class="equipment-image">
-                    </div>
-                    <div class="equipment-content">
-                        <h3 class="equipment-title">Мини-экскаватор</h3>
-                        <ul class="equipment-specs">
-                            <li>Масса: 2 тонны</li>
-                            <li>Глубина копки: 2 метра</li>
-                            <li>Комплект ковшей: 20, 30, 40 см и планировочный 1 м</li>
-                        </ul>
-                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
-                    </div>
-                </div>
-
-                <!-- Амкадор 332 -->
-                <div class="equipment-card">
-                    <div class="equipment-image-wrapper">
-                        <img src="images/technik/7.jpg" alt="Амкадор 332" class="equipment-image">
-                    </div>
-                    <div class="equipment-content">
-                        <h3 class="equipment-title">Амкадор 332</h3>
-                        <ul class="equipment-specs">
-                            <li>Фронтальный погрузчик повышенной проходимости</li>
-                            <li>Сменное навесное оборудование для различных задач</li>
-                            <li>Высокая производительность и маневренность</li>
-                        </ul>
-                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
-                    </div>
-                </div>
-
-                <!-- КамАЗ манипулятор -->
-                <div class="equipment-card">
-                    <div class="equipment-image-wrapper">
-                        <img src="images/technik/8.jpg" alt="КамАЗ манипулятор" class="equipment-image">
-                    </div>
-                    <div class="equipment-content">
-                        <h3 class="equipment-title">КамАЗ манипулятор</h3>
-                        <ul class="equipment-specs">
-                            <li>Грузоподъёмность манипулятора</li>
-                            <li>Транспортировка грузов</li>
-                        </ul>
-                        <a href="#" class="equipment-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Заказать аренду</a>
+                <div class="rental-hero-visual">
+                    <img src="images/technik/6.jpg" alt="Мини-экскаватор AquaForge на объекте">
+                    <div class="visual-caption">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Мини-экскаватор с оператором: проходит в стеснённые дворы и не портит благоустройство
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section class="rental-features">
+            <h2>Техника, сервис и команда, которые закрывают все задачи по воде и канализации</h2>
+            <p class="section-lead">Собственный парк, строгий контроль состояния машин и операторы с опытом от 5 лет позволяют нам держать высокое качество на любых объектах — от частного дома до промплощадки.</p>
+
+            <div class="rental-feature-grid">
+                <div class="rental-feature-card">
+                    <div class="rental-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 13L12 3L21 13H17V21H7V13H3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h3>Комплект под задачу</h3>
+                    <p>Подбираем технику, навесное оборудование и ковши под конкретные условия. Доступны экскаваторы, манипуляторы, самосвалы, буровые.</p>
+                </div>
+
+                <div class="rental-feature-card">
+                    <div class="rental-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1V23" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            <path d="M5 5H19V9H5V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                            <path d="M7 15H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3>Операторы с допусками</h3>
+                    <p>Каждый специалист проходит ежегодную аттестацию и обучение технике безопасности. Контроль за состоянием площадки ведём сами.</p>
+                </div>
+
+                <div class="rental-feature-card">
+                    <div class="rental-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 7H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            <path d="M6 12H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            <path d="M10 17H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3>Прозрачные тарифы</h3>
+                    <p>Фиксированная ставка по договору, топливо и доставка включены. Отчёты по часам работы и расходным материалам в день заявки.</p>
+                </div>
+
+                <div class="rental-feature-card">
+                    <div class="rental-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C9.23858 2 7 4.23858 7 7C7 10.7614 12 20 12 20C12 20 17 10.7614 17 7C17 4.23858 14.7614 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                            <circle cx="12" cy="7" r="2" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <h3>Личный менеджер</h3>
+                    <p>Один контакт на весь проект: координация, документооборот, подмена техники при необходимости без доплат.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="equipment-section">
+            <h2>Техника из парка AquaForge</h2>
+            <p class="section-lead">Каждая единица проходит полную диагностику перед выездом. Поставляем технику в любой район Гродненской области и соседние регионы.</p>
+
+            <div class="equipment-showcase">
+                <article class="equipment-item">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/1.jpg" alt="Экскаватор Mitsubishi MM 55 SR">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">Mitsubishi MM 55 SR</h3>
+                        <div class="equipment-meta">
+                            <span class="equipment-tag">Экскаватор-погрузчик</span>
+                            <span class="equipment-tag">5,5 т</span>
+                            <span class="equipment-tag">Глубина 4,2 м</span>
+                        </div>
+                        <ul class="equipment-specs">
+                            <li>Комплект ковшей 30/45/60 см + планировочный 1,2 м.</li>
+                            <li>Маневренный формат SR — работает в стеснённых условиях дворов.</li>
+                            <li>Идеален для подведения канализации и котлованов под септики.</li>
+                        </ul>
+                        <div class="equipment-actions">
+                            <span class="equipment-rate">от 75 руб/час · смена от 4 часов</span>
+                            <a href="#" class="cta-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Забронировать</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="equipment-item">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/2.jpg" alt="Экскаватор Ньюхолонд 115">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">New Holland LB115</h3>
+                        <div class="equipment-meta">
+                            <span class="equipment-tag">Экскаватор-погрузчик</span>
+                            <span class="equipment-tag">10 т</span>
+                            <span class="equipment-tag">Глубина 6 м</span>
+                        </div>
+                        <ul class="equipment-specs">
+                            <li>Высокая производительность для больших котлованов и траншей.</li>
+                            <li>Фронтальный ковш 1,3 м³ для планировки и отсыпки.</li>
+                            <li>Развёртывание за 20 минут, есть вибропластина и гидромолот.</li>
+                        </ul>
+                        <div class="equipment-actions">
+                            <span class="equipment-rate">от 85 руб/час · смена от 4 часов</span>
+                            <a href="#" class="cta-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Забронировать</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="equipment-item">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/6.jpg" alt="Мини-экскаватор узкий">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">Мини-экскаватор Kubota</h3>
+                        <div class="equipment-meta">
+                            <span class="equipment-tag">Компактный</span>
+                            <span class="equipment-tag">2 т</span>
+                            <span class="equipment-tag">Ширина 990 мм</span>
+                        </div>
+                        <ul class="equipment-specs">
+                            <li>Заходит в гаражные проезды и между домами без демонтажа заборов.</li>
+                            <li>Комплект ковшей 20/30/40 см + планировочный 1 м.</li>
+                            <li>Отличное решение для разводки канализации и водопровода во двор.</li>
+                        </ul>
+                        <div class="equipment-actions">
+                            <span class="equipment-rate">от 60 руб/час · минимально 3 часа</span>
+                            <a href="#" class="cta-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Забронировать</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="equipment-item">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/7.jpg" alt="Амкадор 332">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">Амкадор 332</h3>
+                        <div class="equipment-meta">
+                            <span class="equipment-tag">Фронтальный погрузчик</span>
+                            <span class="equipment-tag">Вместимость 1,8 м³</span>
+                        </div>
+                        <ul class="equipment-specs">
+                            <li>Высокая проходимость и быстрая погрузка сыпучих материалов.</li>
+                            <li>Сменное навесное оборудование: вилы, грейфер, ковш увеличенного объема.</li>
+                            <li>Работаем на площадках с ограниченными сроками и ночными сменами.</li>
+                        </ul>
+                        <div class="equipment-actions">
+                            <span class="equipment-rate">от 90 руб/час · минимально 4 часа</span>
+                            <a href="#" class="cta-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Забронировать</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="equipment-item">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/5.jpg" alt="Самосвал для вывоза грунта">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">Самосвал 20 т</h3>
+                        <div class="equipment-meta">
+                            <span class="equipment-tag">Грузовой транспорт</span>
+                            <span class="equipment-tag">Кузов 15 м³</span>
+                        </div>
+                        <ul class="equipment-specs">
+                            <li>Вывоз грунта, подвоз песка и щебня, логистика колец и станций.</li>
+                            <li>Охват по области — доставляем материалы синхронно с работой техники.</li>
+                            <li>Тариф с почасовой или рейсовой оплатой, отчёт по путевым листам.</li>
+                        </ul>
+                        <div class="equipment-actions">
+                            <span class="equipment-rate">от 120 руб/рейс · скидка от 3 рейсов</span>
+                            <a href="#" class="cta-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Забронировать</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="equipment-item">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/8.jpg" alt="КамАЗ манипулятор AquaForge">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">КамАЗ-манипулятор</h3>
+                        <div class="equipment-meta">
+                            <span class="equipment-tag">Манипулятор</span>
+                            <span class="equipment-tag">Г/п 7 т</span>
+                            <span class="equipment-tag">Стрела 10 м</span>
+                        </div>
+                        <ul class="equipment-specs">
+                            <li>Монтаж и перевозка бетонных колец, станций биооочистки и оборудования.</li>
+                            <li>Работаем с опасными грузами, есть допуск на спецоборудование.</li>
+                            <li>Доступен пакетное предложение совместно с буровыми и экскаваторами.</li>
+                        </ul>
+                        <div class="equipment-actions">
+                            <span class="equipment-rate">от 110 руб/час · смена от 3 часов</span>
+                            <a href="#" class="cta-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Забронировать</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="equipment-item">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/technik/3.jpg" alt="Эвакуатор AquaForge">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">Эвакуатор низкорамный</h3>
+                        <div class="equipment-meta">
+                            <span class="equipment-tag">Эвакуатор</span>
+                            <span class="equipment-tag">Г/п 5 т</span>
+                        </div>
+                        <ul class="equipment-specs">
+                            <li>Оперативная доставка нашей техники на объект и выезд в ночное время.</li>
+                            <li>Идеален для вывоза и доставки оборудования, насосных станций, станков.</li>
+                            <li>Входит в пакет «под ключ» при заказе бурения и монтажа канализации.</li>
+                        </ul>
+                        <div class="equipment-actions">
+                            <span class="equipment-rate">от 55 руб/час · минимально 2 часа</span>
+                            <a href="#" class="cta-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Забронировать</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="discount-section" id="discounts">
+            <h2>Гибкая система скидок и бонусов</h2>
+            <p class="section-lead">Мы рассчитываем стоимость индивидуально под каждую задачу. Чем дольше и комплекснее проект — тем выгоднее ставка. Всё фиксируем в договоре заранее.</p>
+            <div class="discount-items">
+                <div class="discount-item">
+                    <strong>Скидка 5%</strong>
+                    <span>При аренде от двух смен подряд или при заказе непрерывной работы более 16 часов.</span>
+                </div>
+                <div class="discount-item">
+                    <strong>Скидка 10%</strong>
+                    <span>На комбинированные пакеты «бурение + монтаж канализации + самосвал».</span>
+                </div>
+                <div class="discount-item">
+                    <strong>Скидка 15%</strong>
+                    <span>Для подрядчиков и застройщиков при заключении сезонного договора.</span>
+                </div>
+                <div class="discount-item">
+                    <strong>Ночные смены</strong>
+                    <span>Без наценки при заказе техники от 2 смен — удобно, если нужен монтаж без остановки производства.</span>
+                </div>
+            </div>
+            <div class="cta-group">
+                <a href="#" class="cta-button" onclick="if(typeof contactsModal !== 'undefined') { contactsModal.openModal(); } return false;">Запросить смету</a>
+                <a href="tel:+375298888888" class="cta-button cta-outline">Позвонить диспетчеру</a>
+            </div>
+        </section>
+
+        <section class="workflow-section">
+            <h2>4 шага до техники на вашем объекте</h2>
+            <p class="section-lead">Закроем все организационные вопросы: от осмотра площадки до фотоотчёта по завершении смены.</p>
+
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="workflow-step-number">01</div>
+                    <h3>Заявка и консультация</h3>
+                    <p>Вы оставляете заявку на сайте или звоните — менеджер уточняет задачи, доступ на площадку и список техники.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-step-number">02</div>
+                    <h3>Коммерческое предложение</h3>
+                    <p>В течение часа присылаем КП со ставками, скидками и графиком. Согласуем договор и готовим технику.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-step-number">03</div>
+                    <h3>Выезд на объект</h3>
+                    <p>Оператор приезжает вовремя, проводит инструктаж, техника работает строго по ТЗ. Менеджер остаётся на связи.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-step-number">04</div>
+                    <h3>Отчёт и закрытие</h3>
+                    <p>Отправляем фотоотчёт, подписываем акты, фиксируем фактическое время. Готовы сразу планировать следующую смену.</p>
+            </div>
         </div>
+        </section>
     </div>
 
     <!-- Подключение общего футера -->
