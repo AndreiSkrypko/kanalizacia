@@ -655,6 +655,53 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
+.solution-options {
+    display: grid;
+    gap: 28px;
+    margin-top: 34px;
+}
+
+.solution-options-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 760px;
+}
+
+.solution-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.solution-options .info-card {
+    gap: 18px;
+}
+
+.solution-options .info-card h3 {
+    font-size: 1.4em;
+    color: #0f172a;
+    margin: 0;
+}
+
+.option-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(15, 118, 110, 0.12);
+    color: #0f766e;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.78em;
+}
+
+.solution-options .cta-group {
+    margin-top: 4px;
+}
+
 .info-card {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(240, 253, 244, 0.9) 45%, rgba(254, 252, 232, 0.9) 100%);
     border-radius: 18px;
