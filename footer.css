@@ -368,7 +368,8 @@ footer .phone-link:hover::after,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
 .footer-bottom-content > div {
