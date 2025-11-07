@@ -6,436 +6,287 @@
     <title>Бетонные кольца - AquaForge</title>
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="sections.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="calculator.css">
     <link rel="stylesheet" href="contacts-modal.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #1e293b;
-            background: linear-gradient(135deg, #f0fdf4 0%, #fefce8 50%, #f0f9ff 100%);
-            min-height: 100vh;
-        }
-
-        /* Enhanced Navbar Styles */
-        .header {
-            background: rgba(248, 250, 252, 0.8) !important;
-            backdrop-filter: blur(20px) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-            transition: all 0.3s ease !important;
-        }
-
-        .header.scrolled {
-            background: rgba(248, 250, 252, 0.95) !important;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
-        }
-
-        .nav-link {
-            position: relative !important;
-            transition: all 0.3s ease !important;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-yellow));
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover::before {
-            width: 80%;
-        }
-
-
-        .button-icon {
-            font-size: 1.3em;
-        }
-
-
-        /* Page Content - широкий контейнер */
-        .page-content {
-            max-width: 1280px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .page-title {
-            font-size: 2.5em;
-            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        /* Двухколоночный хедер для ширины */
-        .rings-hero {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 24px;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .rings-hero h1 { 
-            text-align: left; 
-            margin: 0 0 14px 0;
-            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-        }
-
-        .rings-hero-image {
-            width: 100%;
-            height: auto;
-            border-radius: 16px;
-            object-fit: cover;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .intro-text {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 253, 244, 0.95) 50%, rgba(254, 252, 232, 0.95) 100%);
-            backdrop-filter: blur(16px) saturate(180%);
-            padding: 24px;
-            border-radius: 16px;
-            margin-bottom: 30px;
-            line-height: 1.8;
-            font-size: 16px;
-            border: 2px solid;
-            border-image: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(251, 191, 36, 0.3)) 1;
-            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.12), 0 4px 12px rgba(251, 191, 36, 0.08);
-        }
-
-        /* Стили заголовков h2 - более сбалансированные */
-        .page-content h2 {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 4px;
-            margin-top: 0;
-            line-height: 1.3;
-        }
-        
-        /* Легкий зеленый акцент для заголовков */
-        .page-content h2::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 1.2em;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            margin-right: 12px;
-            vertical-align: middle;
-            border-radius: 2px;
-        }
-
-        /* Уменьшенный отступ для h2 в блоках с контентом */
-        .page-content > div > h2 {
-            margin-bottom: 4px;
-        }
-
-        .price-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 8px 0 20px 0;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .price-table thead {
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #fbbf24 100%);
-            color: white;
-        }
-
-        .price-table th {
-            padding: 12px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        .price-table td {
-            padding: 12px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .price-table tbody tr:hover {
-            background: #f9fafb;
-        }
-
-        /* Выравнивание столбцов */
-        .price-table .num { width: 56px; text-align: center; }
-        .price-table .name { width: 240px; }
-        .price-table .features { width: auto; }
-        .price-table .weight { width: 110px; text-align: right; white-space: nowrap; }
-        .price-table .price { width: 120px; text-align: right; white-space: nowrap; }
-
-        @media (max-width: 768px) {
-            .page-title {
-                font-size: 2em;
-            }
-
-            .page-content {
-                padding: 20px 15px;
-            }
-
-            .rings-hero { grid-template-columns: 1fr; }
-            .rings-hero h1 { text-align: center; }
-        }
-    </style>
 </head>
 <body>
-    <!-- Подключение общего header -->
     <div id="header-container"></div>
 
-    <!-- Page Content -->
     <div class="page-content">
-        <div class="rings-hero">
-            <div>
-                <h1 class="page-title">Бетонные кольца для канализации — размеры и цены</h1>
-                <div class="intro-text" style="margin-bottom:0;">
-                    <p>Мы предлагаем выгодные цены на бетонные кольца для жителей Гродно и Гродненской области. Наша продукция изготавливается по современным технологиям вибропрессования, что гарантирует высокое качество и долговечность изделий. В производстве используются качественные материалы: гранитный щебень, очищенный песок, цемент высоких марок и прочная арматура.</p>
+        <section class="rental-hero rings-hero">
+            <div class="rental-hero-grid">
+                <div class="rental-hero-content">
+                    <h1 class="page-title">Бетонные кольца для колодцев и канализации</h1>
+                    <p class="page-subtitle">Поставляем ЖБИ-кольца собственного производства по Гродно и области. Работаем по ГОСТ, обеспечиваем оперативную доставку, монтаж и герметизацию под ключ.</p>
+
+                    <div class="rental-hero-badges">
+                        <div class="rental-badge">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" />
+                            </svg>
+                            Бетон М250-М300
+                        </div>
+                        <div class="rental-badge">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 4H19V6H5V4ZM5 10H19V12H5В10ZM5 16H12V18H5В16Z" fill="currentColor" />
+                            </svg>
+                            ГОСТ 8020-2016
+                        </div>
+                        <div class="rental-badge">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 11L5 9L9 13L19 3L21 5L9 17L3 11Z" fill="currentColor" />
+                            </svg>
+                            Доставка и монтаж
+                        </div>
+                    </div>
+
+                    <ul class="hero-benefits">
+                        <li>Вибропрессованное производство и усиленная арматура гарантируют прочность и долговечность.</li>
+                        <li>Храним кольца на складе — отгружаем и привозим на объект в день заказа.</li>
+                        <li>Предлагаем полный комплект: кольца, крышки, доборные элементы и люки.</li>
+                    </ul>
+
+                    <div class="cta-group">
+                        <a href="tel:+375291234567" class="cta-button">Сделать заказ</a>
+                        <a href="#catalog" class="cta-button cta-outline">Посмотреть прайс</a>
+                    </div>
+                </div>
+                <div class="rental-hero-visual">
+                    <img src="images/kolca.webp" alt="Бетонные кольца AquaForge">
+                    <div class="visual-caption">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10.59 16.34L6.25 12L7.66 10.59L10.59 13.51L16.34 7.76L17.75 9.17L10.59 16.34Z" fill="#fbbf24" />
+                        </svg>
+                        Доставка по Гродно и области
+                    </div>
                 </div>
             </div>
-            <div>
-                <img src="images/kolca.webp" alt="Бетонные кольца" class="rings-hero-image">
+        </section>
+
+        <section class="info-stack">
+            <div class="info-card">
+                <p>Железобетонные кольца AquaForge подходят для строительства канализационных колодцев, септиков, ливневок и водоснабжения. В основе — гранитный щебень, очищенный песок и цемент высоких марок. Каждый элемент проходит контроль геометрии и выдерживает интенсивные нагрузки.</p>
+                <p>Склад в Гродно позволяет собирать надёжный колодец всего за один день. Помогаем с погрузкой, доставляем манипулятором и устанавливаем прямо на объекте.</p>
             </div>
-        </div>
 
-        <div style="margin-bottom:30px;line-height:1.8;font-size:16px;">
-            <p style="margin-bottom:15px;">Железобетонные кольца широко применяются при строительстве канализационных колодцев, систем водоотведения и водоснабжения, а также для обустройства очистных сооружений. С помощью наших изделий вы сможете быстро и качественно собрать надёжный колодец или септик из бетонных колец всего за один день. Такая конструкция прослужит вам многие годы без дополнительного обслуживания.</p>
-
-            <div style="margin:25px 0;padding:20px;background:linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 253, 244, 0.95) 50%, rgba(254, 252, 232, 0.95) 100%);border-radius:12px;border:2px solid;border-image:linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(251, 191, 36, 0.3)) 1;box-shadow:0 4px 12px rgba(34, 197, 94, 0.08);">
-                <p style="font-weight:600;margin-bottom:10px;color:#0f172a;">Как читать маркировку при выборе колец:</p>
-                <ul style="padding-left:20px;margin:0;">
-                    <li><strong>«КС»</strong> обозначает тип изделия — кольцо стеновое</li>
-                    <li>Первая цифра после «КС» указывает внутренний диаметр в дециметрах (1 дм = 10 см)</li>
-                    <li>Вторая цифра (после точки) показывает высоту кольца в дециметрах</li>
-                    <li>Пример: <strong>КС-10.9</strong> — стеновое кольцо с внутренним диаметром 1 метр и высотой 0.9 метра</li>
-                    <li>Пример: <strong>КСФ-15.9</strong> — фальцевое кольцо диаметром 1.5 метра с замковым соединением, высотой 90 см</li>
+            <div class="info-card highlight">
+                <h2>Как читать маркировку</h2>
+                <ul>
+                    <li><strong>КС</strong> — кольцо стеновое, <strong>КСФ</strong> — фальцевое с замком.</li>
+                    <li>Первая цифра показывает внутренний диаметр в дециметрах (1 дм = 10 см).</li>
+                    <li>Цифры после точки обозначают высоту кольца в дециметрах.</li>
+                    <li><strong>Пример:</strong> КС-10.9 — диаметр 1 м, высота 0.9 м; КСФ-15.9 — фальцевое кольцо 1.5 м с замком.</li>
                 </ul>
             </div>
-        </div>
+        </section>
 
-        <div style="display:grid;gap:8px;margin-bottom:30px;">
-            <h2 style="margin-bottom:4px;">Цены на бетонные кольца</h2>
-            <table class="price-table">
-                <thead>
-                    <tr>
-                        <th class="num">№</th>
-                        <th class="name">Наименование</th>
-                        <th class="features">Характеристики</th>
-                        <th class="weight">Вес</th>
-                        <th class="price">Цена</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="num">1</td>
-                        <td class="name">КС-7.9</td>
-                        <td class="features">внутренний диаметр 0.7 м, высота 0.9 м</td>
-                        <td class="weight">0.39 т</td>
-                        <td class="price">110 руб</td>
-                    </tr>
-                    <tr>
-                        <td class="num">2</td>
-                        <td class="name">КС-10.9</td>
-                        <td class="features">внутренний ⌀ 1 м (внешний 1.16 м), высота 0.9 м, объём 0.68 м³</td>
-                        <td class="weight">0.56 т</td>
-                        <td class="price">130 руб</td>
-                    </tr>
-                    <tr>
-                        <td class="num">3</td>
-                        <td class="name">КСФ-10.9</td>
-                        <td class="features">фальцевое с замком, объём 0.68 м³</td>
-                        <td class="weight">0.56 т</td>
-                        <td class="price">130 руб</td>
-                    </tr>
-                    <tr>
-                        <td class="num">4</td>
-                        <td class="name">КС-15.9</td>
-                        <td class="features">внутренний ⌀ 1.5 м (внешний 1.68 м), высота 0.9 м, объём 1.51 м³</td>
-                        <td class="weight">0.96 т</td>
-                        <td class="price">200 руб</td>
-                    </tr>
-                    <tr>
-                        <td class="num">5</td>
-                        <td class="name">КСФ-15.9</td>
-                        <td class="features">фальцевое с замком, объём 1.51 м³</td>
-                        <td class="weight">0.96 т</td>
-                        <td class="price">200 руб</td>
-                    </tr>
-                    <tr>
-                        <td class="num">6</td>
-                        <td class="name">КС-20.9</td>
-                        <td class="features">внутренний ⌀ 2 м (внешний 2.2 м), высота 0.9 м, объём 2.8 м³</td>
-                        <td class="weight">1.46 т</td>
-                        <td class="price">280 руб</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div style="display:grid;gap:8px;margin-bottom:30px;">
-            <h2 style="margin-bottom:4px;">Дополнительные материалы</h2>
-            <table class="price-table">
-                <thead>
-                    <tr>
-                        <th class="num">№</th>
-                        <th class="name">Наименование</th>
-                        <th class="features">Характеристики</th>
-                        <th class="weight">Вес</th>
-                        <th class="price">Цена</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="num">1</td>
-                        <td class="name">Ко10</td>
-                        <td class="features">доборное кольцо, высота 0.1 м</td>
-                        <td class="weight">—</td>
-                        <td class="price">20 руб</td>
-                    </tr>
-                    <tr>
-                        <td class="num">2</td>
-                        <td class="name">КС 7.3</td>
-                        <td class="features">внутренний ⌀ 0.7 м, высота 0.3 м</td>
-                        <td class="weight">0.13 т</td>
-                        <td class="price">50 руб</td>
-                    </tr>
-                    <tr>
-                        <td class="num">3</td>
-                        <td class="name">КС 7.6</td>
-                        <td class="features">внутренний ⌀ 0.7 м, высота 0.6 м</td>
-                        <td class="weight">0.26 т</td>
-                        <td class="price">80 руб</td>
-                    </tr>
-                    <tr>
-                        <td class="num">4</td>
-                        <td class="name">Люк, песчано-полимерный</td>
-                        <td class="features">круглый люк для бытовых колодцев</td>
-                        <td class="weight">—</td>
-                        <td class="price">60 руб</td>
-                    </tr>
-                    <tr>
-                        <td class="num">5</td>
-                        <td class="name">Люк чугунный</td>
-                        <td class="features">усиленный люк, допускает проезд транспорта</td>
-                        <td class="weight">—</td>
-                        <td class="price">720 руб</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div style="display:grid;gap:8px;">
-            <h2 style="margin-bottom:4px;">Крышки (плиты перекрытия)</h2>
-            <table class="price-table">
-                <thead>
-                    <tr>
-                        <th class="num">№</th>
-                        <th class="name">Наименование</th>
-                        <th class="features">Характеристики</th>
-                        <th class="weight">Вес</th>
-                        <th class="price">Цена</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="num">1</td>
-                        <td class="name">Люк ПП 10.15</td>
-                        <td class="features">на кольца ⌀ 1.0 м</td>
-                        <td class="weight">—</td>
-                        <td class="price">90 руб</td>
-                    </tr>
-                    <tr>
-                        <td class="num">2</td>
-                        <td class="name">Люк ПП 15.15</td>
-                        <td class="features">на кольца ⌀ 1.5 м</td>
-                        <td class="weight">—</td>
-                        <td class="price">200 руб</td>
-                    </tr>
-                    <tr>
-                        <td class="num">3</td>
-                        <td class="name">Люк ПП 20.15</td>
-                        <td class="features">на кольца ⌀ 2.0 м</td>
-                        <td class="weight">—</td>
-                        <td class="price">280 руб</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div style="display:grid;gap:20px;margin-top:40px;padding:30px;background:linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 253, 244, 0.95) 50%, rgba(254, 252, 232, 0.95) 100%);border-radius:16px;border:2px solid;border-image:linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(251, 191, 36, 0.3)) 1;box-shadow:0 8px 24px rgba(34, 197, 94, 0.12), 0 4px 12px rgba(251, 191, 36, 0.08);">
-            <h2>Преимущества</h2>
-            <ul style="padding-left:20px;display:grid;gap:12px;font-size:16px;line-height:1.8;color:#1e293b;">
-                <li>Низкая стоимость ЖБИ колец значительно экономит бюджет на обустройство канализации.</li>
-                <li>Заводское качество в соответствии с ГОСТ.</li>
-                <li>Влагостойкость, безопасность и долговечность всей конструкции.</li>
-                <li>Удобство монтажа и моментальный ввод в эксплуатацию.</li>
-                <li>В производстве используются только экологически чистые материалы.</li>
-                <li>Качественный бетон М250-300 и арматура позволяют выпускать действительно крепкие кольца.</li>
-                <li>Продаём и доставляем от одного изделия!</li>
-            </ul>
-        </div>
-
-        <div style="display:grid;gap:12px;margin-top:40px;padding:30px;background:linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 253, 244, 0.95) 50%, rgba(254, 252, 232, 0.95) 100%);backdrop-filter:blur(16px) saturate(180%);border-radius:16px;border:2px solid;border-image:linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(251, 191, 36, 0.3)) 1;box-shadow:0 8px 24px rgba(34, 197, 94, 0.12), 0 4px 12px rgba(251, 191, 36, 0.08);">
-            <h2 style="margin-bottom:4px;">Консультации по выбору</h2>
-            <p style="font-size:16px;line-height:1.8;color:#1e293b;margin-bottom:20px;">Наши специалисты прилагают максимум усилий для того, чтобы вся работа была продуктивной и слаженной, а результат — на пять баллов!</p>
-            <div style="display:flex;justify-content:center;">
-                <a href="tel:+79304044044" class="service-button" style="min-width:280px;text-align:center;">Получить консультацию</a>
+        <section id="catalog" class="catalog-section">
+            <h2>Цены на бетонные кольца</h2>
+            <p class="section-lead">В наличии популярные типоразмеры для канализации, септиков, дренажа и водоснабжения. Поможем подобрать комплект под задачу.</p>
+            <div class="catalog-table-wrapper">
+                <table class="catalog-table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Наименование</th>
+                            <th>Характеристики</th>
+                            <th class="numeric">Вес</th>
+                            <th class="numeric">Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="title">КС-7.9</td>
+                            <td>Внутренний диаметр 0.7 м, высота 0.9 м</td>
+                            <td class="numeric">0.39 т</td>
+                            <td class="numeric">110 руб</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="title">КС-10.9</td>
+                            <td>Внутренний ⌀ 1 м (внешний 1.16 м), высота 0.9 м, объём 0.68 м³</td>
+                            <td class="numeric">0.56 т</td>
+                            <td class="numeric">130 руб</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="title">КСФ-10.9</td>
+                            <td>Фальцевое, замковое соединение, объём 0.68 м³</td>
+                            <td class="numeric">0.56 т</td>
+                            <td class="numeric">130 руб</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="title">КС-15.9</td>
+                            <td>Внутренний ⌀ 1.5 м (внешний 1.68 м), высота 0.9 м, объём 1.51 м³</td>
+                            <td class="numeric">0.96 т</td>
+                            <td class="numeric">200 руб</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="title">КСФ-15.9</td>
+                            <td>Фальцевое с замком, объём 1.51 м³</td>
+                            <td class="numeric">0.96 т</td>
+                            <td class="numeric">200 руб</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="title">КС-20.9</td>
+                            <td>Внутренний ⌀ 2 м (внешний 2.2 м), высота 0.9 м, объём 2.8 м³</td>
+                            <td class="numeric">1.46 т</td>
+                            <td class="numeric">280 руб</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
+        </section>
+
+        <section class="catalog-section">
+            <h2>Дополнительные элементы</h2>
+            <p class="section-lead">Доборные кольца, переходные элементы и люки для окончательной сборки системы.</p>
+            <div class="catalog-table-wrapper">
+                <table class="catalog-table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Наименование</th>
+                            <th>Характеристики</th>
+                            <th class="numeric">Вес</th>
+                            <th class="numeric">Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="title">Ко10</td>
+                            <td>Доборное кольцо, высота 0.1 м</td>
+                            <td class="numeric">—</td>
+                            <td class="numeric">20 руб</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="title">КС 7.3</td>
+                            <td>Внутренний ⌀ 0.7 м, высота 0.3 м</td>
+                            <td class="numeric">0.13 т</td>
+                            <td class="numeric">50 руб</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="title">КС 7.6</td>
+                            <td>Внутренний ⌀ 0.7 м, высота 0.6 м</td>
+                            <td class="numeric">0.26 т</td>
+                            <td class="numeric">80 руб</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="title">Люк песчано-полимерный</td>
+                            <td>Крышка для бытовых и дачных колодцев</td>
+                            <td class="numeric">—</td>
+                            <td class="numeric">60 руб</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="title">Люк чугунный</td>
+                            <td>Усиленный, выдерживает проезд транспорта</td>
+                            <td class="numeric">—</td>
+                            <td class="numeric">720 руб</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="catalog-section">
+            <h2>Крышки и плиты перекрытия</h2>
+            <p class="section-lead">Плиты перекрытия для завершения колодцев любого диаметра.</p>
+            <div class="catalog-table-wrapper">
+                <table class="catalog-table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Наименование</th>
+                            <th>Характеристики</th>
+                            <th class="numeric">Вес</th>
+                            <th class="numeric">Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="title">ПП 10.15</td>
+                            <td>Плита перекрытия на кольца ⌀ 1.0 м</td>
+                            <td class="numeric">—</td>
+                            <td class="numeric">90 руб</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="title">ПП 15.15</td>
+                            <td>Перекрытие на кольца ⌀ 1.5 м</td>
+                            <td class="numeric">—</td>
+                            <td class="numeric">200 руб</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="title">ПП 20.15</td>
+                            <td>Перекрытие на кольца ⌀ 2.0 м</td>
+                            <td class="numeric">—</td>
+                            <td class="numeric">280 руб</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="info-stack">
+            <div class="info-card highlight">
+                <h2>Преимущества бетонных колец AquaForge</h2>
+                <ul>
+                    <li>Экономия бюджета без потери качества — продаём и доставляем от одного изделия.</li>
+                    <li>Заводская геометрия и усиленная арматура выдерживают высокие нагрузки.</li>
+                    <li>Влагостойкость и долговечность благодаря использованию качественного бетона М250-М300.</li>
+                    <li>Удобный монтаж и корректная посадка элементов за счёт точной геометрии и замков.</li>
+                    <li>Экологичные материалы — безопасны для питьевых и технических колодцев.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h2>Нужна помощь с подбором?</h2>
+                <p>Подскажем оптимальный диаметр, количество колец и комплектующие под вашу задачу. Организуем монтаж и герметизацию, подготовим договор и акт выполненных работ.</p>
+                <div class="cta-group">
+                    <a href="tel:+375291234567" class="cta-button">Получить консультацию</a>
+                    <a href="#" class="cta-button cta-outline" onclick="if(typeof contactsModal !== 'undefined'){ contactsModal.openModal(); } return false;">Заказать обратный звонок</a>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- Подключение общего футера -->
     <div id="footer-container"></div>
 
     <script>
-        // Sticky navbar
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        }, { passive: true });
-
-        // Загрузка header
         fetch('header.html')
             .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-container').innerHTML = data;
-                // Обновляем активный пункт меню
-                document.querySelector('a[href="rings.html"]').classList.add('active');
+            .then(markup => {
+                document.getElementById('header-container').innerHTML = markup;
+                const link = document.querySelector('a[href="rings.html"]');
+                if (link) {
+                    link.classList.add('active');
+                }
             })
             .catch(error => console.error('Ошибка загрузки header:', error));
 
-        // Загрузка футера
         fetch('footer.html')
             .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-container').innerHTML = data;
+            .then(markup => {
+                document.getElementById('footer-container').innerHTML = markup;
             })
-            .catch(error => console.error('Ошибка загрузки футера:', error));
+            .catch(error => console.error('Ошибка загрузки footer:', error));
     </script>
     <script src="site.js" defer></script>
     <script src="calculator.js" defer></script>
     <script src="contacts-modal.js" defer></script>
 </body>
 </html>
+

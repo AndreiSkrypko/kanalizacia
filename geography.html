@@ -7,766 +7,179 @@
     <title>География услуг - AquaForge | Гродно</title>
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="sections.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="calculator.css">
     <link rel="stylesheet" href="contacts-modal.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #1e293b;
-            background: linear-gradient(135deg, #f0fdf4 0%, #fefce8 50%, #f0f9ff 100%);
-            min-height: 100vh;
-        }
-
-        /* Enhanced Navbar Styles */
-        .header {
-            background: rgba(248, 250, 252, 0.8) !important;
-            backdrop-filter: blur(20px) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-            transition: all 0.3s ease !important;
-        }
-
-        .header.scrolled {
-            background: rgba(248, 250, 252, 0.95) !important;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
-        }
-
-        .nav-link {
-            position: relative !important;
-            transition: all 0.3s ease !important;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-yellow));
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover::before {
-            width: 80%;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        /* Coverage Section - переопределяем theme.css */
-        .coverage-section {
-            max-width: 1280px !important;
-            margin: 40px auto !important;
-            padding: 20px !important;
-            background: transparent !important;
-            border: none !important;
-            border-image: none !important;
-            box-shadow: none !important;
-            border-radius: 0 !important;
-            backdrop-filter: none !important;
-        }
-
-        .coverage-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .coverage-container {
-            background: transparent !important;
-            border: none !important;
-            border-image: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            box-shadow: none !important;
-            border-radius: 0 !important;
-            backdrop-filter: none !important;
-        }
-        
-        .coverage-content {
-            background: transparent !important;
-            border: none !important;
-            border-image: none !important;
-            box-shadow: none !important;
-        }
-
-        .coverage-text h2 {
-            font-size: 2.5em;
-            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .coverage-description {
-            font-size: 1.15em;
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 35px;
-        }
-
-        .coverage-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-bottom: 35px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 30px 20px;
-            background: transparent !important;
-            border-radius: 16px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.12), 0 4px 12px rgba(251, 191, 36, 0.08);
-            border: none !important;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 32px rgba(34, 197, 94, 0.2),
-                        0 6px 16px rgba(251, 191, 36, 0.15);
-        }
-
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: var(--accent-strong);
-            margin-bottom: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .stat-number.animate {
-            transform: scale(1.1);
-        }
-
-        .stat-label {
-            font-size: 0.95em;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .coverage-features {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .feature-item { font-size: 1.05em; color: #555; padding: 12px 0 12px 15px; }
-
-        .coverage-map {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .map-container {
-            width: 100%;
-            height: 500px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.12), 0 4px 12px rgba(251, 191, 36, 0.08);
-            background: transparent !important;
-            border: none !important;
-        }
-
-        .map-caption {
-            margin-top: 20px;
-            font-size: 0.95em;
-            color: #999;
-            text-align: center;
-            font-style: italic;
-        }
-
-
-        /* Map Section */
-        .map-section {
-            max-width: 1280px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        /* Cities Section */
-        .cities-section {
-            max-width: 1280px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .cities-container {
-            padding: 0;
-        }
-
-        .cities-title { 
-            text-align: center; 
-            font-size: 2.5em; 
-            margin-bottom: 40px; 
-            font-weight: 700; 
-            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            z-index: 2;
-        }
-
-        .map-title { 
-            text-align: center; 
-            font-size: 2.5em; 
-            margin-bottom: 40px; 
-            font-weight: 700; 
-            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .belarus-map {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto 50px;
-            padding: 40px;
-            background: transparent;
-        }
-
-        .map-image {
-            width: 100%;
-            height: auto;
-            opacity: 0.3;
-        }
-
-        .city-marker {
-            position: absolute;
-            background: var(--accent);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(22, 163, 74, 0.25);
-            font-size: 14px;
-            white-space: nowrap;
-        }
-
-        .city-marker:hover { transform: scale(1.1); background: var(--accent-strong); box-shadow: 0 6px 15px rgba(22, 163, 74, 0.35); z-index: 10; }
-
-        .city-marker.main {
-            background: var(--accent-strong);
-            font-size: 16px;
-            padding: 12px 24px;
-        }
-
-        /* Cities Grid */
-        .cities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin: 40px 0 60px 0;
-            max-width: 100%;
-            overflow: visible;
-        }
-
-        .city-button {
-            background: transparent !important;
-            border: none !important;
-            border-image: none !important;
-            padding: 25px 20px;
-            border-radius: 16px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 14px;
-            font-weight: 600;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            min-height: 130px;
-            justify-content: center;
-            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.12), 0 4px 12px rgba(251, 191, 36, 0.08);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: none !important;
-        }
-
-        .city-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.8s ease;
-            z-index: 1;
-        }
-
-        .city-button:hover::before {
-            left: 100%;
-        }
-
-        .city-button:hover { 
-            transform: translateY(-10px) scale(1.03); 
-            box-shadow: 
-                0 12px 32px rgba(34, 197, 94, 0.2),
-                0 6px 16px rgba(251, 191, 36, 0.15);
-            border: none !important;
-            border-image: none !important;
-            background: transparent !important;
-            backdrop-filter: none !important;
-        }
-
-        /* Убираем все рамки везде */
-        .cities-container,
-        .cities-container:focus,
-        .city-button:focus,
-        .coverage-section,
-        .coverage-container,
-        .map-section,
-        .cities-section,
-        .stat-item,
-        .belarus-map,
-        .map-container {
-            outline: none !important;
-            border: none !important;
-            border-image: none !important;
-        }
-
-        .city-icon {
-            font-size: 2.2em;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-        }
-
-        .city-button:hover .city-icon {
-            transform: scale(1.15) rotate(5deg);
-        }
-
-        .city-name {
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 1.3;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .coverage-section {
-                margin: 20px auto !important;
-                padding: 16px !important;
-            }
-
-            .coverage-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .coverage-text h2 {
-                font-size: 1.6em;
-                margin-bottom: 12px;
-                text-align: center;
-                line-height: 1.2;
-            }
-
-            .coverage-description {
-                font-size: 1em;
-                text-align: center;
-                margin-bottom: 28px;
-                line-height: 1.6;
-                color: #555;
-            }
-
-            .coverage-stats {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-                margin-bottom: 28px;
-            }
-
-            .stat-item {
-                padding: 18px 10px;
-                border-radius: 12px;
-                box-shadow: 0 6px 20px rgba(34, 197, 94, 0.1), 0 3px 10px rgba(251, 191, 36, 0.08) !important;
-            }
-
-            .stat-number {
-                font-size: 1.9em;
-                margin-bottom: 4px;
-            }
-
-            .stat-label {
-                font-size: 0.75em;
-                letter-spacing: 0.3px;
-            }
-
-            .coverage-features {
-                gap: 12px;
-                margin-top: 24px;
-            }
-
-            .feature-item {
-                font-size: 0.95em;
-                padding: 12px 0 12px 16px;
-                background: rgba(255, 255, 255, 0.4);
-                border-radius: 10px;
-                backdrop-filter: blur(8px);
-            }
-
-            .map-container {
-                height: 350px;
-                border-radius: 12px;
-            }
-
-            .map-caption {
-                font-size: 0.85em;
-                margin-top: 12px;
-            }
-            
-            .map-section {
-                margin: 30px auto;
-                padding: 0 16px;
-            }
-
-            .cities-container {
-                padding: 0;
-            }
-            
-            .cities-section {
-                margin: 30px auto;
-                padding: 0 16px;
-            }
-
-            .cities-title {
-                font-size: 1.5em;
-                margin-bottom: 12px;
-                text-align: center;
-                line-height: 1.2;
-            }
-
-            .cities-section p {
-                font-size: 0.9em !important;
-                margin-bottom: 20px !important;
-                padding: 0 8px;
-            }
-
-            .cities-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-                margin: 20px 0;
-            }
-            
-            .city-button {
-                padding: 18px 12px;
-                min-height: 95px;
-                font-size: 12px;
-                border-radius: 14px;
-                box-shadow: 0 6px 20px rgba(34, 197, 94, 0.1), 0 3px 10px rgba(251, 191, 36, 0.08) !important;
-            }
-            
-            .city-icon {
-                font-size: 2em;
-            }
-            
-            .city-name {
-                font-size: 12px;
-                line-height: 1.4;
-                font-weight: 600;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .coverage-section {
-                padding: 12px !important;
-            }
-
-            .coverage-text h2 {
-                font-size: 1.4em;
-            }
-
-            .coverage-description {
-                font-size: 0.9em;
-            }
-
-            .coverage-stats {
-                gap: 8px;
-            }
-
-            .stat-item {
-                padding: 12px 6px;
-            }
-
-            .stat-number {
-                font-size: 1.5em;
-            }
-
-            .stat-label {
-                font-size: 0.7em;
-            }
-
-            .map-container {
-                height: 300px;
-            }
-
-            .cities-title {
-                font-size: 1.3em;
-            }
-
-            .cities-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-
-            .city-button {
-                padding: 14px 10px;
-                min-height: 80px;
-            }
-
-            .city-icon {
-                font-size: 1.6em;
-            }
-
-            .city-name {
-                font-size: 11px;
-            }
-        }
-        
-        /* ФИНАЛЬНОЕ переопределение theme.css - убираем ВСЕ рамки и белые фоны */
-        body .coverage-section,
-        html body .coverage-section,
-        body .coverage-container,
-        html body .coverage-container,
-        body .coverage-content,
-        html body .coverage-content {
-            background: transparent !important;
-            border: none !important;
-            border-image: none !important;
-            outline: none !important;
-            box-shadow: none !important;
-            border-radius: 0 !important;
-            backdrop-filter: none !important;
-            padding: 0 !important;
-        }
-        
-        body .coverage-section {
-            padding: 20px !important;
-            margin: 40px auto !important;
-            max-width: 1280px !important;
-        }
-        
-        body .stat-item,
-        html body .stat-item {
-            background: transparent !important;
-            border: none !important;
-            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.12), 0 4px 12px rgba(251, 191, 36, 0.08) !important;
-        }
-        
-        body .city-button,
-        html body .city-button {
-            background: transparent !important;
-            border: none !important;
-            border-image: none !important;
-            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.12), 0 4px 12px rgba(251, 191, 36, 0.08) !important;
-            backdrop-filter: none !important;
-        }
-        
-        body .city-button:hover,
-        html body .city-button:hover {
-            border: none !important;
-            border-image: none !important;
-            background: transparent !important;
-        }
-        
-        body .map-container,
-        html body .map-container {
-            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.12), 0 4px 12px rgba(251, 191, 36, 0.08) !important;
-        }
-    </style>
 </head>
 <body>
     <!-- Подключение общего header -->
     <div id="header-container"></div>
 
-    <!-- Coverage Info Section -->
-    <div class="coverage-section">
-        <div class="coverage-container">
-            <div class="coverage-content">
-                <div class="coverage-text">
-                    <h2>Полная география работ</h2>
-                    <p class="coverage-description">Профессиональные услуги водоснабжения и канализации в каждом уголке области</p>
-                    
-                    <div class="coverage-stats">
-                        <div class="stat-item">
-                            <div class="stat-number" data-target="30">0</div>
-                            <div class="stat-label">городов</div>
+    <div class="page-content">
+        <section class="coverage-overview">
+            <div class="coverage-grid">
+                <div class="coverage-copy">
+                    <h1 class="page-title">География услуг AquaForge</h1>
+                    <p class="coverage-lead">Работаем по всей Гродненской области: бурение скважин, монтаж канализации, доставка колец, сервис и обслуживание систем водоснабжения.</p>
+
+                    <div class="region-stats">
+                        <div class="region-stat-card">
+                            <div class="region-stat-value" data-target="30">0</div>
+                            <div class="region-stat-label">городов</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-target="100">0</div>
-                            <div class="stat-label">деревень</div>
+                        <div class="region-stat-card">
+                            <div class="region-stat-value" data-target="100">0</div>
+                            <div class="region-stat-label">деревень</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-target="24" data-suffix="/7">0</div>
-                            <div class="stat-label">на связи</div>
+                        <div class="region-stat-card">
+                            <div class="region-stat-value" data-target="24" data-suffix="/7">0</div>
+                            <div class="region-stat-label">на связи</div>
                         </div>
                     </div>
 
-                    <div class="coverage-features">
-                        <div class="feature-item">✓ Выезд мастера в любую точку области</div>
-                        <div class="feature-item">✓ Бесплатная консультация и расчёт</div>
-                        <div class="feature-item">✓ Доставка материалов и техники</div>
-                        <div class="feature-item">✓ Гарантия на все виды работ</div>
-                    </div>
+                    <ul class="coverage-features">
+                        <li class="coverage-feature">Выезд инженера в любой район области</li>
+                        <li class="coverage-feature">Бесплатная консультация и расчёт сметы</li>
+                        <li class="coverage-feature">Собственный транспорт и техника</li>
+                        <li class="coverage-feature">Гарантия и сервис на выполненные работы</li>
+                    </ul>
                 </div>
 
-                <div class="coverage-map">
+                <div class="map-card">
                     <div id="map" class="map-container"></div>
-                    <p class="map-caption">Гродненская область - территория нашей работы</p>
+                    <p class="map-caption">Яндекс.Карта: отмечаем доступность выезда в любой населённый пункт Гродненской области</p>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Cities Section -->
-    <div class="cities-section">
-        <div class="cities-container">
-            <h2 class="cities-title">Выберите ваш город или ближайший к вам</h2>
-            <p style="text-align: center; color: #666; font-size: 1.1em; margin-bottom: 30px;">Нажмите на город для получения расчёта стоимости работ</p>
-            
-            <!-- Cities Grid -->
+        <section class="cities-section">
+            <h2>Выберите город или ближайший населённый пункт</h2>
+            <p class="cities-description">Нажмите на карточку, чтобы получить расчёт стоимости и сроки выполнения работ для вашего региона.</p>
+
             <div class="cities-grid">
-                <div class="city-button" onclick="openCalculator('Гродно')">
+                <div class="city-card" onclick="openCalculator('Гродно')">
                     <div class="city-icon">🏛️</div>
                     <div class="city-name">Гродно</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Лида')">
+                <div class="city-card" onclick="openCalculator('Лида')">
                     <div class="city-icon">🏰</div>
                     <div class="city-name">Лида</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Слоним')">
+                <div class="city-card" onclick="openCalculator('Слоним')">
                     <div class="city-icon">⛪</div>
                     <div class="city-name">Слоним</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Волковыск')">
+                <div class="city-card" onclick="openCalculator('Волковыск')">
                     <div class="city-icon">🏭</div>
                     <div class="city-name">Волковыск</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Новогрудок')">
+                <div class="city-card" onclick="openCalculator('Новогрудок')">
                     <div class="city-icon">🗿</div>
                     <div class="city-name">Новогрудок</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Мосты')">
+                <div class="city-card" onclick="openCalculator('Мосты')">
                     <div class="city-icon">🌉</div>
                     <div class="city-name">Мосты</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Сморгонь')">
+                <div class="city-card" onclick="openCalculator('Сморгонь')">
                     <div class="city-icon">🏢</div>
                     <div class="city-name">Сморгонь</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Ошмяны')">
+                <div class="city-card" onclick="openCalculator('Ошмяны')">
                     <div class="city-icon">🎭</div>
                     <div class="city-name">Ошмяны</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Щучин')">
+                <div class="city-card" onclick="openCalculator('Щучин')">
                     <div class="city-icon">🐟</div>
                     <div class="city-name">Щучин</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Берёзовка')">
+                <div class="city-card" onclick="openCalculator('Берёзовка')">
                     <div class="city-icon">🌳</div>
                     <div class="city-name">Берёзовка</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Кореличи')">
+                <div class="city-card" onclick="openCalculator('Кореличи')">
                     <div class="city-icon">🌾</div>
                     <div class="city-name">Кореличи</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Дятлово')">
+                <div class="city-card" onclick="openCalculator('Дятлово')">
                     <div class="city-icon">🦅</div>
                     <div class="city-name">Дятлово</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Зельва')">
+                <div class="city-card" onclick="openCalculator('Зельва')">
                     <div class="city-icon">🌲</div>
                     <div class="city-name">Зельва</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Ивье')">
+                <div class="city-card" onclick="openCalculator('Ивье')">
                     <div class="city-icon">🍃</div>
                     <div class="city-name">Ивье</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Островец')">
+                <div class="city-card" onclick="openCalculator('Островец')">
                     <div class="city-icon">🏝️</div>
                     <div class="city-name">Островец</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Вороново')">
+                <div class="city-card" onclick="openCalculator('Вороново')">
                     <div class="city-icon">🌿</div>
                     <div class="city-name">Вороново</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Свислочь')">
+                <div class="city-card" onclick="openCalculator('Свислочь')">
                     <div class="city-icon">🌊</div>
                     <div class="city-name">Свислочь</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Скидель')">
+                <div class="city-card" onclick="openCalculator('Скидель')">
                     <div class="city-icon">🏘️</div>
                     <div class="city-name">Скидель</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Большая Берестовица')">
+                <div class="city-card" onclick="openCalculator('Большая Берестовица')">
                     <div class="city-icon">🌻</div>
                     <div class="city-name">Большая Берестовица</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Волпа')">
+                <div class="city-card" onclick="openCalculator('Волпа')">
                     <div class="city-icon">🌾</div>
                     <div class="city-name">Волпа</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Желудок')">
+                <div class="city-card" onclick="openCalculator('Желудок')">
                     <div class="city-icon">🍽️</div>
                     <div class="city-name">Желудок</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Козловщина')">
+                <div class="city-card" onclick="openCalculator('Козловщина')">
                     <div class="city-icon">🐐</div>
                     <div class="city-name">Козловщина</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Красносельский')">
+                <div class="city-card" onclick="openCalculator('Красносельский')">
                     <div class="city-icon">🔴</div>
                     <div class="city-name">Красносельский</div>
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
-                <div class="city-button" onclick="openCalculator('Любча')">
+                <div class="city-card" onclick="openCalculator('Любча')">
                     <div class="city-icon">💕</div>
                     <div class="city-name">Любча</div>
-                </div>
-                
+                    <div class="cta-label">Рассчитать работы</div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 
 
@@ -774,28 +187,19 @@
         let selectedCity = '';
 
         function openCalculator(city) {
-            console.log('Opening calculator for city:', city);
             
             // Проверяем доступность калькулятора (сначала window.calculator, потом calculator)
             const calc = window.calculator || calculator;
             
             if (calc && calc.openModal) {
-                console.log('Calculator found, setting city and opening modal');
                 calc.selectedCity = city;
-                console.log('City set to:', calc.selectedCity);
                 calc.openModal();
             } else {
-                console.error('Calculator not found or not ready. Calculator object:', calc);
-                console.log('window.calculator:', window.calculator);
-                console.log('calculator:', typeof calculator !== 'undefined' ? calculator : 'undefined');
-                
                 // Попробуем еще раз через небольшую задержку
                 setTimeout(() => {
                     const calcRetry = window.calculator || calculator;
                     if (calcRetry && calcRetry.openModal) {
-                        console.log('Calculator found on retry, opening modal');
                         calcRetry.selectedCity = city;
-                        console.log('City set on retry to:', calcRetry.selectedCity);
                         calcRetry.openModal();
                     } else {
                         alert('Калькулятор не загружен. Пожалуйста, обновите страницу и попробуйте снова.');
@@ -1002,7 +406,7 @@
         
         // Анимация счетчиков
         function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
+            const counters = document.querySelectorAll('.region-stat-value');
             
             counters.forEach(counter => {
                 const target = parseInt(counter.getAttribute('data-target'));
@@ -1021,14 +425,15 @@
                         }, 300);
                     }
                     const suffix = counter.getAttribute('data-suffix') || '';
-                    counter.textContent = Math.floor(current) + (target >= 10 && !suffix ? '+' : '') + suffix;
+                    const value = Math.floor(current);
+                    counter.textContent = value + (target >= 10 && !suffix ? '+' : '') + suffix;
                 }, 16);
             });
         }
         
         // Анимация при появлении в поле зрения
         function setupScrollAnimation() {
-            const statsSection = document.querySelector('.coverage-stats');
+            const statsSection = document.querySelector('.region-stats');
             if (!statsSection) return;
             
             const observer = new IntersectionObserver((entries) => {
@@ -1044,23 +449,7 @@
         }
         
         // Sticky navbar эффект при прокрутке
-        const navbar = document.querySelector('.navbar');
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-            
-            // Добавляем класс для усиленной тени при прокрутке
-            if (currentScroll > 10) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            lastScroll = currentScroll;
-        }, { passive: true }); // passive для оптимизации производительности
-
-        // Запуск анимации при загрузке страницы
+        // Запуск анимации и эффекта скролла при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
             setupScrollAnimation();
             
@@ -1077,7 +466,7 @@
             }
             
             // Enhanced city card interactions
-            const cityCards = document.querySelectorAll('.city-button');
+            const cityCards = document.querySelectorAll('.city-card');
             cityCards.forEach(card => {
                 card.addEventListener('click', () => {
                     card.style.transform = 'translateY(-5px) scale(0.98)';
@@ -1109,9 +498,6 @@
     <script src="site.js" defer></script>
     <script src="calculator.js" defer></script>
     <script src="contacts-modal.js" defer></script>
-
-    <!-- Подключение общего футера -->
-    <div id="footer-container"></div>
 </body>
 </html>
 

@@ -3,149 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Водоснабжение - AquaForge</title>
+    <title>Бурение скважин - AquaForge</title>
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="sections.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="contacts-modal.css">
-    <link rel="stylesheet" href="theme.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #1e293b;
-            background: linear-gradient(135deg, #f0fdf4 0%, #fefce8 50%, #f0f9ff 100%);
-            min-height: 100vh;
-        }
-
-        /* Enhanced Navbar Styles */
-        .header {
-            background: rgba(248, 250, 252, 0.8) !important;
-            backdrop-filter: blur(20px) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-            transition: all 0.3s ease !important;
-        }
-
-        .header.scrolled {
-            background: rgba(248, 250, 252, 0.95) !important;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
-        }
-
-        .nav-link {
-            position: relative !important;
-            transition: all 0.3s ease !important;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-yellow));
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover::before {
-            width: 80%;
-        }
-
-        .button-icon {
-            font-size: 1.3em;
-        }
-
-        /* Page Content - широкий контейнер */
-        .page-content {
-            max-width: 1280px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .page-title {
-            font-size: 2.5em;
-            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .page-subtitle {
-            font-size: 1.2em;
-            color: #64748b;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        /* Убираем все рамки и фоны контейнера */
-        .page-content .container {
-            background: transparent !important;
-            border: none !important;
-            border-image: none !important;
-            box-shadow: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-
-        /* Переопределяем theme.css */
-        body .page-content .container,
-        html body .page-content .container {
-            background: transparent !important;
-            border: none !important;
-            border-image: none !important;
-            box-shadow: none !important;
-            border-radius: 0 !important;
-            backdrop-filter: none !important;
-        }
-
-        @media (max-width: 768px) {
-            .page-title {
-                font-size: 2em;
-            }
-
-            .page-content {
-                padding: 20px 15px;
-            }
-        }
-        
-        /* Fix for contacts modal z-index */
-        .contacts-modal,
-        .contacts-modal-overlay {
-            position: fixed !important;
-            z-index: 9999 !important;
-        }
-    </style>
-    <script defer src="site.js"></script>
-    <script defer src="contacts-modal.js"></script>
 </head>
 <body>
     <div id="header-container"></div>
 
     <div class="page-content">
-        <div class="container">
-            <h1 class="page-title">Водоснабжение</h1>
-            <p class="page-subtitle">Полноценная страница будет заполнена: бурение скважин, обвязка, ввод воды в дом, насосное оборудование и документация.</p>
-        </div>
+        <section class="rental-hero water-hero">
+            <div class="rental-hero-grid">
+                <div class="rental-hero-content">
+                    <h1 class="page-title">Бурение скважин с гарантией чистой воды</h1>
+                    <p class="page-subtitle">Организуем бесперебойное водоснабжение для дома, бизнеса и производства: от геологии участка и бурения до обвязки, фильтрации и регулярного сервиса.</p>
+
+                    <div class="rental-hero-badges">
+                        <div class="rental-badge">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor" />
+                            </svg>
+                            Работаем по лицензии
+                        </div>
+                        <div class="rental-badge">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4H20V6H4V4ZM4 9H20V11H4V9ZM4 14H20V16H4V14ZM4 19H20V21H4V19Z" fill="currentColor" />
+                            </svg>
+                            Собственное оборудование
+                        </div>
+                        <div class="rental-badge">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 1L3 5V11C3 16.5 6.84 21.74 12 23C17.16 21.74 21 16.5 21 11V5L12 1ZM12 20.75C8.03 19.66 5 15.68 5 11.13V6.3L12 3.19L19 6.3V11.13C19 15.68 15.97 19.66 12 20.75Z" fill="currentColor" />
+                            </svg>
+                            Гарантия до 5 лет
+                        </div>
+                    </div>
+
+                    <ul class="hero-benefits">
+                        <li>Делаем геологию, прогнозируем дебит и подбираем конструкцию скважины под конкретный участок.</li>
+                        <li>Бурим, устанавливаем насос, автоматику и фильтры — запускаем воду «под ключ» за 3–5 дней.</li>
+                        <li>Оставляем чистую площадку, передаём паспорт скважины и обслуживаем 24/7.</li>
+                    </ul>
+
+                    <div class="cta-group">
+                        <a href="#" class="cta-button" onclick="if(typeof contactsModal !== 'undefined'){ contactsModal.openModal(); } return false;">Запросить расчёт скважины</a>
+                        <a href="tel:+375291234567" class="cta-button cta-outline">+375 (29) 123-45-67</a>
+                    </div>
+                </div>
+                <div class="rental-hero-visual">
+                    <img src="images/skvazina.webp" alt="Процесс бурения скважины AquaForge">
+                    <div class="visual-caption">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM11 17L6 12L7.41 10.59L11 14.17L16.59 8.58L18 10L11 17Z" fill="#fbbf24" />
+                        </svg>
+                        Бурение и запуск воды за 72 часа
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="rental-features">
+            <div>
+                <h2>Почему выбирают AquaForge</h2>
+                <p class="section-lead">Закрываем весь цикл водоснабжения: от первого выезда инженера до гарантийного обслуживания скважины и систем очистки.</p>
+            </div>
+            <div class="rental-feature-grid">
+                <article class="rental-feature-card">
+                    <div class="rental-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L4 20H20L12 2Z" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3>Точный подбор конструкции</h3>
+                    <p>Анализируем геологию, подбираем обсадку и фильтры, чтобы скважина давала стабильный дебит десятилетиями.</p>
+                </article>
+                <article class="rental-feature-card">
+                    <div class="rental-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H20V6H4V4ZM4 9H20V11H4V9ZM4 14H20V16H4V14ZM4 19H20V21H4V19Z" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3>Собственный парк буровых</h3>
+                    <p>Работаем на своём оборудовании, поэтому соблюдаем сроки даже в сезон пиковой нагрузки.</p>
+                </article>
+                <article class="rental-feature-card">
+                    <div class="rental-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 3H5C3.9 3 3 3.9 3 5V21L12 17L21 21V5C21 3.9 20.1 3 19 3Z" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3>Чистый монтаж</h3>
+                    <p>Защищаем участок, аккуратно вывозим грунт и оставляем территорию в порядке по завершении работ.</p>
+                </article>
+                <article class="rental-feature-card">
+                    <div class="rental-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 21C12 21 5 14.25 5 9C5 5.13 8.13 2 12 2C15.87 2 19 5.13 19 9C19 14.25 12 21 12 21ZM12 11.5C13.38 11.5 14.5 10.38 14.5 9C14.5 7.62 13.38 6.5 12 6.5C10.62 6.5 9.5 7.62 9.5 9C9.5 10.38 10.62 11.5 12 11.5Z" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3>Гарантия и сервис</h3>
+                    <p>Передаём паспорт скважины, график ТО и остаёмся на связи — приедем на обслуживание в день обращения.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="equipment-section">
+            <div>
+                <h2>Комплекты и решения</h2>
+                <p class="section-lead">Подбираем формат скважины и обвязки под ваши задачи, бюджет и сценарий потребления воды.</p>
+            </div>
+            <div class="equipment-showcase">
+                <article class="equipment-item">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/diamond-drilling.webp" alt="Песчаная скважина AquaForge">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">Песчаная скважина</h3>
+                        <div class="equipment-meta">
+                            <span class="equipment-tag">До 60 м</span>
+                            <span class="equipment-tag">Дебит до 2 м³/ч</span>
+                        </div>
+                        <ul class="equipment-specs">
+                            <li>Идеально для дач и небольших домов с сезонным проживанием.</li>
+                            <li>Обсадка из ПНД или стали, фильтр под конкретный водоносный горизонт.</li>
+                            <li>Монтаж кессона, утепление оголовка и подводка в дом за один день.</li>
+                        </ul>
+                        <div class="equipment-actions">
+                            <span class="equipment-rate">от 1 500 руб · срок 2–3 дня</span>
+                            <a href="#" class="cta-button" onclick="if(typeof contactsModal !== 'undefined'){ contactsModal.openModal(); } return false;">Заказать</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="equipment-item">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/skvazina.webp" alt="Артезианская скважина AquaForge">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">Артезианская скважина</h3>
+                        <div class="equipment-meta">
+                            <span class="equipment-tag">80–150 м</span>
+                            <span class="equipment-tag">Напор до 10 м³/ч</span>
+                        </div>
+                        <ul class="equipment-specs">
+                            <li>Многоступенчатая обсадка, промывка и прокачка до прозрачной воды.</li>
+                            <li>Подбор насосного оборудования, автоматика давления и защита от сухого хода.</li>
+                            <li>Подготовка документации и ввод в эксплуатацию с гарантией до 5 лет.</li>
+                        </ul>
+                        <div class="equipment-actions">
+                            <span class="equipment-rate">от 3 900 руб · срок 4–5 дней</span>
+                            <a href="#" class="cta-button" onclick="if(typeof contactsModal !== 'undefined'){ contactsModal.openModal(); } return false;">Получить КП</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="equipment-item">
+                    <div class="equipment-image-wrapper">
+                        <img src="images/diamond-drilling.webp" alt="Обвязка и автоматизация AquaForge">
+                    </div>
+                    <div class="equipment-content">
+                        <h3 class="equipment-title">Обвязка и очистка</h3>
+                        <div class="equipment-meta">
+                            <span class="equipment-tag">Кессоны и адаптеры</span>
+                            <span class="equipment-tag">Фильтрация и автоматика</span>
+                        </div>
+                        <ul class="equipment-specs">
+                            <li>Монтаж гидроаккумулятора, автоматики и разводка воды по дому.</li>
+                            <li>Фильтры механики, обезжелезивание, умягчение по анализу воды.</li>
+                            <li>Регламентное обслуживание и консервация скважины на зиму.</li>
+                        </ul>
+                        <div class="equipment-actions">
+                            <span class="equipment-rate">индивидуальный расчёт</span>
+                            <a href="#" class="cta-button" onclick="if(typeof contactsModal !== 'undefined'){ contactsModal.openModal(); } return false;">Настроить систему</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="discount-section">
+            <h2>Выгодные условия</h2>
+            <p class="section-lead">Рассчитываем смету честно и фиксируем все работы в договоре до запуска буровой.</p>
+            <div class="discount-items">
+                <div class="discount-item">
+                    <strong>Скидка 5%</strong>
+                    <span>На бурение и монтаж при заказе системы водоснабжения «под ключ».</span>
+                </div>
+                <div class="discount-item">
+                    <strong>Скидка 10%</strong>
+                    <span>Для соседей или повторных клиентов при бурении двух скважин подряд.</span>
+                </div>
+                <div class="discount-item">
+                    <strong>Бесплатный выезд</strong>
+                    <span>Инженера для обследования участка и выбора точки бурения.</span>
+                </div>
+                <div class="discount-item">
+                    <strong>Рассрочка</strong>
+                    <span>До 6 месяцев при комплектовании оборудованием из каталога AquaForge.</span>
+                </div>
+            </div>
+            <div class="cta-group">
+                <a href="#" class="cta-button" onclick="if(typeof contactsModal !== 'undefined'){ contactsModal.openModal(); } return false;">Получить смету</a>
+                <a href="tel:+375331234567" class="cta-button cta-outline">+375 (33) 123-45-67</a>
+            </div>
+        </section>
+
+        <section class="workflow-section">
+            <h2>Как мы работаем</h2>
+            <p class="section-lead">От заявки до стабильной подачи воды — прозрачный путь в четыре шага.</p>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="workflow-step-number">01</div>
+                    <h3>Консультация и обследование</h3>
+                    <p>Созваниваемся, уточняем задачу, выезжаем на участок и подбираем точку бурения.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-step-number">02</div>
+                    <h3>Коммерческое предложение</h3>
+                    <p>Готовим смету с фиксированными сроками, согласуем оборудование и подписываем договор.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-step-number">03</div>
+                    <h3>Бурение и обвязка</h3>
+                    <p>Проводим буровые работы, устанавливаем насос, автоматику и фильтры, проверяем качество воды.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-step-number">04</div>
+                    <h3>Запуск и сервис</h3>
+                    <p>Передаём паспорт скважины, настраиваем систему и остаёмся на гарантии и обслуживании.</p>
+                </div>
+            </div>
+        </section>
     </div>
 
     <div id="footer-container"></div>
 
     <script>
-        fetch('header.html').then(r=>r.text()).then(h=>{document.getElementById('header-container').innerHTML=h;document.querySelector('a[href="water.html"]').classList.add('active')});
-        fetch('footer.html').then(r=>r.text()).then(f=>{document.getElementById('footer-container').innerHTML=f});
+        fetch('header.html')
+            .then(response => response.text())
+            .then(markup => {
+                document.getElementById('header-container').innerHTML = markup;
+                const link = document.querySelector('a[href="water.html"]');
+                if (link) {
+                    link.classList.add('active');
+                }
+            })
+            .catch(error => console.error('Ошибка загрузки header:', error));
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(markup => {
+                document.getElementById('footer-container').innerHTML = markup;
+            })
+            .catch(error => console.error('Ошибка загрузки footer:', error));
     </script>
+    <script src="site.js" defer></script>
+    <script src="contacts-modal.js" defer></script>
 </body>
 </html>
-
 
